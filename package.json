@@ -1,0 +1,38 @@
+{
+  "name": "dora-kaiwa",
+  "version": "1.8.75",
+  "description": "Dora Kaiwa - Japanese learning platform (static site)",
+  "scripts": {
+    "build": "node scripts/build-site.js",
+    "build:kaiwa": "node scripts/build-kaiwa.js",
+    "start": "node scripts/serve.js",
+    "lint": "npx prettier --write .",
+    "cap:add:ios": "cap add ios",
+    "cap:sync": "cap sync ios",
+    "cap:open:ios": "cap open ios"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miroslavpejic85/mirotalk"
+  },
+  "keywords": [
+    "nodejs",
+    "oidc",
+    "client",
+    "server"
+  ],
+  "author": "Miroslav Pejic",
+  "license": "AGPL-3.0",
+  "homepage": "https://github.com/miroslavpejic85/mirotalk",
+  "dependencies": {
+    "@capacitor/app": "^8.1.1",
+    "@capacitor/browser": "^8.0.4",
+    "@capacitor/core": "^8.5.0",
+    "@capacitor/ios": "^8.5.0",
+    "esbuild": "^0.28.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.0",
+    "prettier": "3.9.6"
+  }
+}

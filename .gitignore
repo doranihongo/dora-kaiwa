@@ -1,0 +1,10 @@
+node_modules/
+.env
+recordings-tmp/
+public/dist/
+public/kaiwa/
+site/
+
+# File test cho tính năng mở tài liệu bài học (kaiwa/src/context/CoursesContext.tsx)
+# - đặt tay ở đây để test local, không phải nội dung thật, không đẩy lên repo.
+public/kaiwa-files/
