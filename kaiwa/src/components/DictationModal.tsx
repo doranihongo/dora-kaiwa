@@ -3,8 +3,9 @@ import { Howl } from 'howler';
 import confetti from 'canvas-confetti';
 import { Headphones } from 'lucide-react';
 import { convertToKana } from '../utils/helpers';
+import { DATA_BASE } from '../utils/dataBase';
 
-const GITHUB_BASE = "https://cdn.jsdelivr.net/gh/datto02/luyenvietkanji@main";
+// Dữ liệu (JSON + audio) nằm trong public/data của repo này - xem utils/dataBase.ts
 
 interface Vocabulary {
   id: string | number;
@@ -92,7 +93,7 @@ export default function DictationModal({ isOpen, onClose }: DictationModalProps)
     setIsLoading(true);
     setProgress(30);
     try {
-      const response = await fetch(`${GITHUB_BASE}/data/nghechinhta/${bookId}.json`);
+      const response = await fetch(`${DATA_BASE}/data/nghechinhta/${bookId}.json`);
       if (!response.ok) throw new Error("Lỗi tải data");
       const data: PartData[] = await response.json();
 
@@ -399,7 +400,7 @@ function DictationPracticeView({ lessonData, onBack, onClose, onLessonComplete }
     if (!audioPath) return '';
     if (audioPath.startsWith('http://') || audioPath.startsWith('https://')) return audioPath;
     const cleanPath = audioPath.replace(/^\.\//, '');
-    return `${GITHUB_BASE}/${cleanPath}`;
+    return `${DATA_BASE}/${cleanPath}`;
   };
 
   const playCurrentAudio = useCallback(() => {

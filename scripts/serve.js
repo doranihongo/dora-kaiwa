@@ -34,6 +34,7 @@ const TYPES = {
   ".ico": "image/x-icon",
   ".woff2": "font/woff2",
   ".mp3": "audio/mpeg",
+  ".m4a": "audio/mp4",
   ".txt": "text/plain; charset=utf-8",
 };
 
@@ -85,10 +86,29 @@ http
       file = path.join(siteDir, "404.html");
       status = 404;
     }
-    res.writeHead(status, {
+    const headers = {
       "Content-Type": TYPES[path.extname(file).toLowerCase()] || "application/octet-stream",
       "Cache-Control": "no-cache",
-    });
+      "Accept-Ranges": "bytes",
+    };
+    const size = fs.statSync(file).size;
+
+    // Hỗ trợ Range (như GitHub Pages) - cần cho tua audio trong Shadowing/Nghe chính tả
+    const range = status === 200 && /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || "");
+    if (range && (range[1] || range[2])) {
+      let start = range[1] === "" ? size - Number(range[2]) : Number(range[1]);
+      let end = range[1] === "" || range[2] === "" ? size - 1 : Math.min(Number(range[2]), size - 1);
+      start = Math.max(0, start);
+      if (start > end || start >= size) {
+        res.writeHead(416, { "Content-Range": `bytes */${size}` });
+        return res.end();
+      }
+      res.writeHead(206, { ...headers, "Content-Range": `bytes ${start}-${end}/${size}`, "Content-Length": end - start + 1 });
+      if (req.method === "HEAD") return res.end();
+      return fs.createReadStream(file, { start, end }).pipe(res);
+    }
+
+    res.writeHead(status, { ...headers, "Content-Length": size });
     if (req.method === "HEAD") return res.end();
     fs.createReadStream(file).pipe(res);
   })
