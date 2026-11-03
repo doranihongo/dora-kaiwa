@@ -1,0 +1,3617 @@
+[
+  {
+  "id": "01",
+  "title": "BIẾN ÂM - てる - てく - とく",
+  "translation": "",
+  "explanation": "Trong văn nói tiếng Nhật, người ta thường dùng các hình thức rút gọn để nói ngắn và dễ phát âm hơn.\\n1. 「〜ている」 ➔ 「〜てる」 (Lược bỏ âm i)\\nVí dụ: 待っているよ。 ➔ 待ってるよ。\\n2. 「〜ていく」 ➔ 「〜てく」 (Lược bỏ âm i)\\nVí dụ: 子供を連れていくよ。 ➔ 子供を連れてくよ。\\n3. 「〜ておく」 ➔ 「〜とく」 (Lược bỏ âm e)\\nVí dụ: 買っておくよ。 ➔ 買っとくよ。",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka1.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "お[兄](にい)ちゃんの[彼女](かのじょ)って、どの[人](ひと)？",
+          "vi": "Bạn gái của anh là người nào?",
+          "startTime": 0,
+          "endTime": 3.95
+        },
+        {
+          "speaker": "B",
+          "ja": "[後](うし)ろに[立](た)っ_てる_[人](ひと)だよ。",
+          "vi": "Người đứng ở phía sau đấy.",
+          "startTime": 3.95,
+          "endTime": 5.84
+        },
+        {
+          "speaker": "A",
+          "ja": "めがね、かけ_てる_[人](ひと)？",
+          "vi": "Người mang kính phải không?",
+          "startTime": 5.84,
+          "endTime": 7.79
+        },
+        {
+          "speaker": "B",
+          "ja": "めがねはかけ_てない_よ。",
+          "vi": "Không có mang kính.",
+          "startTime": 7.79,
+          "endTime": 9.51
+        },
+        {
+          "speaker": "A",
+          "ja": "じゃ、きれいな[色](いろ)のスカーフを_してる_[人](ひと)？",
+          "vi": "Vậy, là người quấn chiếc khăn choàng xinh xắn chứ gì?",
+          "startTime": 9.51,
+          "endTime": 12.1
+        },
+        {
+          "speaker": "B",
+          "ja": "[違](ちが)うよ。",
+          "vi": "Không phải đâu.",
+          "startTime": 12.1,
+          "endTime": 13.45
+        },
+        {
+          "speaker": "A",
+          "ja": "じゃ、どの人なの？",
+          "vi": "Vậy, là người nào?",
+          "startTime": 13.45,
+          "endTime": 15.17
+        },
+        {
+          "speaker": "B",
+          "ja": "まだわからない？ほら、[一番](いちばん)きれいな人だよ、ぼうしかぶっ_てる_。",
+          "vi": "Không biết à? Nhìn này, người xinh đẹp nhất đó, có đội nón đấy.",
+          "startTime": 15.17,
+          "endTime": 20.4
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "もしもし、お[客](きゃく)さん。",
+          "vi": "Này này, vị khách kia.",
+          "startTime": 20.4,
+          "endTime": 23.59
+        },
+        {
+          "speaker": "B",
+          "ja": "え？わたしですか。",
+          "vi": "Hả, gọi cháu phải không?",
+          "startTime": 23.59,
+          "endTime": 25.6
+        },
+        {
+          "speaker": "A",
+          "ja": "ちょっと、あなた、[定期](ていき)がきれ_てます_よ。",
+          "vi": "Này, vé định kỳ của cháu hết hạn sử dụng rồi.",
+          "startTime": 25.6,
+          "endTime": 28.13
+        },
+        {
+          "speaker": "B",
+          "ja": "あっ、そうですか。",
+          "vi": "Ôi, vậy sao.",
+          "startTime": 28.13,
+          "endTime": 29.57
+        },
+        {
+          "speaker": "A",
+          "ja": "ちゃんと お[金](かね)を[払](はら)ってもらいますよ。",
+          "vi": "Xin cháu trả tiền ngay cho bác.",
+          "startTime": 29.57,
+          "endTime": 31.7
+        },
+        {
+          "speaker": "B",
+          "ja": "ごめんなさい。わたし、[今](いま)お[金](かね)[持](も)っ_てない_んです。",
+          "vi": "Xin lỗi bác, bây giờ cháu không có tiền.",
+          "startTime": 31.7,
+          "endTime": 35.55
+        },
+        {
+          "speaker": "A",
+          "ja": "[困](こま)るなあ。じゃ、[学生証](がくせいしょう)を[見](み)せてごらん。",
+          "vi": "Gay quá. Vậy thì, cháu cho bác xem thẻ học sinh.",
+          "startTime": 35.55,
+          "endTime": 39.89
+        },
+        {
+          "speaker": "B",
+          "ja": "はい。",
+          "vi": "Dạ.",
+          "startTime": 39.89,
+          "endTime": 41.06
+        },
+        {
+          "speaker": "A",
+          "ja": "お[金](かね)を持ってくるまで、これ、あずかっ_とく_よ。",
+          "vi": "Bác sẽ giữ cái này đến khi nào cháu mang tiền đến trả.",
+          "startTime": 41.06,
+          "endTime": 43.8
+        },
+        {
+          "speaker": "B",
+          "ja": "すみませんけど、お[願](ねが)いがあるんですが…。",
+          "vi": "Xin lỗi bác, cháu xin bác ...",
+          "startTime": 43.8,
+          "endTime": 46.69
+        },
+        {
+          "speaker": "A",
+          "ja": "[何](なん)だね。",
+          "vi": "Chuyện gì vậy cháu?",
+          "startTime": 46.69,
+          "endTime": 47.77
+        },
+        {
+          "speaker": "B",
+          "ja": "[学校](がっこう)に[知](し)らせるのだけはやめてくれませんか。",
+          "vi": "Xin bác đừng báo chuyện này cho nhà trường biết, được không bác.",
+          "startTime": 47.77,
+          "endTime": 50.68
+        },
+        {
+          "speaker": "A",
+          "ja": "わかった、わかった。だまっ_とく_よ。",
+          "vi": "Được rồi, được rồi. Bác sẽ không nói gì hết.",
+          "startTime": 50.68,
+          "endTime": 53.47
+        }
+      ]
+    }
+  ]
+},
+  {
+  "id": "02",
+  "title": "BIẾN ÂM - ちゃ - じゃ - きゃ",
+  "translation": "",
+  "explanation": "Giống như việc dùng 「じゃありません」 thay cho 「ではありません」, người Nhật thường dùng các mẫu rút gọn sau trong hội thoại hàng ngày:\\n1. 「〜ては」 ➔ 「〜ちゃ」\\nVí dụ: 食べてはいけない ➔ 食べちゃいけない\\n2. 「〜では」 ➔ 「〜じゃ」\\nVí dụ: 急いではいけない ➔ 急いじゃいけない\\n3. 「〜てしまう」 ➔ 「〜ちゃう」\\nVí dụ: 食べてしまう ➔ 食べちゃう\\n4. 「〜でしまう」 ➔ 「〜じゃう」\\nVí dụ: 飲んでしまう ➔ 飲んじゃう\\n5. 「〜なくては」 ➔ 「〜なくちゃ」\\nVí dụ: 食べなくてはいけない ➔ 食べなくちゃいけない\\n6. 「〜なければ」 ➔ 「〜なきゃ」\\nVí dụ: 食べなければならない ➔ 食べなきゃならない",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka2.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "ちょっとすみません。ここはどのあたりですか。",
+          "vi": "À, xin lỗi. Ở đây là khu vực nào rồi?",
+          "startTime": 0,
+          "endTime": 5.37
+        },
+        {
+          "speaker": "B",
+          "ja": "[今](いま)、[京都](きょうと)を[過](す)ぎたところですよ。",
+          "vi": "Hiện giờ, vừa mới qua khỏi Kyoto đấy.",
+          "startTime": 5.37,
+          "endTime": 8.06
+        },
+        {
+          "speaker": "A",
+          "ja": "ぼくは[次](つぎ)の[駅](えき)で[降](お)りな_きゃ_ならないんですが、[近](ちか)づいたら[教](おし)えてくださいませんか。",
+          "vi": "Tôi phải xuống ở ga kế tiếp. Khi nào gần tới chị làm ơn cho tôi biết nhé.",
+          "startTime": 8.06,
+          "endTime": 12.9
+        },
+        {
+          "speaker": "B",
+          "ja": "もしもし、もうすぐ[着](つ)きますよ。",
+          "vi": "Này này, sắp tới rồi đấy.",
+          "startTime": 12.9,
+          "endTime": 16.5
+        },
+        {
+          "speaker": "A",
+          "ja": "うーん。",
+          "vi": "Ừm.",
+          "startTime": 16.5,
+          "endTime": 18.49
+        },
+        {
+          "speaker": "B",
+          "ja": "[起](お)きてください。[乗](の)りこし_ちゃ_いますよ。",
+          "vi": "Dậy đi. Tàu sắp đi qua trạm rồi đấy.",
+          "startTime": 18.49,
+          "endTime": 21.1
+        },
+        {
+          "speaker": "A",
+          "ja": "あっ。[大変](たいへん)だ。[急](いそ)がな_きゃ_…。どうもどうも。",
+          "vi": "Ôi, nguy rồi. Phải nhanh lên mới được ...\nCám ơn, cám ơn nhé.",
+          "startTime": 21.1,
+          "endTime": 29.54
+        },
+        {
+          "speaker": "B",
+          "ja": "あーあ。[荷物](にもつ)を[忘](わす)れて[行](い)っ_ちゃ_った。",
+          "vi": "A ... Anh bỏ quên hành lý rồi nè.",
+          "startTime": 29.54,
+          "endTime": 32.77
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "すみません、おまわりさん。[終電車](しゅうでんしゃ)に[乗](の)り[遅](おく)れ_ちゃ_ったんです。",
+          "vi": "Xin lỗi, anh cảnh sát ơi. Em đã trễ chuyến xe cuối rồi.",
+          "startTime": 32.77,
+          "endTime": 38.66
+        },
+        {
+          "speaker": "B",
+          "ja": "はい、それで？",
+          "vi": "Ừ, rồi sao nữa?",
+          "startTime": 38.66,
+          "endTime": 40.07
+        },
+        {
+          "speaker": "A",
+          "ja": "タクシー[代](だい)、[貸](か)してほしいんですけど。",
+          "vi": "Em muốn mượn tiền đi taxi.",
+          "startTime": 40.07,
+          "endTime": 42.48
+        },
+        {
+          "speaker": "B",
+          "ja": "いくら？",
+          "vi": "Mượn bao nhiêu?",
+          "startTime": 42.48,
+          "endTime": 43.37
+        },
+        {
+          "speaker": "A",
+          "ja": "[千円](せんえん)でいいんです。さいふに[千円](せんえん)[残](のこ)ってますから。",
+          "vi": "Một ngàn yên là đủ rồi. Vì trong bóp của em còn một ngàn yên.",
+          "startTime": 43.37,
+          "endTime": 46.68
+        },
+        {
+          "speaker": "B",
+          "ja": "ちゃんと[返](かえ)してくれるのかい？",
+          "vi": "Chắc chắn em sẽ trả lại cho tôi chứ?",
+          "startTime": 46.68,
+          "endTime": 48.62
+        },
+        {
+          "speaker": "A",
+          "ja": "[明日](あした)の[朝](あさ)、[一番](いちばん)に[持](も)ってきますから。",
+          "vi": "Sáng sớm ngày mai em sẽ mang tiền đến trả.",
+          "startTime": 48.62,
+          "endTime": 51.07
+        },
+        {
+          "speaker": "B",
+          "ja": "しょうがないなあ。ちょっと[待](ま)って。",
+          "vi": "Biết làm sao đây. Chờ tôi một chút nhé.",
+          "startTime": 51.07,
+          "endTime": 53.36
+        },
+        {
+          "speaker": "A",
+          "ja": "はい。",
+          "vi": "Vâng.",
+          "startTime": 53.36,
+          "endTime": 54.21
+        },
+        {
+          "speaker": "B",
+          "ja": "じゃ、[千円](せんえん)[貸](か)すからね。これからは[夜遊](よあそ)びし_ちゃ_いけないよ。[早](はや)く[家](いえ)に[帰](かえ)らなく_ちゃ_だめだよ。ご[両親](りょうしん)に[心配](しんぱい)かけるん_じゃ_ないよ。",
+          "vi": "Vậy, tôi cho em mượn một ngàn yên đấy nhé. Từ nay về sau em không được đi chơi khuya nữa nhé. Em phải nhanh về nhà đi. Đừng làm bố mẹ phải lo lắng.",
+          "startTime": 54.21,
+          "endTime": 63.72
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "03",
+  "title": "BIẾN ÂM - たって - だって",
+  "translation": "",
+  "explanation": "Trong hội thoại hằng ngày, 「〜たって」 và 「〜だって」 thường được dùng thay thế cho 「〜ても」 và 「〜でも」 (mang ý nghĩa là cho dù... đi chăng nữa). Dù cách phát âm thay đổi nhưng ý nghĩa của câu vẫn giữ nguyên hoàn toàn.\\n1. 「〜ても」 ➔ 「〜たって」\\nVí dụ: さがしても見つからないんだ。 ➔ さがしたって見つからないんだ。\\n2. 「〜でも」 ➔ 「〜だって」\\nVí dụ: 急いでも間にあわないね。 ➔ 急いだって間にあわないね。",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka3.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "こんどダンスパーティーがあるんだけど、いっしょに[行](い)かない？",
+          "vi": "Sắp tới đây có một buổi tiệc khiêu vũ, em đi với anh nhé.",
+          "startTime": 0.15,
+          "endTime": 4.7
+        },
+        {
+          "speaker": "B",
+          "ja": "わたし、ダンスが[下手](へた)なの。",
+          "vi": "Em khiêu vũ dở lắm.",
+          "startTime": 4.7,
+          "endTime": 6.89
+        },
+        {
+          "speaker": "A",
+          "ja": "[下手](へた)_だって_ [大丈夫](だいじょうぶ)だよ。ぼくが[教](おし)えてあげるから。",
+          "vi": "Dở cũng không sao đâu. Anh sẽ chỉ cho em.",
+          "startTime": 6.89,
+          "endTime": 10.1
+        },
+        {
+          "speaker": "B",
+          "ja": "でも、ダンスの[時](とき)に[着](き)る[服](ふく)がないし…",
+          "vi": "Nhưng em không có quần áo khiêu vũ.",
+          "startTime": 10.1,
+          "endTime": 12.9
+        },
+        {
+          "speaker": "A",
+          "ja": "なく_たって_ かまわないよ。レンタルすればいいんだから…",
+          "vi": "Không có cũng không sao. Mình đi thuê là được mà.",
+          "startTime": 12.9,
+          "endTime": 15.76
+        },
+        {
+          "speaker": "B",
+          "ja": "レンタルするのは[高](たか)いし…",
+          "vi": "Đi thuê thì mắc lắm, hơn nữa ...",
+          "startTime": 15.76,
+          "endTime": 18.05
+        },
+        {
+          "speaker": "A",
+          "ja": "[高](たか)く_たって_ いいじゃないか。ぼくが[払](はら)ってあげるよ。",
+          "vi": "Mắc cũng được chứ sao. Anh sẽ trả tiền cho em.",
+          "startTime": 18.05,
+          "endTime": 21.05
+        },
+        {
+          "speaker": "B",
+          "ja": "う〜ん。[一回](いっかい)しか[着](き)ないのに[高](たか)いお[金](かね)を[出](だ)すなんて、ばかげてるんじゃない？",
+          "vi": "Ừm. Chỉ mặc có một lần mà phải trả nhiều tiền như vậy, chẳng phải là uổng quá hay sao?",
+          "startTime": 21.05,
+          "endTime": 25.58
+        },
+        {
+          "speaker": "A",
+          "ja": "わかったよ。[買](か)えばいいんだろ。",
+          "vi": "Biết rồi. Mua là được chứ gì.",
+          "startTime": 25.58,
+          "endTime": 27.5
+        },
+        {
+          "speaker": "B",
+          "ja": "わあ、うれしいわ。ありがとう。",
+          "vi": "Ôi, sướng quá. Cám ơn anh.",
+          "startTime": 27.5,
+          "endTime": 30.04
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "ねえ、アパートの[家賃](やちん)も[高](たか)いし、そろそろマイホームを[買](か)わない？",
+          "vi": "Anh nè, tiền thuê căn hộ cũng mắc quá, hay là mình mua nhà riêng đi.",
+          "startTime": 30.04,
+          "endTime": 36.4
+        },
+        {
+          "speaker": "B",
+          "ja": "そうだな。[小](ちい)さく_たって_ [自分](じぶん)の[家](いえ)に[住](す)みたいよなあ。",
+          "vi": "Ừ nhỉ. Dù có nhỏ một chút nhưng anh cũng muốn sống trong căn nhà của riêng mình.",
+          "startTime": 36.4,
+          "endTime": 41.22
+        },
+        {
+          "speaker": "A",
+          "ja": "やっぱり、[庭](にわ)があって[自然](しぜん)に[囲](かこ)まれた うちがいいわ。",
+          "vi": "Đương nhiên rồi, một căn nhà có vườn và thiên nhiên bao quanh thì tuyệt quá.",
+          "startTime": 41.22,
+          "endTime": 44.85
+        },
+        {
+          "speaker": "B",
+          "ja": "そんなこと[言](い)っ_たって_ [無理](むり)だよ。",
+          "vi": "Em nói thế thì làm sao mà có được.",
+          "startTime": 44.85,
+          "endTime": 46.99
+        },
+        {
+          "speaker": "A",
+          "ja": "[駅](えき)から[遠](とお)く_たって_いいじゃない。そうすれば[少](すこ)しは[安](やす)くなるわ。",
+          "vi": "Xa nhà ga thì sao lại không được. Nếu vậy sẽ rẻ được một chút đấy.",
+          "startTime": 46.99,
+          "endTime": 51.8
+        },
+        {
+          "speaker": "B",
+          "ja": "[通勤](つうきん)が[不便](ふべん)になるじゃないか。",
+          "vi": "Đi làm sẽ bất tiện lắm.",
+          "startTime": 51.8,
+          "endTime": 54.23
+        },
+        {
+          "speaker": "A",
+          "ja": "だいじょうぶよ。わたしが[車](くるま)で[駅](えき)まで[送](おく)り[迎](むか)えしてあげるから。",
+          "vi": "Không sao đâu. Em sẽ lái xe đưa đón anh đến nhà ga.",
+          "startTime": 54.23,
+          "endTime": 58.88
+        },
+        {
+          "speaker": "B",
+          "ja": "でも、[仕事](しごと)で[帰](かえ)りが[遅](おそ)くなることもあるんだぜ。",
+          "vi": "Nhưng lỡ khi có việc anh về trễ thì sao.",
+          "startTime": 58.88,
+          "endTime": 62.47
+        },
+        {
+          "speaker": "A",
+          "ja": "かまわないわよ。いくら[遅](おそ)くなっ_たって_ わたしは[迎](むか)えに[行](い)くから。",
+          "vi": "Không sao đâu. Dù có trễ mấy đi nữa thì em vẫn đi đón anh.",
+          "startTime": 62.47,
+          "endTime": 67.41
+        }
+      ]
+    }
+  ]
+},
+  {
+  "id": "04",
+  "title": "BIẾN ÂM - って - て",
+  "translation": "",
+  "explanation": "「って」 = cách nói ngắn, thân mật của「と / という / というのは」\\n 1. Dùng để nói lại (nghe nói là...) = 「と」\\n Ví dụ: 彼女、結婚するんだって (Nghe nói cô ấy sắp kết hôn)\\n2. Dùng để hỏi nghĩa = 「というのは」\\n Ví dụ: アクアランドって何？ (Aqualand là gì?)\\n3. Dùng để nói về chủ đề = 「というのは」\\n Ví dụ: 日本語って難しい (Tiếng Nhật thì khó)\\n4. Dùng để hỏi tên = 「という」\\n Ví dụ: これ何ていう？ (Cái này gọi là gì?)",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka4.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "[何](なに)かおもしろい[番組](ばんぐみ)ある？",
+          "vi": "Có chương trình gì hay không?",
+          "startTime": 0.14,
+          "endTime": 3.87
+        },
+        {
+          "speaker": "B",
+          "ja": "そうだなあ。「[土曜](どよう)スペシャル」_って_[番組](ばんぐみ)があるけど。",
+          "vi": "Để xem nào. Có chương trình 「Ngày thứ bảy đặc biệt」.",
+          "startTime": 3.87,
+          "endTime": 9.43
+        },
+        {
+          "speaker": "A",
+          "ja": "「[土曜](どよう)スペシャル」_って_？",
+          "vi": "「Ngày thứ bảy đặc biệt」 là chương trình gì vậy?",
+          "startTime": 9.43,
+          "endTime": 11.11
+        },
+        {
+          "speaker": "B",
+          "ja": "[安](やす)くてうまいレストランの[紹介](しょうかい)だ_って_。",
+          "vi": "Đó là chương trình giới thiệu về những nhà hàng rẻ và ngon.",
+          "startTime": 11.11,
+          "endTime": 13.77
+        },
+        {
+          "speaker": "A",
+          "ja": "ほかに[何](なに)かない？",
+          "vi": "Không có chương trình gì khác à?",
+          "startTime": 13.77,
+          "endTime": 15.87
+        },
+        {
+          "speaker": "B",
+          "ja": "「[動物](どうぶつ)おもしろランド」_って_いうのもあるよ。",
+          "vi": "Còn có chương trình 「Thế giới động vật hoang dã」.",
+          "startTime": 15.87,
+          "endTime": 18.33
+        },
+        {
+          "speaker": "A",
+          "ja": "おもしろくなさそうね。",
+          "vi": "Nghe chẳng hấp dẫn gì cả.",
+          "startTime": 18.33,
+          "endTime": 20.3
+        },
+        {
+          "speaker": "B",
+          "ja": "じゃ、[野球](やきゅう)の[試合](しあい)を[見](み)ることにしようぜ。",
+          "vi": "Vậy thì, mình xem thi đấu bóng chày nhé.",
+          "startTime": 20.3,
+          "endTime": 23.34
+        },
+        {
+          "speaker": "A",
+          "ja": "ねえ、[映画](えいが)はないの？",
+          "vi": "Này, không có phim hả?",
+          "startTime": 23.34,
+          "endTime": 25.68
+        },
+        {
+          "speaker": "B",
+          "ja": "「アポロ13[号](ごう)」_って_のがあるよ。",
+          "vi": "Có phim 「Thần mặt trời thứ 13」.",
+          "startTime": 25.68,
+          "endTime": 27.99
+        },
+        {
+          "speaker": "A",
+          "ja": "どうして[先](さき)にそれを[言](い)ってくれないの。[早](はや)くテレビつけて。",
+          "vi": "Sao nãy giờ anh không nói cho em biết. Mở tivi nhanh đi anh.",
+          "startTime": 27.99,
+          "endTime": 32.39
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "お[父](とう)さん。ぼく、[彼女](かのじょ)と[結婚](けっこん)しようと[思](おも)ってるんだ。",
+          "vi": "Bố ơi, con định sẽ kết hôn với cô ấy.",
+          "startTime": 32.39,
+          "endTime": 39.1
+        },
+        {
+          "speaker": "B",
+          "ja": "え？[彼女](かのじょ)_って_？",
+          "vi": "Hả? Với cô ấy?",
+          "startTime": 39.1,
+          "endTime": 40.96
+        },
+        {
+          "speaker": "A",
+          "ja": "ほら、この[前](まえ)、[家](いえ)に[連](つ)れてきただろ。あの[子](こ)だよ。ぼくたち、ウィーンで[結婚式](けっこんしき)をあげようと[思](おも)うんだけど…",
+          "vi": "À, trước đây con có dẫn cô ấy về nhà. Chính là cô gái ấy. Chúng con dự định sẽ tổ chức hôn lễ ở Viên.",
+          "startTime": 40.96,
+          "endTime": 48.91
+        },
+        {
+          "speaker": "B",
+          "ja": "え？ウィーン_って_、オーストリアのウィーンかい？",
+          "vi": "Hả? Ở Viên, có phải là thủ đô nước Áo không?",
+          "startTime": 48.91,
+          "endTime": 52.03
+        },
+        {
+          "speaker": "A",
+          "ja": "そうだよ。ウィーンの[教会](きょうかい)で[二人](ふたり)きりで[式](しき)をあげるんだ。",
+          "vi": "Dạ, đúng vậy. Chúng con sẽ tổ chức buổi lễ tại nhà thờ thủ đô, chỉ riêng hai đứa chúng con thôi.",
+          "startTime": 52.03,
+          "endTime": 56.21
+        },
+        {
+          "speaker": "B",
+          "ja": "二人きり_って_？…ちょっと[待](ま)ってくれよ。お父さんにはお[父](とう)さんの[夢](ゆめ)_って_ものがあるんだよ。",
+          "vi": "Chỉ riêng hai đứa? ... Đợi một chút nào. Riêng bố cũng có ước muốn đấy.",
+          "startTime": 56.21,
+          "endTime": 62.44
+        },
+        {
+          "speaker": "A",
+          "ja": "え？お[父](とう)さんの[夢](ゆめ)_って_？",
+          "vi": "Hả? Ước muốn của bố?",
+          "startTime": 62.44,
+          "endTime": 65.53
+        }
+      ]
+    }
+  ]
+},
+  {
+  "id": "05",
+  "title": "BIẾN ÂM - ん",
+  "translation": "",
+  "explanation": "Trong văn nói tiếng Nhật, âm「ん」thường được dùng để nói lướt, rút gọn câu chữ. Bạn không bắt buộc phải nói theo, nhưng cần biết để hiểu người Nhật đang nói gì. Tùy theo độ tuổi và giới tính mà cách sử dụng sẽ khác nhau.\\nDưới đây là 3 quy tắc biến âm thành「ん」thường gặp:\n\n1. Biến đổi phủ định「ない」➔「ん」\\n- Đối tượng: Chủ yếu là nam giới từ độ tuổi trung niên trở lên.\\n- Ví dụ:\\nわからない ➔ わからん (Không hiểu/Không biết)\\nすまない ➔ すまん (Xin lỗi)\\n〜かもしれない ➔ 〜かもしれん (Có lẽ là...)\n\n2. Biến đổi hàng Ra「ら・り・る」➔「ん」\\n- Đối tượng: Dùng phổ biến trong giao tiếp thông thường.\\n- Ví dụ:\\nどうするの ➔ どうすんの (Tính sao đây?)\\nいろいろな ➔ いろんな (Nhiều/Đa dạng)\\n- Lưu ý (Cách nói này chủ yếu trẻ em và phụ nữ trẻ hay dùng):\\nわからない ➔ わかんない (Không biết)\\nつまらない ➔ つまんない (Chán quá)\n\n3. Biến đổi trợ từ/danh từ「の」➔「ん」\\n- Đối tượng: Rất phổ biến để rút gọn ngữ pháp.\\n- Ví dụ:\\n〜のだ / 〜ので ➔ 〜んだ / 〜んで\\nもの ➔ もん\\n- Lưu ý (Trẻ em và giới trẻ hay dùng để rút gọn sở hữu cách):\\nぼくのうち ➔ ぼくんち (Nhà của tớ)\\nぼくのところ ➔ ぼくんとこ (Chỗ của tớ)\\nここのところ ➔ ここんとこ (Chỗ này)",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka5.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "[何](なに)して_ん_の？",
+          "vi": "Con đang làm gì vậy?",
+          "startTime": 0,
+          "endTime": 2.82
+        },
+        {
+          "speaker": "B",
+          "ja": "[着](き)がえをつめてるんだよ。",
+          "vi": "Con đang cho quần áo vào ba lô.",
+          "startTime": 2.82,
+          "endTime": 4.7
+        },
+        {
+          "speaker": "A",
+          "ja": "どこへ[行](い)くの？",
+          "vi": "Con đi đâu?",
+          "startTime": 4.7,
+          "endTime": 6.12
+        },
+        {
+          "speaker": "B",
+          "ja": "キャンプに[行](い)くんだ。かばんが[小](ちい)さくてぜんぶ[入](はい)_ん_ないや。",
+          "vi": "Con đi cắm trại. Cái túi này nhỏ quá, không đựng hết được.",
+          "startTime": 6.12,
+          "endTime": 9.76
+        },
+        {
+          "speaker": "A",
+          "ja": "[荷物](にもつ)が[多](おお)すぎるんじゃないの。[少](すこ)し[減](へ)らしたら？",
+          "vi": "Đồ của con nhiều quá. Con bỏ bớt ra một ít thử xem có được không?",
+          "startTime": 9.76,
+          "endTime": 13.3
+        },
+        {
+          "speaker": "B",
+          "ja": "うん、そうするよ。",
+          "vi": "Dạ, con sẽ làm như vậy.",
+          "startTime": 13.3,
+          "endTime": 14.69
+        },
+        {
+          "speaker": "A",
+          "ja": "ぼうしはあった？",
+          "vi": "Có nón chưa?",
+          "startTime": 14.69,
+          "endTime": 15.73
+        },
+        {
+          "speaker": "B",
+          "ja": "それが[見](み)つか_ん_ないんだ。どこに[入](い)れたかわか_ん_ないの。",
+          "vi": "Con tìm không thấy, không biết đã bỏ nó ở đâu.",
+          "startTime": 15.73,
+          "endTime": 19.37
+        },
+        {
+          "speaker": "A",
+          "ja": "[部屋](へや)をかたづけなさいって、いつも[言](い)ってるでしょ。",
+          "vi": "Mẹ luôn bảo con dọn dẹp phòng là gì.",
+          "startTime": 19.37,
+          "endTime": 22.43
+        },
+        {
+          "speaker": "B",
+          "ja": "だって、[忙](いそが)しいんだも_ん_。お[母](かあ)さん、[水筒](すいとう)はどこ？",
+          "vi": "Nhưng, con bận lắm. Mẹ ơi, cái bình nước uống đâu rồi?",
+          "startTime": 22.43,
+          "endTime": 26.87
+        },
+        {
+          "speaker": "A",
+          "ja": "えっと…",
+          "vi": "gì hả ... ?",
+          "startTime": 26.87,
+          "endTime": 28.38
+        },
+        {
+          "speaker": "B",
+          "ja": "お[母](かあ)さん、いつも[言](い)ってるでしょ。[台所](だいどころ)をかたづけてって。",
+          "vi": "Mẹ ơi, con nói với mẹ hoài. Mẹ dọn dẹp nhà bếp đi.",
+          "startTime": 28.38,
+          "endTime": 33.12
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "ただいま。",
+          "vi": "Anh về rồi đây.",
+          "startTime": 33.12,
+          "endTime": 37.5
+        },
+        {
+          "speaker": "B",
+          "ja": "お[帰](かえ)_ん_なさい。ここ_ん_とこ[帰](かえ)りが[遅](おそ)いわね。こんなに[遅](おそ)くまで[毎晩](まいばん)[何](なに)して_ん_の？",
+          "vi": "Anh về đấy à. Dạo này anh hay về trễ quá nhỉ. Mỗi tối anh làm gì mà trễ thế?",
+          "startTime": 37.5,
+          "endTime": 44.29
+        },
+        {
+          "speaker": "A",
+          "ja": "いろ_ん_な つきあいがあるも_ん_だからね。",
+          "vi": "Vì có nhiều việc phải đi giao thiệp.",
+          "startTime": 44.29,
+          "endTime": 46.57
+        },
+        {
+          "speaker": "B",
+          "ja": "[明日](あした)は[土曜日](どようび)だから[早](はや)く[帰](かえ)れるんでしょ。",
+          "vi": "Ngày mai là thứ bảy, anh về sớm được chứ?",
+          "startTime": 46.57,
+          "endTime": 49.85
+        },
+        {
+          "speaker": "A",
+          "ja": "そんなことわから_ん_よ。[急](きゅう)に[残業](ざんぎょう)を[頼](たの)まれるかもしれ_ん_し……",
+          "vi": "Chuyện đó, anh chưa biết được. Lỡ đột xuất bị tăng ca hoặc là ...",
+          "startTime": 49.85,
+          "endTime": 53.66
+        },
+        {
+          "speaker": "B",
+          "ja": "あなた、[明日](あした)はうちの[子](こ)のサッカーの[試合](しあい)があるのよ。たまには[見](み)てやったらどうなの？",
+          "vi": "Anh này, ngày mai có một trận thi đấu bóng đá của con mình đấy. Thỉnh thoảng anh xem ủng hộ cho con không được sao?",
+          "startTime": 53.66,
+          "endTime": 60.5
+        },
+        {
+          "speaker": "A",
+          "ja": "……",
+          "vi": "...",
+          "startTime": 60.5,
+          "endTime": 61.5
+        },
+        {
+          "speaker": "B",
+          "ja": "また[知](し)ら_ん_ぷりして…。ほんとにいや_ん_なっちゃうわ。",
+          "vi": "Lại vờ không biết ... Anh thật đáng ghét.",
+          "startTime": 61.5,
+          "endTime": 65.5
+        }
+      ]
+    }
+  ]
+},
+  {
+  "id": "06",
+  "title": "BIẾN ÂM - TỪ NGỮ BIẾN ĐỔI",
+  "translation": "",
+  "explanation": "Trong văn nói thân mật, người Nhật thường biến đổi âm tiết của từ để nói ngắn gọn hơn, dễ phát âm hơn hoặc để nhấn mạnh cảm xúc.\\nDưới đây là 6 quy tắc biến âm thường gặp cùng toàn bộ ví dụ:\n\n1. Biến đổi thành hình thức ngắn gọn hơn\\nところ ➔ とこ\\nけれども ➔ けど\\nすみません ➔ すいません\\nわたし ➔ あたし (Chủ yếu nữ giới dùng)\\nあなた ➔ あんた\\nこのあいだ ➔ こないだ\n\n2. Thêm âm ngắt「っ」(để nhấn mạnh hoặc dễ đọc hơn)\\nどちら ➔ どっち\\nこちら ➔ こっち\\nそちら ➔ そっち\\nあちら ➔ あっち\\nどこか ➔ どっか\\nとても ➔ とっても\\nすごく ➔ すっごく\\nばかり ➔ ばっかり\\nよほど ➔ よっぽど\\n〜くて ➔ 〜くって (Ví dụ: 忙しくて ➔ 忙しくって)\n\n3. Thêm âm「ん」(để nhấn mạnh)\\nあまり ➔ あんまり\\nおなじ ➔ おんなじ\\n4. Biến đổi thành「りゃ」(Chủ yếu đàn ông trung niên trở lên sử dụng)\\nこれは ➔ こりゃ\\nそれは ➔ そりゃ\\nあれは ➔ ありゃ\n\n5. Lược bỏ âm tiết ở ĐẦU từ\\nいやだ ➔ やだ\\nそれで ➔ で\\nまったく ➔ ったく\\nところで ➔ で\\nこんにちは ➔ ちは\\nいらっしゃい ➔ らっしゃい\n\n6. Lược bỏ âm tiết ở CUỐI từ\\nありがとう ➔ ありがと\\n〜だろう ➔ 〜だろ\\nほんとう ➔ ほんと\\n〜でしょう ➔ 〜でしょ\\nかっこう ➔ かっこ",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka6.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "_すいません_。おばあさん、イノシシを[見](み)ませんでしたか。",
+          "vi": "Xin lỗi. Bà ơi, bà có thấy con lợn rừng nào không?",
+          "startTime": 0,
+          "endTime": 5.59
+        },
+        {
+          "speaker": "B",
+          "ja": "[見](み)ましたけど。",
+          "vi": "Tôi có thấy đấy.",
+          "startTime": 5.59,
+          "endTime": 6.78
+        },
+        {
+          "speaker": "A",
+          "ja": "_どっち_の[方](ほう)へ[行](い)きましたか。",
+          "vi": "Nó đi về hướng nào vậy?",
+          "startTime": 6.78,
+          "endTime": 8.22
+        },
+        {
+          "speaker": "B",
+          "ja": "_こっち_の[方](ほう)へ[走](はし)っていったよ。",
+          "vi": "Nó chạy về hướng này nè.",
+          "startTime": 8.22,
+          "endTime": 10.17
+        },
+        {
+          "speaker": "A",
+          "ja": "どんなイノシシでしたか。",
+          "vi": "Con lợn rừng đó thế nào?",
+          "startTime": 10.17,
+          "endTime": 11.64
+        },
+        {
+          "speaker": "B",
+          "ja": "_すっごく_[大](おお)きく_って_[強](つよ)そうなやつだったよ。",
+          "vi": "Trông nó to lớn và mạnh dễ sợ.",
+          "startTime": 11.64,
+          "endTime": 14.97
+        },
+        {
+          "speaker": "A",
+          "ja": "_やっぱり_そうか。あいつがうちの[畑](はたけ)を[荒](あ)らして[困](こま)ってるんですよ。[悪](わる)いこと_ばっかり_するんで…",
+          "vi": "Đúng là nó rồi. Nó đã phá nát rẫy của nhà cháu, khổ ghê vậy đó. Nó chỉ biết phá phách không thôi.",
+          "startTime": 14.97,
+          "endTime": 21.74
+        },
+        {
+          "speaker": "B",
+          "ja": "_そりゃ_[困](こま)ったことだねえ。",
+          "vi": "Thiệt là khổ cho nhà bác quá.",
+          "startTime": 21.74,
+          "endTime": 24.63
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "おまわりさん。[大変](たいへん)です。どろぼうに[入](はい)られたんです。",
+          "vi": "Anh cảnh sát ơi, khổ quá. Tôi bị ăn trộm vào nhà.",
+          "startTime": 24.63,
+          "endTime": 29.85
+        },
+        {
+          "speaker": "B",
+          "ja": "[家](いえ)にかぎをかけてましたか。",
+          "vi": "Chị có khóa cửa nhà chứ?",
+          "startTime": 29.85,
+          "endTime": 31.75
+        },
+        {
+          "speaker": "A",
+          "ja": "ええ、かぎをかけてたんですけど、[窓](まど)を[破](やぶ)られたみたいです。",
+          "vi": "Có chứ. Tôi đã khóa cửa lại rồi, nhưng kẻ trộm đã phá cửa sổ vào.",
+          "startTime": 31.75,
+          "endTime": 35.47
+        },
+        {
+          "speaker": "B",
+          "ja": "あっ、_やっぱり_そうですか。_ここんとこ_、_おんなじ_ようなどろぼうがよく[出](で)るんですよ。_こないだ_、となりのマンションでもどろぼうに[入](はい)られましてね、[現金](げんきん)をとられたんですよ。お[宅](たく)では[何](なに)かとられましたか。",
+          "vi": "À, đúng là như vậy rồi. Dạo này bọn trộm thường hay đột nhập vào nhà theo kiểu ấy. Mấy bữa trước ở chung cư kế bên cũng bị kẻ trộm vào nhà và lấy cắp tiền. Nhà chị có mất gì không?",
+          "startTime": 35.47,
+          "endTime": 47.5
+        },
+        {
+          "speaker": "A",
+          "ja": "ええ、_あたし_くやしく_って_、くやしく_って_…",
+          "vi": "Có chứ. Tôi tiếc quá đi, tiếc quá đi.",
+          "startTime": 47.5,
+          "endTime": 50.32
+        },
+        {
+          "speaker": "B",
+          "ja": "_よっぽど_[大切](たいせつ)なものをとられたんですね。",
+          "vi": "Chắc là chị bị lấy mất vật rất quan trọng.",
+          "startTime": 50.32,
+          "endTime": 52.9
+        },
+        {
+          "speaker": "A",
+          "ja": "_あたし_の[指輪](ゆびわ)がなくなってるんです。_とっても_[高](たか)かったんです。_すっごく_[気](き)に[入](い)ってた[指輪](ゆびわ)なんです。[買](か)った_ばっかり_だったのに…",
+          "vi": "Chiếc nhẫn của tôi mất rồi. Nó rất đắt tiền. Tôi thích nó lắm. Vừa mới mua thế mà ...",
+          "startTime": 52.9,
+          "endTime": 60.8
+        },
+        {
+          "speaker": "B",
+          "ja": "そうですか。お[金](かね)はだいじょうぶでしたか。",
+          "vi": "Thế à. Tiền bạc thì không sao chứ?",
+          "startTime": 60.8,
+          "endTime": 63.7
+        },
+        {
+          "speaker": "A",
+          "ja": "ええ、[給料日前](きゅうりょうびまえ)だから……",
+          "vi": "Vâng, vì chưa đến ngày lãnh lương.",
+          "startTime": 63.7,
+          "endTime": 66.74
+        }
+      ]
+    }
+  ]
+},
+  {
+  "id": "07",
+  "title": "LƯỢC BỎ TRỢ TỪ",
+  "translation": "",
+  "explanation": "Trong hội thoại thân mật, trợ từ 「を」 thường bị lược bỏ.\\nNếu ngữ cảnh đủ rõ, 「が」 và 「に/へ」 cũng có thể bỏ mà vẫn hiểu được.\\nTuy nhiên, các trợ từ khác như 「に」「で」「と」 nếu bỏ sẽ dễ gây khó hiểu.\\nNgoài ra, 「は」 (chủ đề) cũng thường bị lược bỏ trong lời nói. ",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka7.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "ちょっとここで[待](ま)ってて。",
+          "vi": "Em đợi anh ở đây một chút nhé.",
+          "startTime": 0.05,
+          "endTime": 3.69
+        },
+        {
+          "speaker": "B",
+          "ja": "どこ_〇_[行](い)くの？",
+          "vi": "Anh đi đâu vậy?",
+          "startTime": 3.69,
+          "endTime": 5.42
+        },
+        {
+          "speaker": "A",
+          "ja": "たばこ_〇_[買](か)ってくるから。",
+          "vi": "Anh đi mua thuốc lá.",
+          "startTime": 5.42,
+          "endTime": 6.81
+        },
+        {
+          "speaker": "B",
+          "ja": "[小銭](こぜに)_〇_ある？",
+          "vi": "Anh có tiền lẻ không?",
+          "startTime": 6.81,
+          "endTime": 8.43
+        },
+        {
+          "speaker": "A",
+          "ja": "あっ、[千円](せんえん)しかない。",
+          "vi": "À, anh chỉ có tờ một ngàn yên.",
+          "startTime": 8.43,
+          "endTime": 10.68
+        },
+        {
+          "speaker": "B",
+          "ja": "[千円](せんえん)でも[自動販売機](じどうはんばいき)_〇_[使](つか)えると[思](おも)うけど。",
+          "vi": "Em nghĩ anh có thể dùng tờ một ngàn yên ở máy bán hàng tự động.",
+          "startTime": 10.68,
+          "endTime": 14.26
+        },
+        {
+          "speaker": "A",
+          "ja": "あ〜あ。[小銭](こぜに)がいっぱいになっちゃった。",
+          "vi": "Ái chà, tiền lẻ nhiều quá đi.",
+          "startTime": 14.26,
+          "endTime": 19.74
+        },
+        {
+          "speaker": "B",
+          "ja": "ちょうどよかったじゃない。[今](いま)から[電車](でんしゃ)の[切符](きっぷ)_〇_[買](か)うんだから。わたしの[分](ぶん)も[買](か)って。",
+          "vi": "Không phải quá tốt sao. Vì bây giờ còn mua vé xe điện nữa mà. Anh mua luôn phần của em nhé.",
+          "startTime": 19.74,
+          "endTime": 25.8
+        },
+        {
+          "speaker": "A",
+          "ja": "どこまで？",
+          "vi": "Đến đâu?",
+          "startTime": 25.8,
+          "endTime": 26.87
+        },
+        {
+          "speaker": "B",
+          "ja": "[渋谷](しぶや)までよ。",
+          "vi": "Đến Shibuya.",
+          "startTime": 26.87,
+          "endTime": 28.2
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "[早](はや)く[早](はや)く！[急](いそ)がないと、[映画](えいが)_〇_[始](はじ)まっちゃうよ。",
+          "vi": "Nhanh lên, nhanh lên! Nếu không khẩn trương thì không kịp đâu, phim sắp chiếu rồi đấy.",
+          "startTime": 28.2,
+          "endTime": 33.5
+        },
+        {
+          "speaker": "B",
+          "ja": "どっちの[電車](でんしゃ)_〇_[乗](の)るの？",
+          "vi": "Mình đi xe điện nào?",
+          "startTime": 33.5,
+          "endTime": 35.58
+        },
+        {
+          "speaker": "A",
+          "ja": "[早](はや)く、これに[乗](の)ろう。",
+          "vi": "Nhanh lên em, mình đi chiếc xe này.",
+          "startTime": 35.58,
+          "endTime": 37.36
+        },
+        {
+          "speaker": "B",
+          "ja": "ねえねえ、この[電車](でんしゃ)_〇_ほんとに[渋谷](しぶや)_〇_[行](い)くの？",
+          "vi": "Này này, có thật là chiếc xe điện này đi Shibuya không?",
+          "startTime": 37.36,
+          "endTime": 42.89
+        },
+        {
+          "speaker": "A",
+          "ja": "たしか、そうだと[思](おも)うけど…。",
+          "vi": "Chắc chắn mà, anh nghĩ đúng như vậy rồi.",
+          "startTime": 42.89,
+          "endTime": 45.21
+        },
+        {
+          "speaker": "B",
+          "ja": "あっ、[違](ちが)うわよ。わたしたち、まちがったみたい。ちがう[方向](ほうこう)よ。",
+          "vi": "A, không phải đâu. Hình như chúng ta đã nhầm rồi. Hướng khác mà.",
+          "startTime": 45.21,
+          "endTime": 50.67
+        },
+        {
+          "speaker": "A",
+          "ja": "ほんとだ。しまった！[次](つぎ)の[駅](えき)_〇_[着](つ)いたら、すぐ[降](お)りよう。",
+          "vi": "Đúng rồi, chết thật! Khi đến ga kế tiếp, mình phải xuống xe ngay.",
+          "startTime": 50.67,
+          "endTime": 55.44
+        },
+        {
+          "speaker": "B",
+          "ja": "あ〜あ、[映画](えいが)_〇_[始](はじ)まっちゃう。",
+          "vi": "Ôi, phim sắp chiếu rồi.",
+          "startTime": 55.44,
+          "endTime": 59.13
+        },
+        {
+          "speaker": "A",
+          "ja": "しかたがないなあ。タクシーで[行](い)くか。",
+          "vi": "Đành phải chịu thôi. Hay là mình đi taxi nhé?",
+          "startTime": 59.13,
+          "endTime": 61.79
+        },
+        {
+          "speaker": "B",
+          "ja": "すぐにタクシー_〇_[乗](の)れるかしら。[今](いま)ごろの[時間](じかん)、[道路](どうろ)_〇_こんでるかもしれないし……ほんとに、あなたったらあわてものなんだから。",
+          "vi": "Ngay bây giờ có thể đi taxi được sao. Giờ này đường đang đông hơn nữa ... . Anh thật là hấp tấp.",
+          "startTime": 61.79,
+          "endTime": 71.63
+        }
+      ]
+    }
+  ]
+},
+  {
+  "id": "08",
+  "title": "CÂU RÚT GỌN",
+  "translation": "",
+  "explanation": "Khi nói chuyện với gia đình, bạn bè, thường dùng câu rút gọn để nói nhanh hơn.\\nKhông cần nói hết câu vẫn hiểu nếu ngữ cảnh rõ ràng.\\nDùng dạng ngắn giúp hội thoại tự nhiên và tốc độ nhanh hơn.\n\n1. Nhờ vả / yêu cầu ai làm gì:\\n「〜てください」→「〜て」\\n「〜ないでください」→「〜ないで」\n\n2. Khuyên người khác:\\n「〜たらどうですか」→「〜たら」\\n「〜ばいいですよ」→「〜ば」\\n「〜てはどうですか」→「〜ては」\n\n3. Diễn đạt nghĩa “phải làm”:\\n「〜なければならない」→「〜なければ」\\n「〜なきゃならない」→「〜なきゃ」\\n「〜なくてはいけない」→「〜なくては」\\n「〜ないといけない」→「〜ないと」\n\n4. Thuật lại lời người khác:\\n「〜と聞きました／言いました」→「〜って」\n\n5. Hỏi lại / yêu cầu giải thích:\\n「〜と言いましたか」→「〜って？」\\n「〜というのは何ですか」→「〜って？」",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka8.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "[大変](たいへん)だ、[大変](たいへん)だ。ぼくの[携帯電話](けいたいでんわ)がなくなっちゃった。",
+          "vi": "Khổ rồi, khổ rồi. Cái điện thoại di động của tôi mất rồi.",
+          "startTime": 0.15,
+          "endTime": 5.14
+        },
+        {
+          "speaker": "B",
+          "ja": "え？どこに[入](い)れてたんだい？",
+          "vi": "Hả? Anh bỏ nó ở đâu?",
+          "startTime": 5.14,
+          "endTime": 6.9
+        },
+        {
+          "speaker": "A",
+          "ja": "[上着](うわぎ)のポケットかかばんの[中](なか)かどっちかだよ。",
+          "vi": "Trong túi áo khoác hay là trong cặp, không biết để ở đâu nữa.",
+          "startTime": 6.9,
+          "endTime": 10.39
+        },
+        {
+          "speaker": "B",
+          "ja": "かばんの[中](なか)はよく[調](しら)べてみたのかい？",
+          "vi": "Anh đã xem kỹ trong cặp chưa?",
+          "startTime": 10.39,
+          "endTime": 12.42
+        },
+        {
+          "speaker": "A",
+          "ja": "もちろんだよ。",
+          "vi": "Dĩ nhiên rồi.",
+          "startTime": 12.42,
+          "endTime": 13.48
+        },
+        {
+          "speaker": "B",
+          "ja": "もう[一度](いちど)[調](しら)べてみ_たら_？",
+          "vi": "Anh xem kỹ lại một lần nữa đi.",
+          "startTime": 13.48,
+          "endTime": 14.98
+        },
+        {
+          "speaker": "A",
+          "ja": "もう[何回](なんかい)も[何回](なんかい)も[調](しら)べたよ。",
+          "vi": "Tôi đã xem đi xem lại mấy lần rồi.",
+          "startTime": 14.98,
+          "endTime": 17.32
+        },
+        {
+          "speaker": "B",
+          "ja": "[最後](さいご)に[使](つか)ったのはいつだったんだい？",
+          "vi": "Lần cuối anh sử dụng nó là khi nào?",
+          "startTime": 17.32,
+          "endTime": 19.53
+        },
+        {
+          "speaker": "A",
+          "ja": "えーっと、[電車](でんしゃ)に[乗](の)った[時](とき)に、[会社](かいしゃ)に[電話](でんわ)を[入](い)れたんだ。",
+          "vi": "Để tôi nghĩ xem. Khi lên xe điện, tôi đã gọi điện thoại cho công ty.",
+          "startTime": 19.53,
+          "endTime": 24.25
+        },
+        {
+          "speaker": "B",
+          "ja": "じゃ、きっと[電車](でんしゃ)の[中](なか)に[忘](わす)れたんだよ。[駅](えき)に[問](と)い[合](あ)わせてみ_たら_？",
+          "vi": "Vậy, chắc chắn anh đã bỏ quên trong xe điện rồi, anh thử hỏi thăm nhà ga xem.",
+          "startTime": 24.25,
+          "endTime": 28.27
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "[部長](ぶちょう)、お[話](はな)しがあるんですが…",
+          "vi": "Trưởng ban, tôi có chuyện xin thưa với ông.",
+          "startTime": 28.27,
+          "endTime": 32.85
+        },
+        {
+          "speaker": "B",
+          "ja": "[何](なん)だね。",
+          "vi": "Có chuyện gì vậy?",
+          "startTime": 32.85,
+          "endTime": 33.68
+        },
+        {
+          "speaker": "A",
+          "ja": "これ、[受](う)け[取](と)ってください。",
+          "vi": "Xin ông hãy nhận cái này cho.",
+          "startTime": 33.68,
+          "endTime": 36.09
+        },
+        {
+          "speaker": "B",
+          "ja": "えっ？[辞表](じひょう)じゃないか。[君](きみ)、[会社](かいしゃ)をやめたいって[言](い)うのかい。[会社](かいしゃ)をやめてどうするつもりなんだい？",
+          "vi": "Gì hả? Không phải đơn xin nghỉ việc đấy chứ? Cậu mày nói là muốn nghỉ việc ở công ty sao? Nghỉ việc công ty rồi cậu mày định sẽ làm gì?",
+          "startTime": 36.09,
+          "endTime": 43.06
+        },
+        {
+          "speaker": "A",
+          "ja": "それは、やめてから[考](かんが)えます。",
+          "vi": "Chuyện đó khi nghỉ việc rồi tôi sẽ suy nghĩ sau.",
+          "startTime": 43.06,
+          "endTime": 45.45
+        },
+        {
+          "speaker": "B",
+          "ja": "[奥](おく)さんにはもう[話](はな)したのかね。",
+          "vi": "Cậu mày đã nói cho vợ biết chưa?",
+          "startTime": 45.45,
+          "endTime": 47.72
+        },
+        {
+          "speaker": "A",
+          "ja": "いえ、それはまだ…",
+          "vi": "Chưa, tôi chưa nói gì hết.",
+          "startTime": 47.72,
+          "endTime": 49.76
+        },
+        {
+          "speaker": "B",
+          "ja": "[奥](おく)さんともよく[話](はな)し[合](あ)ってみ_たら_？[君](きみ)はわが[社](しゃ)にとって、なくちゃならない[人間](にんげん)なんだよ。もう[一度](いちど)[考](かんが)えなおしてみ_ては_…",
+          "vi": "Cậu mày nên bàn bạc kỹ với vợ. Đối với công ty cậu mày là một nhân vật không thể thiếu được. Cậu mày hãy nghĩ lại một lần nữa đi.",
+          "startTime": 49.76,
+          "endTime": 57.76
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "09",
+  "title": "THÀNH NGỮ CỐ ĐỊNH",
+  "translation": "",
+  "explanation": "Trong tiếng Nhật, các câu chào hỏi hoặc mẫu câu giao tiếp cố định thường được lược bỏ phần đuôi để câu nói tự nhiên, nhẹ nhàng hơn. Cách nói này thể hiện sự tinh tế, quan tâm đến đối phương, thường dùng với cả cấp trên hoặc người chưa thân thiết lắm để giúp giao tiếp trôi chảy, thoải mái hơn.",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka9.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "お[体](からだ)の[調子](ちょうし)はいかがですか。",
+          "vi": "Bệnh tình của anh sao rồi?",
+          "startTime": 0,
+          "endTime": 3.29
+        },
+        {
+          "speaker": "B",
+          "ja": "ありがとうございます。だいぶよくなりましたので、_ご[心配](しんぱい)なく_。",
+          "vi": "Cám ơn chị. Tôi đã khỏe nhiều rồi, xin chị đừng lo.",
+          "startTime": 3.29,
+          "endTime": 7.41
+        },
+        {
+          "speaker": "A",
+          "ja": "これ、お[見舞](みま)いです。どうぞ。",
+          "vi": "Đây là quà cho anh.",
+          "startTime": 7.41,
+          "endTime": 10.32
+        },
+        {
+          "speaker": "B",
+          "ja": "きれいな[花](はな)ですね。どうもすみません。こちらにおかけください。",
+          "vi": "Hoa đẹp quá. Xin lỗi đã làm phiền chị. Mời chị ngồi.",
+          "startTime": 10.32,
+          "endTime": 14.71
+        },
+        {
+          "speaker": "A",
+          "ja": "いいえ、_おかまいなく_。[会社](かいしゃ)のみんなからのお[見舞](みま)いも[預](あず)かってきました。これ、どうぞ。みんな[心配](しんぱい)しているんですよ。",
+          "vi": "Xin anh đừng bận tâm. Còn đây là quà của mọi người trong công ty nhờ tôi mang đến. Xin anh nhận cho. Mọi người rất lo lắng cho anh.",
+          "startTime": 14.71,
+          "endTime": 23.71
+        },
+        {
+          "speaker": "B",
+          "ja": "すみませんね。どうぞみなさんにくれぐれも_よろしく_。[来週](らいしゅう)にはもう[退院](たいいん)できると[思](おも)いますので…。",
+          "vi": "Phiền chị, cho tôi gởi lời cảm ơn mọi người nhiều lắm. Tôi nghĩ tuần sau chắc có thể xuất viện rồi.",
+          "startTime": 23.71,
+          "endTime": 30.56
+        },
+        {
+          "speaker": "A",
+          "ja": "それはよかったですね。",
+          "vi": "Vậy thì tốt quá.",
+          "startTime": 30.56,
+          "endTime": 32.86
+        },
+        {
+          "speaker": "B",
+          "ja": "_おかげさまで_。[退院後](たいいんご)、一[週間](いっしゅうかん)ほど[家](いえ)で[休](やす)んでから[会社](かいしゃ)に[出](で)ます。",
+          "vi": "Nhờ trời phù hộ. Sau khi xuất viện, tôi sẽ nghỉ ngơi ở nhà khoảng một tuần rồi sẽ đi làm lại.",
+          "startTime": 32.86,
+          "endTime": 38.27
+        },
+        {
+          "speaker": "A",
+          "ja": "どうぞごゆっくりお[休](やす)みになってください。[今日](きょう)はこれで[失礼](しつれい)します。_どうぞお[大事](だいじ)に_。",
+          "vi": "Xin anh cứ nghỉ ngơi thong thả. Thôi, tôi xin phép. Chúc anh sớm lành bệnh.",
+          "startTime": 38.27,
+          "endTime": 45.25
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "[仕事](しごと)はまだ[終](お)わらない？",
+          "vi": "Vẫn chưa xong việc à?",
+          "startTime": 45.25,
+          "endTime": 49.13
+        },
+        {
+          "speaker": "B",
+          "ja": "もうちょっとなので、やってしまおうと[思](おも)って…。",
+          "vi": "Còn một chút xíu nữa, anh định làm cho xong.",
+          "startTime": 49.13,
+          "endTime": 51.77
+        },
+        {
+          "speaker": "A",
+          "ja": "そう、じゃ、いつものところへ[行](い)ってるわね。",
+          "vi": "Thế à. Vậy, em đợi ở chỗ cũ nhé.",
+          "startTime": 51.77,
+          "endTime": 55
+        },
+        {
+          "speaker": "B",
+          "ja": "_お[先](さき)にどうぞ_。ぼくも[後](あと)から[行](い)くから。",
+          "vi": "Em cứ đi trước đi, một lát nữa anh sẽ tới.",
+          "startTime": 55,
+          "endTime": 57.59
+        },
+        {
+          "speaker": "A",
+          "ja": "じゃ、_また[後](あと)で_。",
+          "vi": "Vậy thì, lát nữa gặp lại.",
+          "startTime": 57.59,
+          "endTime": 59.39
+        },
+        {
+          "speaker": "B",
+          "ja": "お[待](ま)たせしてごめん。[仕事](しごと)が[終](お)わったと[思](おも)ったら、[国際電話](こくさいでんわ)がかかってきて…",
+          "vi": "Xin lỗi đã bắt em phải chờ. Cứ nghĩ là đã xong việc thì lại có điện thoại quốc tế gọi đến cho nên ...",
+          "startTime": 59.39,
+          "endTime": 65.23
+        },
+        {
+          "speaker": "A",
+          "ja": "それはごくろうさま。じゃ、ビールでも[飲](の)む？",
+          "vi": "Anh vất vả quá. Anh uống bia nhé.",
+          "startTime": 65.23,
+          "endTime": 68.42
+        },
+        {
+          "speaker": "B",
+          "ja": "それより、おなかがぺこぺこなんだ。",
+          "vi": "Để sau đi, bây giờ anh đói quá.",
+          "startTime": 68.42,
+          "endTime": 70.58
+        },
+        {
+          "speaker": "A",
+          "ja": "それじゃ、ステーキでも[食](た)べに[行](い)かない？",
+          "vi": "Vậy, mình đi ăn bò bít tết không?",
+          "startTime": 70.58,
+          "endTime": 72.85
+        },
+        {
+          "speaker": "B",
+          "ja": "でも、[給料日前](きゅうりょうびまえ)だし…",
+          "vi": "Nhưng, chưa đến ngày lãnh lương ...",
+          "startTime": 72.85,
+          "endTime": 75.08
+        },
+        {
+          "speaker": "A",
+          "ja": "じゃ、わたしのアパートへ[来](く)る？[何](なに)かごちそうするわ。",
+          "vi": "Vậy, đến nhà em đi. Em sẽ đãi anh cái gì đó.",
+          "startTime": 75.08,
+          "endTime": 79.02
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "10",
+  "title": "SỰ LẶP LẠI",
+  "translation": "",
+  "explanation": "Trong giao tiếp tiếng Nhật, người ta thường có thói quen lặp lại một từ 2 lần. Mục đích của việc này là để:\\n- Nhấn mạnh cảm xúc và thái độ của người nói đối với người nghe.\\n- Tạo nhịp điệu tự nhiên, nhịp nhàng hơn cho cuộc hội thoại.\\nCách nói này được sử dụng rất nhiều trong đời sống hàng ngày, lâu dần nhiều từ đã trở thành những cụm từ cố định quen thuộc. ",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka10.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "[材料](ざいりょう)が_[来](き)た来た_。さあ、お[好](この)み[焼](や)き、[焼](や)こうか。",
+          "vi": "Nguyên liệu tới rồi tới rồi. Nào, mình chiên bánh xèo đi.",
+          "startTime": 0.04,
+          "endTime": 5
+        },
+        {
+          "speaker": "B",
+          "ja": "えっ？[自分](じぶん)で[焼](や)くの？",
+          "vi": "Hả? Mình tự chiên?",
+          "startTime": 5,
+          "endTime": 7.1
+        },
+        {
+          "speaker": "A",
+          "ja": "そうだよ。[君](きみ)、[初](はじ)めてかい？",
+          "vi": "Đúng rồi. Em mới ăn lần đầu à?",
+          "startTime": 7.1,
+          "endTime": 8.96
+        },
+        {
+          "speaker": "B",
+          "ja": "[食](た)べたことはあるけど、その[時](とき)は[店](みせ)の[人](ひと)が[焼](や)いてくれたよ。",
+          "vi": "Em đã từng ăn rồi, nhưng lúc đó người trong tiệm chiên cho em.",
+          "startTime": 8.96,
+          "endTime": 12.74
+        },
+        {
+          "speaker": "A",
+          "ja": "ここでは[自分](じぶん)で[焼](や)くんだよ。[材料](ざいりょう)をぜんぶ[混](ま)ぜて、[鉄板](てっぱん)の[上](うえ)にのせるだけだよ。",
+          "vi": "Ở đây mình tự chiên. Mình chỉ việc trộn các nguyên liệu lại, sau đó cho lên chảo chiên.",
+          "startTime": 12.74,
+          "endTime": 17.53
+        },
+        {
+          "speaker": "B",
+          "ja": "これでいい？",
+          "vi": "Như vầy được chưa?",
+          "startTime": 17.53,
+          "endTime": 19.74
+        },
+        {
+          "speaker": "A",
+          "ja": "うん、_そうそう_。",
+          "vi": "Ừ, đúng rồi đúng rồi.",
+          "startTime": 19.74,
+          "endTime": 21.01
+        },
+        {
+          "speaker": "B",
+          "ja": "もう[食](た)べられるかな。",
+          "vi": "Không biết ăn được chưa?",
+          "startTime": 21.01,
+          "endTime": 24.25
+        },
+        {
+          "speaker": "A",
+          "ja": "_どれどれ_。うん、もういけるよ。",
+          "vi": "Đâu nào đâu nào. Ừ, được rồi đấy.",
+          "startTime": 24.25,
+          "endTime": 27.52
+        },
+        {
+          "speaker": "B",
+          "ja": "じゃ、いただきます。",
+          "vi": "Vậy em ăn nhé.",
+          "startTime": 27.52,
+          "endTime": 29
+        },
+        {
+          "speaker": "A",
+          "ja": "_だめだめ_。[上](うえ)にソースをかけないと。",
+          "vi": "Không được không được. Phải chan nước xốt lên trên nữa.",
+          "startTime": 29,
+          "endTime": 31.65
+        },
+        {
+          "speaker": "B",
+          "ja": "ああ、おいしかった。",
+          "vi": "A, ngon quá.",
+          "startTime": 31.65,
+          "endTime": 35.02
+        },
+        {
+          "speaker": "A",
+          "ja": "そろそろ[行](い)こうか。[今日](きょう)はぼくがおごるよ。",
+          "vi": "Giờ mình đi nhé. Hôm nay để anh đãi.",
+          "startTime": 35.02,
+          "endTime": 37.63
+        },
+        {
+          "speaker": "B",
+          "ja": "そんなの[悪](わる)いわ。",
+          "vi": "Như vậy thì tệ lắm.",
+          "startTime": 37.63,
+          "endTime": 39
+        },
+        {
+          "speaker": "A",
+          "ja": "_いいから、いいから_。",
+          "vi": "Được rồi được rồi.",
+          "startTime": 39,
+          "endTime": 40.23
+        },
+        {
+          "speaker": "B",
+          "ja": "じゃ、ごちそうさま。",
+          "vi": "Vậy thì, cám ơn anh đã chiêu đãi.",
+          "startTime": 40.23,
+          "endTime": 41.89
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "_[困](こま)った、困った_。",
+          "vi": "Nguy rồi, nguy rồi.",
+          "startTime": 41.89,
+          "endTime": 45.5
+        },
+        {
+          "speaker": "B",
+          "ja": "どうしたの？",
+          "vi": "Chuyện gì vậy?",
+          "startTime": 45.5,
+          "endTime": 46.57
+        },
+        {
+          "speaker": "A",
+          "ja": "おとなりの[庭](にわ)にボールが[入](はい)っちゃったんだ。",
+          "vi": "Trái banh bay vô vườn nhà bên cạnh rồi.",
+          "startTime": 46.57,
+          "endTime": 49.09
+        },
+        {
+          "speaker": "B",
+          "ja": "また、[野球](やきゅう)してたのね。",
+          "vi": "Lại chơi bóng chày nữa hả?",
+          "startTime": 49.09,
+          "endTime": 51.06
+        },
+        {
+          "speaker": "A",
+          "ja": "_[違](ちが)う、違う_。サッカーしてたら、[庭](にわ)の[池](いけ)に[落](お)ちたんだよ。お[母](かあ)さん、あやまってきてくれない？",
+          "vi": "Không phải không phải. Con đá banh, trái banh rơi xuống ao trong vườn nhà bên. Mẹ ơi, mẹ đi xin lỗi dùm con đi.",
+          "startTime": 51.06,
+          "endTime": 58
+        },
+        {
+          "speaker": "B",
+          "ja": "_だめだめ_、[自分](じぶん)で[行](い)かなきゃ…。",
+          "vi": "Không được không được. Con phải tự đi.",
+          "startTime": 58,
+          "endTime": 60.2
+        },
+        {
+          "speaker": "A",
+          "ja": "だって、となりのおばさん、こわいんだもん。",
+          "vi": "Nhưng mà, con sợ cô nhà bên ấy lắm.",
+          "startTime": 60.2,
+          "endTime": 63.51
+        },
+        {
+          "speaker": "B",
+          "ja": "_だいじょうぶだいじょうぶ_。ちゃんとあやまれば、[許](ゆる)してくれるよ。",
+          "vi": "Không sao không sao. Nếu con xin lỗi đàng hoàng, cô ấy sẽ tha thứ cho con.",
+          "startTime": 63.51,
+          "endTime": 68.57
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "11",
+  "title": "CÁCH NÓI LẤP LỬNG",
+  "translation": "",
+  "explanation": "Thông thường, các từ 「とか」「たり」「し」 được dùng để liệt kê từ 2 ví dụ trở lên. Tuy nhiên, trong giao tiếp thực tế, người Nhật thường có thói quen chỉ đưa ra MỘT ví dụ đại diện, còn lại để người nghe tự hiểu hoặc tự tưởng tượng. \\nCách nói mập mờ (không nói hết ý) này giúp giảm bớt sự cứng nhắc, ít áp đặt và làm câu nói mềm mỏng hơn rất nhiều.\\nDưới đây là 5 mẫu câu thường gặp theo phong cách này:\n\n1. ～なんか  Đưa ra một ví dụ đại diện (Như là... / Cỡ như...)\\n- Ví dụ: おにぎりなんかがいい。(Cơm nắm hay gì đó chắc cũng được đấy.)\n\n2. ～でも Đưa ra một ví dụ khi muốn gợi ý, rủ rê ai đó (...hay gì đó)\\n- Ví dụ: 食事でもしませんか。(Mình đi ăn hay gì đó nhé?)\n\n3. ～とか  Dùng rất rộng rãi để nêu lên một ví dụ chung chung (Ví dụ như... / Kiểu như...)\\n- Ví dụ: 家事とかはどうやってるの？ (Mấy việc nhà các thứ thì cậu làm thế nào?)\n\n4. ～たり Nêu lên một hành động hoặc trạng thái làm đại diện.\\n- Ví dụ: 友達に会ったりした。(Tớ đã đi gặp bạn [và có làm vài việc khác nữa]...)\n\n5. ～し  Nêu ra một lý do mang tính đại diện (Vì... [và còn những lý do khác nữa])\\n- Ví dụ: 本人の気持ちもあることだし... (Vì cũng phải xét đến cảm xúc của người trong cuộc nữa... [nên là...])",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka11.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "[久](ひさ)しぶり。",
+          "vi": "Lâu quá không gặp.",
+          "startTime": 0,
+          "endTime": 2.49
+        },
+        {
+          "speaker": "B",
+          "ja": "お[変](か)わりないみたいね。",
+          "vi": "Hình như anh chẳng thay đổi chút nào.",
+          "startTime": 2.49,
+          "endTime": 4.45
+        },
+        {
+          "speaker": "A",
+          "ja": "そうでもないけど…。さて、どこへ[行](い)こうか。すきやき_でも_[食](く)う？",
+          "vi": "Không như vậy đâu. Chà, mình đi đâu đi. Hay là mình đi ăn món sukiyaki đi.",
+          "startTime": 4.45,
+          "endTime": 9.03
+        },
+        {
+          "speaker": "B",
+          "ja": "うん。[昔](むかし)よく[行](い)った[店](みせ)_なんか_どう？",
+          "vi": "Ừ. Cái quán mà ngày xưa mình thường đến, anh thấy có được không?",
+          "startTime": 9.03,
+          "endTime": 12.13
+        },
+        {
+          "speaker": "A",
+          "ja": "[仕事](しごと)やめたんだって？",
+          "vi": "Nghe nói em đã nghỉ làm rồi phải không?",
+          "startTime": 12.13,
+          "endTime": 14.64
+        },
+        {
+          "speaker": "B",
+          "ja": "そうなの。[母](はは)が[倒](たお)れ_たり_したもんだから…。",
+          "vi": "Đúng vậy. Vì mẹ em bị ngã.",
+          "startTime": 14.64,
+          "endTime": 18.37
+        },
+        {
+          "speaker": "A",
+          "ja": "そうか。ごめんよ、ちっとも[知](し)らなくて。お[母](かあ)さんの[調子](ちょうし)はどう？",
+          "vi": "Thế à. Xin lỗi, anh chẳng hay biết chút gì cả. Tình trạng sức khỏe của mẹ em thế nào rồi?",
+          "startTime": 18.37,
+          "endTime": 22.84
+        },
+        {
+          "speaker": "B",
+          "ja": "おかげでだいぶよくなってきたわ。この[前](まえ)も[久](ひさ)しぶりで[町](まち)を[散歩](さんぽ)したい_とか_[言](い)ったから、[車](くるま)いすで[出](で)かけたのよ。",
+          "vi": "Nhờ trời phù hộ, sức khỏe của mẹ đã khá tốt. Mấy hôm trước mẹ em nói muốn đi dạo phố, nên đã ngồi xe lăn đi đấy.",
+          "startTime": 22.84,
+          "endTime": 30.95
+        },
+        {
+          "speaker": "A",
+          "ja": "[車](くるま)いすで[乗物](のりもの)に[乗](の)ったり[降](お)りたりするのは[大変](たいへん)だろ？",
+          "vi": "Di chuyển bằng xe lăn, khi lên xe cũng như khi xuống xe chắc là vất vả lắm nhỉ.",
+          "startTime": 30.95,
+          "endTime": 34.29
+        },
+        {
+          "speaker": "B",
+          "ja": "そうなの。[町](まち)の[中](なか)ってでこぼこが[多](おお)い_し_…",
+          "vi": "Đúng vậy. Hơn nữa trong thành phố có nhiều chỗ lồi lõm.",
+          "startTime": 34.29,
+          "endTime": 38.42
+        },
+        {
+          "speaker": "A",
+          "ja": "こんど[行](い)く[時](とき)はぼくにも[声](こえ)をかけてくれよ。おともするから。",
+          "vi": "Lần tới khi nào bác có đi ra ngoài, em hãy nói cho anh biết. Anh sẽ đi cùng.",
+          "startTime": 38.42,
+          "endTime": 42.36
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "B",
+          "ja": "ねえ、あなたの[話](はなし)も[聞](き)かせて。",
+          "vi": "Nè, hãy kể cho em nghe chuyện của anh đi.",
+          "startTime": 42.36,
+          "endTime": 46.61
+        },
+        {
+          "speaker": "A",
+          "ja": "ぼくはね、シカゴへ[行](い)ってたんだよ。",
+          "vi": "Anh đã đi Chicago rồi đấy.",
+          "startTime": 46.61,
+          "endTime": 49.17
+        },
+        {
+          "speaker": "B",
+          "ja": "へえ。[会社](かいしゃ)の[仕事](しごと)か_なんか_で？",
+          "vi": "Hả? Anh đi công việc cho công ty hay là ... ?",
+          "startTime": 49.17,
+          "endTime": 51.85
+        },
+        {
+          "speaker": "A",
+          "ja": "そう。[急](きゅう)に[転勤](てんきん)することになってさ、3[年間](ねんかん)むこうで[新](あたら)しい[部門](ぶもん)の[開発](かいはつ)_とか_をやってたのさ。",
+          "vi": "Ừ. Đột xuất anh được quyết định chuyển công tác, anh ở bên đó 3 năm, phụ trách phát triển một chuyên ngành mới.",
+          "startTime": 51.85,
+          "endTime": 57.9
+        },
+        {
+          "speaker": "B",
+          "ja": "ホームシックとかにならなかった？",
+          "vi": "Anh có nhớ nhà không?",
+          "startTime": 57.9,
+          "endTime": 60.5
+        },
+        {
+          "speaker": "A",
+          "ja": "そうだなあ、[初](はじ)めのころは[日本食](にほんしょく)が[食](た)べたくなっ_たり_したなあ。",
+          "vi": "Nhớ chứ, lúc đầu anh rất thèm đồ ăn Nhật.",
+          "startTime": 60.5,
+          "endTime": 64.55
+        },
+        {
+          "speaker": "B",
+          "ja": "むこうにも[日本食](にほんしょく)のレストランあるんでしょ？",
+          "vi": "Ở bên đó chắc có nhà hàng Nhật phải không?",
+          "startTime": 64.55,
+          "endTime": 68.06
+        },
+        {
+          "speaker": "A",
+          "ja": "ホテル_なんか_へ[行](い)けば、[高級](こうきゅう)レストランはあるんだけど、[毎日](まいにち)そんなところばっかり[行](い)くわけにはいかないだろ？",
+          "vi": "Nếu đi đến những chỗ như khách sạn thì cũng có những nhà hàng cao cấp, nhưng mỗi ngày đều đi đến những nơi như vậy chắc là không được rồi phải không?",
+          "startTime": 68.06,
+          "endTime": 74.2
+        },
+        {
+          "speaker": "B",
+          "ja": "わたしに[言](い)ってくれたら、[梅干](うめぼ)し_でも_[送](おく)ってあげたのに。",
+          "vi": "Nếu anh nói cho em biết thì em đã gởi ô mai muối cho anh rồi.",
+          "startTime": 74.2,
+          "endTime": 78.4
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "12",
+  "title": "THAY ĐỔI TRẬT TỰ TỪ",
+  "translation": "",
+  "explanation": "Trong đàm thoại tiếng Nhật, người ta thường xuyên thay đổi trật tự từ trong câu (đảo ngữ). Những thông tin quan trọng nhất, cảm xúc mạnh nhất, hoặc điều đối phương muốn nghe nhất sẽ được ưu tiên đưa lên đầu câu.",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka12.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "おばあさん、どうぞ_お[座](すわ)りください。こちらに_。",
+          "vi": "Bà ơi, mời bà ngồi. Ở đây này.",
+          "startTime": 0,
+          "endTime": 4.51
+        },
+        {
+          "speaker": "C",
+          "ja": "ありがとう。[悪](わる)いね。",
+          "vi": "Cám ơn cháu. Thật không phải.",
+          "startTime": 4.51,
+          "endTime": 6.6
+        },
+        {
+          "speaker": "A",
+          "ja": "いいんです。ぼくはすぐ[降](お)りますから。",
+          "vi": "Được mà. Cháu cũng sắp xuống rồi.",
+          "startTime": 6.6,
+          "endTime": 8.78
+        },
+        {
+          "speaker": "C",
+          "ja": "[今日](きょう)も[学校](がっこう)があるのかい？[土曜日](どようび)なのに。",
+          "vi": "Hôm nay cháu cũng đi học à? Thứ bảy mà.",
+          "startTime": 8.78,
+          "endTime": 13.7
+        },
+        {
+          "speaker": "A",
+          "ja": "[学校](がっこう)じゃないんです。じゅくなんです。",
+          "vi": "Cháu không học ở trường, cháu đi học thêm.",
+          "startTime": 13.7,
+          "endTime": 16.44
+        },
+        {
+          "speaker": "C",
+          "ja": "_[大変](たいへん)だね、[中学生](ちゅうがくせい)は_。",
+          "vi": "Học sinh cấp II mà vất vả nhỉ.",
+          "startTime": 16.44,
+          "endTime": 20.66
+        },
+        {
+          "speaker": "A",
+          "ja": "ぼく、[中学生](ちゅうがくせい)じゃありませんよ。",
+          "vi": "Cháu không phải là học sinh cấp II.",
+          "startTime": 20.66,
+          "endTime": 22.89
+        },
+        {
+          "speaker": "C",
+          "ja": "ごめんごめん。[高校生](こうこうせい)だね。_[感心](かんしん)だねえ_。_[電車](でんしゃ)の[中](なか)でもノートを[開](あ)けて[勉強](べんきょう)するなんて_。",
+          "vi": "Xin lỗi xin lỗi. Là học sinh cấp III chứ nhỉ. Thật đáng khâm phục. Ở trên xe điện mà cũng mở tập ra học bài.",
+          "startTime": 22.89,
+          "endTime": 32.4
+        },
+        {
+          "speaker": "A",
+          "ja": "_[試験](しけん)があるんです、もうすぐ_。",
+          "vi": "Cháu sắp thi rồi.",
+          "startTime": 32.4,
+          "endTime": 34.2
+        },
+        {
+          "speaker": "A",
+          "ja": "じゃ、さようなら。ぼくここで[降](お)りますから。",
+          "vi": "Vậy, xin chào bà. Cháu xuống xe ở đây.",
+          "startTime": 34.2,
+          "endTime": 39.36
+        },
+        {
+          "speaker": "C",
+          "ja": "がんばってね。",
+          "vi": "Cố gắng học nhé.",
+          "startTime": 39.36,
+          "endTime": 41.36
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "_おめでとうございます、ご[結婚](けっこん)なさったそうで_。",
+          "vi": "Chúc mừng nhé, nghe nói anh đã kết hôn rồi.",
+          "startTime": 41.36,
+          "endTime": 46.77
+        },
+        {
+          "speaker": "B",
+          "ja": "ありがとうございます。",
+          "vi": "Cám ơn chị.",
+          "startTime": 46.77,
+          "endTime": 47.97
+        },
+        {
+          "speaker": "A",
+          "ja": "これ、わたしからのお[祝](いわ)いです。",
+          "vi": "Đây là quà chúc mừng của tôi.",
+          "startTime": 47.97,
+          "endTime": 50.17
+        },
+        {
+          "speaker": "B",
+          "ja": "_[困](こま)ります、そんなに[気](き)を[使](つか)っていただいては_。",
+          "vi": "Chị chu đáo như thế này, tôi khó xử lắm.",
+          "startTime": 50.17,
+          "endTime": 53.31
+        },
+        {
+          "speaker": "A",
+          "ja": "いいえ、ほんの[気持](きも)ちだけですから。ところで、_いかがでしたか、[新婚旅行](しんこんりょこう)_？",
+          "vi": "Không có gì đâu. Chỉ là một chút tấm lòng của tôi thôi. Mà này, tuần đi du lịch trăng mật như thế nào?",
+          "startTime": 53.31,
+          "endTime": 59.22
+        },
+        {
+          "speaker": "B",
+          "ja": "_すばらしかったですよ。[本当](ほんとう)に_。あちこち[見物](けんぶつ)したり、ホテルでのんびりしたり…。",
+          "vi": "Thật tuyệt vời. Nào là chúng tôi đi tham quan nơi này nơi kia, nào là nghỉ ngơi thoải mái trong khách sạn.",
+          "startTime": 59.22,
+          "endTime": 65.24
+        },
+        {
+          "speaker": "A",
+          "ja": "それはよかったですね。",
+          "vi": "Vậy thì tuyệt quá.",
+          "startTime": 65.24,
+          "endTime": 67.19
+        },
+        {
+          "speaker": "B",
+          "ja": "でも、[帰](かえ)ってから[両親](りょうしん)に[怒](おこ)られたんです。",
+          "vi": "Thế nhưng, khi về đến nhà, chúng tôi bị bố mẹ giận.",
+          "startTime": 67.19,
+          "endTime": 70.57
+        },
+        {
+          "speaker": "A",
+          "ja": "どうして？",
+          "vi": "Sao vậy?",
+          "startTime": 70.57,
+          "endTime": 71.66
+        },
+        {
+          "speaker": "B",
+          "ja": "[旅行中](りょこうちゅう)に[一度](いちど)も[連絡](れんらく)しなくて…。",
+          "vi": "Vì suốt chuyến đi du lịch, chúng tôi không liên lạc một lần nào về gia đình.",
+          "startTime": 71.66,
+          "endTime": 74.59
+        },
+        {
+          "speaker": "A",
+          "ja": "なるほど。",
+          "vi": "Thì ra là như vậy.",
+          "startTime": 74.59,
+          "endTime": 76.51
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "13",
+  "title": "DẪN DẮT HỘI THOẠI",
+  "translation": "",
+  "explanation": "Khi bắt đầu, thay đổi hoặc kết thúc câu chuyện, người Nhật thường dùng các mẫu câu cố định. Việc học thuộc các câu này giúp bạn giao tiếp lưu loát và tự nhiên hơn.\n\n1. Thu hút sự chú ý của đối phương\\n- Lịch sự: あのー / すみません (Dạ thưa... / Xin lỗi...)\\n- Thân mật: ねえ / あのね (Nè, này / À nè...)\n\n2. Mở đầu câu chuyện\\n- Lịch sự: ちょっとお話ししたいことがあるんですが... (Tôi có chút chuyện muốn nói...)\\n- Thân mật: ちょっと話があるんだけど... (Tớ có chuyện này muốn nói...)\n\n3. Vào đề câu chuyện\\n- Lịch sự: 実は / さっそくですが (Thực ra là... / Xin phép đi ngay vào vấn đề...)\\n- Thân mật: 実はね / さっそくだけど (Thực ra thì... / Vào việc luôn nhé...)\n\n4. Thay đổi đề tài\\n- Lịch sự: ところで / 話は変わりますが (Nhân tiện... / Đổi chủ đề một chút nhé...)\\n- Thân mật: それはそうと / 話は変わるけど (Nhắc mới nhớ... / Đổi chủ đề xíu nè...)\n\n5. Kết thúc câu chuyện\\n- Lịch sự: それでは、このへんで... (Vậy thì, xin phép dừng ở đây...)\\n- Thân mật: じゃ、このへんで... (Vậy nha, đến đây thôi...)",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka13.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "[鈴木](すずき)さん、_[今](いま)[忙](いそが)しい_？",
+          "vi": "Anh Suzuki, bây giờ có bận gì không?",
+          "startTime": 0,
+          "endTime": 4
+        },
+        {
+          "speaker": "B",
+          "ja": "いや、[別](べつ)に。",
+          "vi": "Không, đặc biệt thì không.",
+          "startTime": 4,
+          "endTime": 5.3
+        },
+        {
+          "speaker": "A",
+          "ja": "_[今](いま)ちょっといい_？[実](じつ)はね、こんど[近](ちか)くの[神社](じんじゃ)でお[祭](まつ)りがあるんだけど…。",
+          "vi": "Bây giờ (nói chuyện) một chút được chứ? Thật ra, lần này ở ngôi đền gần đây có lễ hội.",
+          "startTime": 5.3,
+          "endTime": 10.47
+        },
+        {
+          "speaker": "B",
+          "ja": "いつ？",
+          "vi": "Khi nào?",
+          "startTime": 10.47,
+          "endTime": 11.41
+        },
+        {
+          "speaker": "A",
+          "ja": "[今度](こんど)の[日曜日](にちようび)。それで、ちょっとお[願](ねが)いがあるの。",
+          "vi": "Chủ nhật này. Vì vậy, tôi muốn nhờ anh một chút.",
+          "startTime": 11.41,
+          "endTime": 15.18
+        },
+        {
+          "speaker": "B",
+          "ja": "[何](なに)かな。",
+          "vi": "Chuyện gì vậy?",
+          "startTime": 15.18,
+          "endTime": 16.1
+        },
+        {
+          "speaker": "A",
+          "ja": "お[祭](まつ)りの[時](とき)にね、[飲](の)み[物](もの)を[売](う)るつもりなんで、[手伝](てつだ)ってほしいの。",
+          "vi": "Vào ngày lễ hội, tôi định bán nước uống, nên muốn nhờ anh giúp cho.",
+          "startTime": 16.1,
+          "endTime": 20.55
+        },
+        {
+          "speaker": "B",
+          "ja": "え？[一日中](いちにちじゅう)？",
+          "vi": "Hả? Suốt cả ngày à?",
+          "startTime": 20.55,
+          "endTime": 22.49
+        },
+        {
+          "speaker": "A",
+          "ja": "ううん。[朝一番](あさいちばん)に[車](くるま)で[飲](の)み[物](もの)を[運](はこ)んでくれるだけでいいんだけど。",
+          "vi": "Không đâu. Buổi sáng sớm, chỉ cần anh lấy xe chở nước uống cho tôi là được rồi.",
+          "startTime": 22.49,
+          "endTime": 27.21
+        },
+        {
+          "speaker": "B",
+          "ja": "それぐらいならできるよ。ぼくにまかせといて。",
+          "vi": "Nếu vậy thì được. Chuyện đó cứ giao cho tôi.",
+          "startTime": 27.21,
+          "endTime": 29.86
+        },
+        {
+          "speaker": "A",
+          "ja": "じゃ、[朝](あさ)8[時半](じはん)に[迎](むか)えに[行](い)くわ。",
+          "vi": "Vậy, 8 giờ rưỡi sáng tôi đến đón anh nhé.",
+          "startTime": 29.86,
+          "endTime": 32.52
+        },
+        {
+          "speaker": "B",
+          "ja": "よし。わかったよ。",
+          "vi": "Được. Tôi biết rồi.",
+          "startTime": 32.52,
+          "endTime": 33.57
+        },
+        {
+          "speaker": "A",
+          "ja": "_じゃ、そういうことでね_。",
+          "vi": "Vậy, cứ như thế nhé.",
+          "startTime": 33.57,
+          "endTime": 35.07
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "どうぞ。",
+          "vi": "Mời vào.",
+          "startTime": 35.07,
+          "endTime": 39.33
+        },
+        {
+          "speaker": "B",
+          "ja": "[先生](せんせい)、_[今](いま)よろしいですか_。",
+          "vi": "Thưa thầy, bây giờ có được không ạ?",
+          "startTime": 39.33,
+          "endTime": 42.74
+        },
+        {
+          "speaker": "A",
+          "ja": "こちらへ[入](はい)って。ちょうど[一休](ひとやす)みしようと[思](おも)っていたところだし…。",
+          "vi": "Em vào đây. Tôi cũng đang định nghỉ một chút.",
+          "startTime": 42.74,
+          "endTime": 46.56
+        },
+        {
+          "speaker": "B",
+          "ja": "_[実](じつ)は_、ぼくベトナムに[行](い)くことになったんです。",
+          "vi": "Thật ra, em đã có quyết định đi Việt Nam.",
+          "startTime": 46.56,
+          "endTime": 49.79
+        },
+        {
+          "speaker": "A",
+          "ja": "[就職](しゅうしょく)が[決](き)まったのかい？",
+          "vi": "Có quyết định đi làm rồi à?",
+          "startTime": 49.79,
+          "endTime": 51.2
+        },
+        {
+          "speaker": "B",
+          "ja": "ええ、ホーチミンの[日本語学校](にほんごがっこう)へ[行](い)くことになりまして…。",
+          "vi": "Dạ, em được quyết định đến một trường dạy tiếng Nhật ở thành phố Hồ Chí Minh.",
+          "startTime": 51.2,
+          "endTime": 54.65
+        },
+        {
+          "speaker": "A",
+          "ja": "それはよかったじゃないか。おめでとう。[何年間](なんねんかん)の[予定](よてい)だね？",
+          "vi": "Vậy là tốt quá rồi. Chúc mừng em. Em dự định đi mấy năm?",
+          "startTime": 54.65,
+          "endTime": 58.47
+        },
+        {
+          "speaker": "B",
+          "ja": "[一応](いちおう)、1[年間](ねんかん)ということになっていますが、ぼくとしては3[年間](ねんかん)ぐらい[行](い)きたいと[思](おも)っているんです。",
+          "vi": "Tạm thời được quyết định nói là một năm, nhưng bản thân em thì muốn đi khoảng 3 năm.",
+          "startTime": 58.47,
+          "endTime": 64.59
+        },
+        {
+          "speaker": "A",
+          "ja": "[君](きみ)ならきっといい[仕事](しごと)がやれると[思](おも)うよ。",
+          "vi": "Nếu là em, thầy nghĩ nhất định em sẽ làm tốt được công việc.",
+          "startTime": 64.59,
+          "endTime": 67.27
+        },
+        {
+          "speaker": "B",
+          "ja": "_[話](はなし)は[変](か)わりますが_、[先生](せんせい)は[中村](なかむら)さんをご[存](ぞん)じですよね。[彼女](かのじょ)は[看護婦](かんごふ)としてインドネシアへ[行](い)くそうですよ。",
+          "vi": "À, tiện đây em xin báo cho thầy một tin. Thầy biết Nakamura chứ ạ. Nghe nói cô ấy cũng đi Indonesia làm y tá.",
+          "startTime": 67.27,
+          "endTime": 75.41
+        },
+        {
+          "speaker": "A",
+          "ja": "そうか。みんなががんばってるなあ。わたしも[鼻](はな)が[高](たか)いよ。",
+          "vi": "Thế à. Các em đều cố gắng hết nhỉ. thầy cũng hãnh diện lắm.",
+          "startTime": 75.41,
+          "endTime": 80.49
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "14",
+  "title": "MỞ LỜI CÂU CHUYỆN",
+  "translation": "",
+  "explanation": "Khi nói mở đầu cho một câu chuyện, người ta thường dùng hình thức:\\n「〜けど…」「〜が…」「〜まして…」.\\nNgười ta không nói hết đến câu sau cùng mà bỏ lửng để chờ đợi phản ứng của đối phương.\\nSau khi thấy phản ứng của đối phương thì người ta mới tiếp tục câu chuyện.",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka14.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "おじゃまします。",
+          "vi": "Xin lỗi đã làm phiền chị.",
+          "startTime": 0.05,
+          "endTime": 2.8
+        },
+        {
+          "speaker": "B",
+          "ja": "どうぞこちらに。",
+          "vi": "Mời anh vào đây.",
+          "startTime": 2.8,
+          "endTime": 4.52
+        },
+        {
+          "speaker": "A",
+          "ja": "ありがとうございます。で、さっそく_ですが_…",
+          "vi": "Cám ơn chị. Như vầy, thật là đường đột.",
+          "startTime": 4.52,
+          "endTime": 8.03
+        },
+        {
+          "speaker": "B",
+          "ja": "はい、[何](なん)でしょうか。",
+          "vi": "Vâng, có chuyện gì vậy?",
+          "startTime": 8.03,
+          "endTime": 10.19
+        },
+        {
+          "speaker": "A",
+          "ja": "[実](じつ)はお[願](ねが)いが_ありまして_ね。",
+          "vi": "Thật ra tôi có chuyện muốn nhờ chị giúp cho.",
+          "startTime": 10.19,
+          "endTime": 12.57
+        },
+        {
+          "speaker": "B",
+          "ja": "どうぞごえんりょなく。",
+          "vi": "Đừng ngại, xin anh cứ nói.",
+          "startTime": 12.57,
+          "endTime": 14.67
+        },
+        {
+          "speaker": "A",
+          "ja": "あの、[実](じつ)はわたしの[娘](むすめ)が[大学生](だいがくせい)に_なりまして_…",
+          "vi": "À, thật ra là chuyện con gái tôi đã thi đậu đại học.",
+          "startTime": 14.67,
+          "endTime": 18.6
+        },
+        {
+          "speaker": "B",
+          "ja": "それはよかったですね。",
+          "vi": "Vậy thì tốt quá.",
+          "startTime": 18.6,
+          "endTime": 20.85
+        },
+        {
+          "speaker": "A",
+          "ja": "ところが、[大学](だいがく)が[遠](とお)いのでアパートをさがしているんですが、なかなか_[見](み)つからなくて_…",
+          "vi": "Vì trường đại học xa quá nên tôi đang tìm một căn hộ cho thuê, nhưng vẫn chưa tìm được.",
+          "startTime": 20.85,
+          "endTime": 26.77
+        },
+        {
+          "speaker": "B",
+          "ja": "そうですか。",
+          "vi": "Thế à.",
+          "startTime": 26.77,
+          "endTime": 28.26
+        },
+        {
+          "speaker": "A",
+          "ja": "それで、お[宅](たく)にしばらく[娘](むすめ)を[泊](と)めていただけないかと_[思](おも)いまして_…",
+          "vi": "Vì vậy, tôi muốn xin chị cho cháu ở nhờ một thời gian được không?",
+          "startTime": 28.26,
+          "endTime": 33.11
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "ちょっとすみません。お[聞](き)きしたい_んですが_…",
+          "vi": "Xin lỗi, tôi muốn hỏi thăm một chút.",
+          "startTime": 33.11,
+          "endTime": 37.97
+        },
+        {
+          "speaker": "B",
+          "ja": "はい、どのようなご[用件](ようけん)でしょうか。",
+          "vi": "Vâng, chị muốn hỏi việc gì ạ?",
+          "startTime": 37.97,
+          "endTime": 40.56
+        },
+        {
+          "speaker": "A",
+          "ja": "パソコンの[講習会](こうしゅうかい)に[申](もう)し[込](こ)みたいと[思](おも)っている_んですけど_…",
+          "vi": "Tôi muốn đăng ký vào lớp học hướng dẫn về máy vi tính.",
+          "startTime": 40.56,
+          "endTime": 43.97
+        },
+        {
+          "speaker": "B",
+          "ja": "いろいろなコースがございますが…。お[宅](たく)のパソコンはどんな[機種](きしゅ)でしょうか。",
+          "vi": "Có rất nhiều lớp. Nhưng máy vi tính nhà chị là loại máy nào?",
+          "startTime": 43.97,
+          "endTime": 48.68
+        },
+        {
+          "speaker": "A",
+          "ja": "[実](じつ)はまだパソコンは[買](か)っていないんです。これから[買](か)うんですけど、その[前](まえ)にどんなものか[知](し)りたいと[思](おも)ったも_んですから_…",
+          "vi": "Thật ra, tôi vẫn chưa mua máy vi tính. Bây giờ tôi sẽ mua, nhưng trước khi mua tôi muốn biết một chút gì đó về máy vi tính.",
+          "startTime": 48.68,
+          "endTime": 56.33
+        },
+        {
+          "speaker": "B",
+          "ja": "では、[初心者用](しょしんしゃよう)コースはいかがでしょう。[土曜日](どようび)と[日曜日](にちようび)の[二日間](ふつかかん)のコースです。",
+          "vi": "Vậy thì, chị học lớp dành cho người mới học nhé. Khóa học 2 ngày, thứ bảy và chủ nhật.",
+          "startTime": 56.33,
+          "endTime": 62.3
+        },
+        {
+          "speaker": "A",
+          "ja": "[料金](りょうきん)はいくらぐらいかしら。",
+          "vi": "Học phí khoảng bao nhiêu?",
+          "startTime": 62.3,
+          "endTime": 64.56
+        },
+        {
+          "speaker": "B",
+          "ja": "1[日](にち)1[万円](まんえん)で、あとテキスト[代](だい)が3[千円](ぜんえん)ですが…",
+          "vi": "1 ngày là 10 ngàn yên, còn tiền giáo trình là 3 ngàn yên.",
+          "startTime": 64.56,
+          "endTime": 69.32
+        },
+        {
+          "speaker": "A",
+          "ja": "あ、そうですか。ちょっと、[考](かんが)えさせてください。",
+          "vi": "Thế à, cho tôi suy nghĩ một chút.",
+          "startTime": 69.32,
+          "endTime": 73.46
+        },
+        {
+          "speaker": "B",
+          "ja": "それから、[入門者](にゅうもんしゃ)のための[無料](むりょう)コースもございますよ。[土曜日](どようび)の[午後](ごご)1[時](じ)から3[時半](じはん)までなんですけど…",
+          "vi": "Ngoài ra, cũng có lớp học miễn phí dành cho người mới học. Chiều thứ bảy từ 1 giờ đến 3 giờ rưỡi.",
+          "startTime": 73.46,
+          "endTime": 80.45
+        },
+        {
+          "speaker": "A",
+          "ja": "それがいいわね。じゃ、とりあえずそれを[申](もう)し[込](こ)むことにするわ。",
+          "vi": "Vậy thì tốt quá. Tạm thời tôi xin đăng ký vào lớp đó.",
+          "startTime": 80.45,
+          "endTime": 85.54
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "15",
+  "title": "TRẢ LỜI",
+  "translation": "",
+  "explanation": "Khi đáp lại những câu hỏi của người khác một cách lịch sự, người ta thường dùng hình thức bỏ lửng câu với 「〜けど…」 hoặc 「〜が…」.\\nHình thức này không chỉ dùng để trả lời câu hỏi của đối phương mà còn bày tỏ hàm ý sẵn sàng giúp đỡ, tạo cảm giác thân thiện và nhiệt tình hơn.",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka15.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "いらっしゃいませ。どちらをご[希望](きぼう)ですか。",
+          "vi": "Xin chào quí khách, ông muốn đi đâu?",
+          "startTime": 0,
+          "endTime": 4.62
+        },
+        {
+          "speaker": "B",
+          "ja": "マレーシアあたりの[小](ちい)さな[島](しま)でのんびりしたいと[思](おも)ってるんだけど…",
+          "vi": "Tôi muốn nghỉ ngơi thoải mái ở một đảo nhỏ ở Mã Lai.",
+          "startTime": 4.62,
+          "endTime": 8.93
+        },
+        {
+          "speaker": "A",
+          "ja": "じゃ、ランカウイ[島](とう)なんかいかがでしょうか。",
+          "vi": "Vậy thì, ở đảo Lankawi có được không?",
+          "startTime": 8.93,
+          "endTime": 11.65
+        },
+        {
+          "speaker": "B",
+          "ja": "[直行便](ちょっこうびん)があるの？",
+          "vi": "Có chuyến bay trực tiếp đến đó không?",
+          "startTime": 11.65,
+          "endTime": 13.1
+        },
+        {
+          "speaker": "A",
+          "ja": "[週](しゅう)に1[便](びん)だけ[飛](と)んでおります_が_…",
+          "vi": "Mỗi tuần chỉ có một chuyến bay.",
+          "startTime": 13.1,
+          "endTime": 15.92
+        },
+        {
+          "speaker": "B",
+          "ja": "[週](しゅう)に1[便](びん)というと？",
+          "vi": "Mỗi tuần có một chuyến bay là thế nào?",
+          "startTime": 15.92,
+          "endTime": 17.75
+        },
+        {
+          "speaker": "A",
+          "ja": "[毎週](まいしゅう)[水曜](すいよう)の[飛行機](ひこうき)はまっすぐランカウイ[島](とう)へまいります。",
+          "vi": "Thứ tư hàng tuần máy bay sẽ bay thẳng đến đảo Lankawi.",
+          "startTime": 17.75,
+          "endTime": 22
+        },
+        {
+          "speaker": "B",
+          "ja": "じゃ、[行](い)きも[帰](かえ)りもそれを[利用](りよう)できるわけ？",
+          "vi": "Vậy, nghĩa là đi và về đều bay bằng chuyến bay ấy?",
+          "startTime": 22,
+          "endTime": 25.22
+        },
+        {
+          "speaker": "A",
+          "ja": "あいにく、お[帰](かえ)りは[乗](の)りかえていただくことになります_が_…",
+          "vi": "Rất tiếc, chuyến về quí khách phải bay quá cảnh.",
+          "startTime": 25.22,
+          "endTime": 28.63
+        },
+        {
+          "speaker": "B",
+          "ja": "そうか、しかたないなあ。",
+          "vi": "Thế à, đành phải chịu thôi.",
+          "startTime": 28.63,
+          "endTime": 31.01
+        },
+        {
+          "speaker": "A",
+          "ja": "では、[水曜](すいよう)[出発](しゅっぱつ)「4泊5日ランカウイ[島](とう)の[旅](たび)」でよろしいですね。",
+          "vi": "Vậy là, sẽ khởi hành vào ngày thứ tư, chuyến du lịch ra đảo Lankawi 5 ngày 4 đêm, đúng không ạ?",
+          "startTime": 31.01,
+          "endTime": 36.59
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "もしもし、[宿泊](しゅくはく)の[係](かかり)の[方](かた)、お[願](ねが)いします。",
+          "vi": "A lô! A lô! Làm ơn cho tôi gặp người phụ trách đặt phòng.",
+          "startTime": 36.59,
+          "endTime": 41.34
+        },
+        {
+          "speaker": "B",
+          "ja": "はい、[私](わたくし)でございます_が_…",
+          "vi": "Vâng, là tôi đây.",
+          "startTime": 41.34,
+          "endTime": 43
+        },
+        {
+          "speaker": "A",
+          "ja": "あのー、[来週](らいしゅう)の[土曜日](どようび)にそちらで1泊したいんですが…",
+          "vi": "Dạ, tôi muốn trọ một đêm ở đó vào ngày thứ bảy tuần sau.",
+          "startTime": 43,
+          "endTime": 47.52
+        },
+        {
+          "speaker": "B",
+          "ja": "[何名様](なんめいさま)でしょうか。",
+          "vi": "Quí khách trọ mấy người?",
+          "startTime": 47.52,
+          "endTime": 48.81
+        },
+        {
+          "speaker": "A",
+          "ja": "3[名](めい)です。[主人](しゅじん)とわたしと[子供](こども)です。",
+          "vi": "3 người. Chồng tôi, tôi và 1 đứa con.",
+          "startTime": 48.81,
+          "endTime": 52.45
+        },
+        {
+          "speaker": "B",
+          "ja": "大人2名様、子供1名様ですね。[少々](しょうしょう)お[待](ま)ちくださいませ。",
+          "vi": "2 người lớn 1 trẻ em phải không? Xin quí khách chờ một chút.",
+          "startTime": 52.45,
+          "endTime": 57.03
+        },
+        {
+          "speaker": "B",
+          "ja": "お[待](ま)たせいたしました。[申](もう)しわけございませんが、その[日](ひ)は[予約](よやく)がいっぱいになっておりまして…。もしよろしかったら、キャンセル[待](ま)ちをうかがっておきます_が_…",
+          "vi": "Xin lỗi đã để quí khách phải chờ. Thật xin lỗi quí khách, ngày hôm đó đã có người đặt trước hết rồi. Nhưng nếu được, xin quí khách chờ có người hủy bỏ.",
+          "startTime": 57.03,
+          "endTime": 68.26
+        },
+        {
+          "speaker": "A",
+          "ja": "じゃ、そうしていただこうかしら。",
+          "vi": "Như vậy cũng được.",
+          "startTime": 68.26,
+          "endTime": 70.7
+        },
+        {
+          "speaker": "B",
+          "ja": "では、お[名前](なまえ)とお[電話番号](でんわばんごう)をお[願](ねが)いいたします。",
+          "vi": "Vậy thì, xin quí khách cho biết tên và số điện thoại.",
+          "startTime": 70.7,
+          "endTime": 73.79
+        }
+      ]
+    }
+  ]
+},
+ {
+  "id": "16",
+  "title": "QUAN SÁT VÀ PHẢN ỨNG",
+  "translation": "",
+  "explanation": "Người ta thường thêm những trợ từ như 「ね」 vào sau một cụm từ để vừa xem xét phản ứng của đối phương vừa triển khai cuộc hội thoại. Những từ này cũng góp phần tạo nên ngữ điệu tự nhiên trong tiếng Nhật.\\nTuy nhiên, nếu lạm dụng quá nhiều sẽ tạo ấn tượng không hay nên cần chú ý. Khi nói chuyện với cấp trên hoặc người không quen thân lắm, ta nên dùng hình thức lịch sự như 「〜でしたね」 hoặc 「〜ましてね」。\n\nChú ý:\\n- Trợ từ 「ね」: Cả nam và nữ đều dùng được.\\n- Trợ từ 「な」: Chủ yếu nam giới dùng.\\n- Trợ từ 「さ」: Cả nam và nữ đều dùng được nhưng không phổ biến trên toàn quốc.",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka16.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "[今日](きょう)からお[母](かあ)さんは[旅行](りょこう)に[行](い)くから_ね_、お[留守番](るすばん)、お[願](ねが)いね。",
+          "vi": "Từ hôm nay mẹ sẽ đi du lịch, nên việc trông coi nhà cửa, mẹ nhờ con nhé.",
+          "startTime": 0,
+          "endTime": 6.02
+        },
+        {
+          "speaker": "B",
+          "ja": "だいじょうぶだよ。[心配](しんぱい)いらないよ。",
+          "vi": "Không sao đâu. Mẹ đừng lo.",
+          "startTime": 6.02,
+          "endTime": 9.21
+        },
+        {
+          "speaker": "A",
+          "ja": "ワンちゃんのお[世話](せわ)も[忘](わす)れないでね。",
+          "vi": "Con đừng quên chăm sóc con wan nhé.",
+          "startTime": 9.21,
+          "endTime": 11.57
+        },
+        {
+          "speaker": "B",
+          "ja": "えさをやればいいんだろ。",
+          "vi": "Cho nó ăn là được chứ gì.",
+          "startTime": 11.57,
+          "endTime": 13.48
+        },
+        {
+          "speaker": "A",
+          "ja": "えさは[冷蔵庫](れいぞうこ)の[二段目](にだんめ)に[入](い)れてあるから_ね_、朝と[晩](ばん)の2回に[分](わ)けてね、ちゃんとやるのよ。",
+          "vi": "Thức ăn cho nó, mẹ để ở ngăn thứ 2 trong tủ lạnh, con chia ra làm 2 phần sáng tối, rồi cho nó ăn đàng hoàng nhé.",
+          "startTime": 13.48,
+          "endTime": 19.83
+        },
+        {
+          "speaker": "A",
+          "ja": "それから_ね_、[散歩](さんぽ)にも連れて行ってやりなさい。それから、みんなの[今晩](こんばん)のごはんは_ね_、冷蔵庫の一番上に[肉](にく)が[入](はい)っているし、それに…",
+          "vi": "Còn nữa, khi con đi dạo cũng dắt nó theo nhé. Còn bữa ăn tối của mọi người, có thịt để ở ngăn trên cùng trong tủ lạnh.",
+          "startTime": 19.83,
+          "endTime": 27.86
+        },
+        {
+          "speaker": "B",
+          "ja": "いいからいいから。[早](はや)く[行](い)ってらっしゃい。",
+          "vi": "Được rồi, được rồi. Mẹ đi nhanh đi.",
+          "startTime": 27.86,
+          "endTime": 31.01
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "すみません。来週の水曜日に学生のミーティングをしたいと[思](おも)っておりまして...、それでどこか[部屋](へや)をお[借](か)りしたいんですが...",
+          "vi": "Xin lỗi, thứ tư tuần sau chúng em định tổ chức cuộc họp học sinh. Vì vậy chúng em muốn mượn một phòng nào đó.",
+          "startTime": 31.01,
+          "endTime": 40.86
+        },
+        {
+          "speaker": "B",
+          "ja": "じゃ、[第](だい)7[会議室](かいぎしつ)を使ってください。",
+          "vi": "Vậy thì, hãy sử dụng phòng họp số 7.",
+          "startTime": 40.86,
+          "endTime": 43.78
+        },
+        {
+          "speaker": "A",
+          "ja": "その[部屋](へや)にはかぎがかかっているんですか。",
+          "vi": "Phòng đó có khóa không?",
+          "startTime": 43.78,
+          "endTime": 46.22
+        },
+        {
+          "speaker": "B",
+          "ja": "ええ、かかっていますよ。でも、そのかぎはね、ここにはないんですよ。",
+          "vi": "Ừ, có khóa đấy. Nhưng mà, chìa khóa không có ở đây.",
+          "startTime": 46.22,
+          "endTime": 50.85
+        },
+        {
+          "speaker": "B",
+          "ja": "だから[当日](とうじつ)に_ね_、1[階](かい)の[受付](うけつけ)へ行って_ね_、かぎを[貸](か)してもらってください。ミーティングは何時までですか。",
+          "vi": "Vì vậy, ngày hôm ấy, em hãy đến quầy tiếp tân ở tầng 1 mượn chìa khóa nhé. Buổi họp đến mấy giờ vậy?",
+          "startTime": 50.85,
+          "endTime": 57.92
+        },
+        {
+          "speaker": "A",
+          "ja": "4時半までの[予定](よてい)なんですが...",
+          "vi": "Dự định đến 4 giờ rưỡi.",
+          "startTime": 57.92,
+          "endTime": 60.21
+        },
+        {
+          "speaker": "B",
+          "ja": "じゃ、4時半に[終](お)わったら_ね_、また[部屋](へや)にかぎをかけて_ね_、そのかぎを受付に[返](かえ)してください。",
+          "vi": "Vậy thì, 4 giờ rưỡi nếu xong rồi, em hãy khóa cửa phòng lại nhé, rồi mang chìa khóa trả lại cho quầy tiếp tân.",
+          "startTime": 60.21,
+          "endTime": 66.2
+        },
+        {
+          "speaker": "B",
+          "ja": "受付は5時になったら、[閉](し)まってしまいますから_ね_、[必](かなら)ずその[前](まえ)に[返](かえ)すようにしてくださいよ。",
+          "vi": "Ở quầy tiếp tân đến 5 giờ là đóng cửa nên nhất định em phải trả trước giờ đó nhé.",
+          "startTime": 66.2,
+          "endTime": 71.49
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "17",
+  "title": "NGÔN TỪ HƯỞNG ỨNG",
+  "translation": "",
+  "explanation": "Trong bất kỳ cuộc đàm thoại nào cũng không thể thiếu ngôn từ hưởng ứng (あいづち) từ phía người nghe. Những từ này dùng để thể hiện rằng \"Tôi đang nghe bạn nói và tôi hiểu rõ\". Dĩ nhiên ngoài lời nói, những động tác như gật đầu đồng ý hay thay đổi nét mặt cũng rất cần thiết.\\nDưới đây là một số từ hưởng ứng thường gặp:\n\n1. Trong đàm thoại lịch sự:\\nそうですね (Đúng vậy nhỉ)\\nそうですか / そうなんですか (Vậy à? / Vậy sao?)\\nその通りですね (Đúng là như vậy)\\nほんとうですか (Thật vậy ạ?)\n\n2. Trong đàm thoại thân mật:\\nそうだね (Nam) / そうね (Nữ) (Đúng vậy nhỉ)\\nそうか / そうなの (Vậy à? / Vậy sao?)\\nその通り (Chuẩn luôn / Đúng thế)\\nほんと？ / へえ (Thật á? / Ồ)",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka17.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "あの…",
+          "vi": "Dạ thưa thầy.",
+          "startTime": 0,
+          "endTime": 2.29
+        },
+        {
+          "speaker": "B",
+          "ja": "_はい_？",
+          "vi": "Gì thế?",
+          "startTime": 2.29,
+          "endTime": 3.59
+        },
+        {
+          "speaker": "A",
+          "ja": "[来週](らいしゅう)の[試験](しけん)のことなんですけど…",
+          "vi": "Chuyện bài thi tuần sau.",
+          "startTime": 3.59,
+          "endTime": 6
+        },
+        {
+          "speaker": "B",
+          "ja": "_うん_。",
+          "vi": "Ừ.",
+          "startTime": 6,
+          "endTime": 7.11
+        },
+        {
+          "speaker": "A",
+          "ja": "アルバイトがありまして…",
+          "vi": "Vì em phải đi làm thêm.",
+          "startTime": 7.11,
+          "endTime": 9.07
+        },
+        {
+          "speaker": "B",
+          "ja": "_そう_。",
+          "vi": "Thế à.",
+          "startTime": 9.07,
+          "endTime": 10.43
+        },
+        {
+          "speaker": "A",
+          "ja": "[試験](しけん)を[受](う)けられないもんで…",
+          "vi": "Chắc em không thể thi được.",
+          "startTime": 10.43,
+          "endTime": 12.76
+        },
+        {
+          "speaker": "B",
+          "ja": "_それで_？",
+          "vi": "Rồi sao?",
+          "startTime": 12.76,
+          "endTime": 14.3
+        },
+        {
+          "speaker": "A",
+          "ja": "[追試](ついし)をお[願](ねが)いできないかと[思](おも)いまして…",
+          "vi": "Em muốn xin thầy cho em thi lại được không?",
+          "startTime": 14.3,
+          "endTime": 16.7
+        },
+        {
+          "speaker": "B",
+          "ja": "[君](きみ)、[大学](だいがく)の[勉強](べんきょう)とアルバイトと、どちらの[方](ほう)が[大切](たいせつ)だと[思](おも)ってるんだね？",
+          "vi": "Này em, chuyện học đại học và chuyện đi làm thêm, em nghĩ chuyện nào quan trọng hơn.",
+          "startTime": 16.7,
+          "endTime": 22.68
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "どうしました？",
+          "vi": "Chị bị sao?",
+          "startTime": 22.68,
+          "endTime": 25.51
+        },
+        {
+          "speaker": "B",
+          "ja": "どうもこのごろ[調子](ちょうし)が[悪](わる)くって、[頭](あたま)がふらふらするんです。",
+          "vi": "Thời gian gần đây tình trạng sức khỏe tôi không tốt. Đầu óc cứ xây xẩm choáng váng.",
+          "startTime": 25.51,
+          "endTime": 30.18
+        },
+        {
+          "speaker": "A",
+          "ja": "_それはいけませんね_。",
+          "vi": "Vậy thì không được rồi.",
+          "startTime": 30.18,
+          "endTime": 31.81
+        },
+        {
+          "speaker": "B",
+          "ja": "[心臓](しんぞう)がどきどきして[死](し)ぬんじゃないかって[思](おも)ったりして…",
+          "vi": "Tim cứ đập thình thịch, có khi tôi tưởng mình sắp chết.",
+          "startTime": 31.81,
+          "endTime": 35.17
+        },
+        {
+          "speaker": "A",
+          "ja": "_そうですか_。",
+          "vi": "Thế à.",
+          "startTime": 35.17,
+          "endTime": 36.4
+        },
+        {
+          "speaker": "B",
+          "ja": "そう[思](おも)うとこわくてますます[胸](むね)が[苦](くる)しくなって…",
+          "vi": "Cứ nghĩ như vậy là tôi thấy sợ, rồi càng lúc tôi càng tức ngực hơn.",
+          "startTime": 36.4,
+          "endTime": 40.04
+        },
+        {
+          "speaker": "A",
+          "ja": "_なるほど_。",
+          "vi": "Thật thế à.",
+          "startTime": 40.04,
+          "endTime": 41.18
+        },
+        {
+          "speaker": "B",
+          "ja": "[昼間](ひるま)はまだいいんですけど、[夜](よる)になると…",
+          "vi": "Ban ngày thì còn đỡ, nhưng tối đến thì ...",
+          "startTime": 41.18,
+          "endTime": 44.59
+        },
+        {
+          "speaker": "A",
+          "ja": "もっと[不安](ふあん)になるってわけですか。ところで、[内科](ないか)のお[医者](いしゃ)さんには、みてもらったんですか。",
+          "vi": "Trở nên bất an hơn phải không? À này, chị đã đi khám bác sĩ nội khoa chưa?",
+          "startTime": 44.59,
+          "endTime": 50.39
+        },
+        {
+          "speaker": "B",
+          "ja": "それがどこも[悪](わる)くないって…。あたし、どうしたらいいんでしょう。",
+          "vi": "Họ nói tôi không bị đau chỗ nào cả. Tôi phải làm sao đây?",
+          "startTime": 50.39,
+          "endTime": 56.4
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "18",
+  "title": "XÁC NHẬN",
+  "translation": "",
+  "explanation": "Thông thường khi muốn xác nhận lại thông tin, ví dụ như đọc lại số điện thoại vừa ghi chép để kiểm tra xem có chính xác không, người ta thường dùng hình thức 「〜ですね」.\\nTrợ từ 「ね」 được đặt ở cuối câu nhằm mục đích xác nhận lại một lần nữa những điều mà cả người nói và người nghe đều đã biết.\n\n* Chú ý:\\n- Trợ từ 「ね」: Cả nam và nữ đều sử dụng được.\\n- Trợ từ 「な」: Chủ yếu do nam giới sử dụng. Tuy nhiên, đôi khi phái nữ cũng dùng từ này khi lẩm bẩm nói chuyện một mình.",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka18.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "いらっしゃいませ。",
+          "vi": "Xin chào quí khách.",
+          "startTime": 0,
+          "endTime": 2.94
+        },
+        {
+          "speaker": "B",
+          "ja": "すみません。この[写真](しゃしん)、[焼](や)き[増](ま)しお[願](ねが)いします。これ3[枚](まい)とこれ3枚。",
+          "vi": "Xin lỗi. Làm ơn rửa thêm dùm tôi mấy tấm hình này. Cái này 3 tấm và cái này 3 tấm.",
+          "startTime": 2.94,
+          "endTime": 8.77
+        },
+        {
+          "speaker": "A",
+          "ja": "ありがとうございます。このフィルムの12[番](ばん)と15番、それぞれ3枚ずつ_ですね_。",
+          "vi": "Cám ơn quí khách. Rửa phim số 12 và số 15, mỗi thứ 3 tấm phải không?",
+          "startTime": 8.77,
+          "endTime": 14.84
+        },
+        {
+          "speaker": "B",
+          "ja": "ええ、そうです。",
+          "vi": "Vâng, đúng rồi.",
+          "startTime": 14.84,
+          "endTime": 16.01
+        },
+        {
+          "speaker": "A",
+          "ja": "MサイズとLサイズがございますが…",
+          "vi": "Chúng tôi có khổ M và L.",
+          "startTime": 16.01,
+          "endTime": 18.34
+        },
+        {
+          "speaker": "B",
+          "ja": "[値段](ねだん)は[同](おな)じですか。",
+          "vi": "Giá cả như nhau chứ?",
+          "startTime": 18.34,
+          "endTime": 19.94
+        },
+        {
+          "speaker": "A",
+          "ja": "[普通](ふつう)はLサイズの[方](ほう)がお[高](たか)いんですが、[今](いま)、[特別](とくべつ)セールをやっておりまして、そちらの[方](ほう)がお[安](やす)くなっています。20[円](えん)です。",
+          "vi": "Thông thường khổ L đắt hơn, nhưng hiện giờ đang có khuyến mãi đặc biệt, nên nó rất rẻ. Chỉ có 20 yên thôi.",
+          "startTime": 19.94,
+          "endTime": 27.86
+        },
+        {
+          "speaker": "B",
+          "ja": "それじゃ、Lサイズでお[願](ねが)いします。いつできあがりますか。",
+          "vi": "Vậy thì, làm ơn rửa cho tôi khổ L. Khi nào thì xong vậy?",
+          "startTime": 27.86,
+          "endTime": 31.83
+        },
+        {
+          "speaker": "A",
+          "ja": "あさっての5[時](じ)です。",
+          "vi": "5 giờ ngày mốt.",
+          "startTime": 31.83,
+          "endTime": 33.66
+        },
+        {
+          "speaker": "B",
+          "ja": "10日の5[時](じ)_ですね_。お[店](みせ)は[何時](なんじ)までですか。",
+          "vi": "5 giờ ngày 10 phải không? Cửa tiệm mở cửa đến mấy giờ?",
+          "startTime": 33.66,
+          "endTime": 37.21
+        },
+        {
+          "speaker": "A",
+          "ja": "7[時](じ)までやっております。",
+          "vi": "Chúng tôi làm đến 7 giờ.",
+          "startTime": 37.21,
+          "endTime": 38.95
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "すみません。NHK[料金](りょうきん)を[払](はら)い[込](こ)みたいんですけど…",
+          "vi": "Xin lỗi. Tôi muốn gởi trả tiền chuyển khoản cho đài NHK.",
+          "startTime": 38.95,
+          "endTime": 44.3
+        },
+        {
+          "speaker": "B",
+          "ja": "キャッシュカードをお[持](も)ちですか。",
+          "vi": "Ông có mang theo thẻ tín dụng không?",
+          "startTime": 44.3,
+          "endTime": 47
+        },
+        {
+          "speaker": "A",
+          "ja": "ええ。",
+          "vi": "Có.",
+          "startTime": 47,
+          "endTime": 47.75
+        },
+        {
+          "speaker": "B",
+          "ja": "それなら、この[機械](きかい)をご[利用](りよう)ください。ボタンを[押](お)してください。",
+          "vi": "Nếu vậy, xin ông sử dụng cái máy này. Ông hãy bấm nút đi.",
+          "startTime": 47.75,
+          "endTime": 50.44
+        },
+        {
+          "speaker": "A",
+          "ja": "ボタンってこれですか。2つ[目](め)のボタン_ですね_。",
+          "vi": "Nút là cái này phải không?",
+          "startTime": 50.44,
+          "endTime": 51.95
+        },
+        {
+          "speaker": "B",
+          "ja": "はい、それから、カードを[入](い)れて[相手](あいて)の[番号](ばんごう)を[押](お)してください。",
+          "vi": "Vâng, sau đó bỏ thẻ vào, bấm số của người mà mình muốn gởi.",
+          "startTime": 51.95,
+          "endTime": 55.42
+        },
+        {
+          "speaker": "A",
+          "ja": "カードを[入](い)れてから[番号](ばんごう)を[押](お)すん_ですね_。あれ？できないよ。[変](へん)だなぁ。",
+          "vi": "Sau khi bỏ thẻ vào thì bấm số phải không? Ủa? Sao không được. Kỳ quá.",
+          "startTime": 55.42,
+          "endTime": 60.05
+        },
+        {
+          "speaker": "B",
+          "ja": "お[客様](きゃくさま)、[申](もう)しわけございません。[口座](こうざ)にお[金](かね)がないようで…",
+          "vi": "Xin lỗi quí khách. Hình như tài khoản của quí khách đã hết tiền rồi.",
+          "startTime": 60.05,
+          "endTime": 66.85
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "19",
+  "title": "TRUYỀN ĐẠT CHỦ Ý",
+  "translation": "",
+  "explanation": "Khi nói những chuyện mà chỉ có bản thân mình biết (người khác không biết), hoặc muốn truyền đạt/khẳng định chủ ý của mình, ta thêm trợ từ 「よ」 vào cuối câu. Ví dụ: dùng để đính chính lại thông tin khi đối phương nói sai.\n\n<Chú ý>\\n① Trợ từ 「ぞ」 cũng được sử dụng giống như 「よ」 nhưng có khẩu khí mạnh hơn. Chủ yếu nam giới dùng để nói chuyện với bạn bè hoặc người dưới mình. Cần chú ý vì tùy thuộc vào đối tượng và tình huống mà nó có thể trở nên bất lịch sự.\\n② Phụ nữ thường có thói quen sử dụng hình thức lược bỏ 「だ」 trước các trợ từ cuối câu này.\\nVí dụ:\\n- Nam: 元気だね。(Khỏe nhỉ.) ➔ うん、元気だよ。(Ừ, khỏe chứ.)\\n- Nữ: 元気ね。(Khỏe nhỉ.) ➔ うん、元気よ。(Ừ, khỏe chứ.)",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka19.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "もしもし、ここにバイクをとめないで[下](くだ)さい。",
+          "vi": "Này này, xin đừng đậu xe máy ở đây.",
+          "startTime": 0,
+          "endTime": 4.85
+        },
+        {
+          "speaker": "B",
+          "ja": "え？とめちゃいけないの？みんなよくここにとめてるのに。",
+          "vi": "Hả? Không được đậu ở đây à? Mọi người vẫn thường đậu ở đây mà.",
+          "startTime": 4.85,
+          "endTime": 9.23
+        },
+        {
+          "speaker": "A",
+          "ja": "ここはスーパーの[駐車場](ちゅうしゃじょう)ですよ。だから、スーパーが[開](あ)いてる[時間](じかん)ならとめてもいいけど、[開](あ)いてない[時間](じかん)にとめちゃいけないんですよ。",
+          "vi": "Ở đây là bãi đậu xe của siêu thị đấy. Vì vậy, trong thời gian siêu thị mở cửa thì đậu xe ở đây cũng được, nhưng lúc chưa mở cửa thì không được đậu xe.",
+          "startTime": 9.23,
+          "endTime": 16.42
+        },
+        {
+          "speaker": "A",
+          "ja": "[買](か)い[物](もの)する[人](ひと)のための[駐車場](ちゅうしゃじょう)なんですからね。",
+          "vi": "Vì đây là bãi đậu xe dành cho khách đi mua sắm.",
+          "startTime": 16.42,
+          "endTime": 18.95
+        },
+        {
+          "speaker": "B",
+          "ja": "あっ、そうなんですか。[知](し)らなかった。ごめんなさい。ところで、スーパーの[開店時間](かいてんじかん)は[何時](なんじ)かしら。",
+          "vi": "A, thế à. Vậy mà tôi không biết. Xin lỗi nhé. Mà này, siêu thị mở cửa vào giờ nào vậy?",
+          "startTime": 18.95,
+          "endTime": 26.75
+        },
+        {
+          "speaker": "A",
+          "ja": "スーパーは10時[開店](かいてん)ですよ。まだ30分[以上](いじょう)ありますよ。[有料](ゆうりょう)駐車場なら、[駅前](えきまえ)にありますけど…",
+          "vi": "Siêu thị mở cửa vào lúc 10 giờ, còn hơn 30 phút nữa đấy. Còn bãi đậu xe có thu phí thì ở trước nhà ga.",
+          "startTime": 26.75,
+          "endTime": 33.47
+        },
+        {
+          "speaker": "B",
+          "ja": "そうね。30[分](ぷん)も[待](ま)ってられないものね。そっちを[利用](りよう)することにするわ。",
+          "vi": "Vậy hả? Chờ tới 30 phút thì không được rồi. Tới gởi xe ở đằng đó thôi.",
+          "startTime": 33.47,
+          "endTime": 39.86
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "おい、おまえビールの[飲](の)みすぎじゃないか？[顔](かお)がまっかだよ。",
+          "vi": "Này, mày uống nhiều quá rồi, mày biết không? Mặt đỏ rực lên rồi đấy.",
+          "startTime": 39.86,
+          "endTime": 45.69
+        },
+        {
+          "speaker": "B",
+          "ja": "そんなことないよ。木村も[飲](の)めよ。",
+          "vi": "Làm gì có. Kimura, mày cũng uống đi chứ.",
+          "startTime": 45.69,
+          "endTime": 48.3
+        },
+        {
+          "speaker": "A",
+          "ja": "おれは[車](くるま)で[来](き)てるから、[飲](の)めないんだ。ウーロン[茶](ちゃ)、お[代](か)わりもらうよ。",
+          "vi": "Tao còn phải lái xe nên không uống được. Tao uống trà ô long thay vậy.",
+          "startTime": 48.3,
+          "endTime": 52.06
+        },
+        {
+          "speaker": "B",
+          "ja": "おれはウィスキーにするよ。[今日](きょう)はどんどん[飲](の)むぞ。",
+          "vi": "Tao uống rượu whisky. Hôm nay uống thoải mái luôn.",
+          "startTime": 52.06,
+          "endTime": 55.43
+        },
+        {
+          "speaker": "A",
+          "ja": "さあ、もう11[時](じ)だよ。そろそろ[帰](かえ)るぞ。[送](おく)ってくよ。",
+          "vi": "Chà, đã 11 giờ rồi đấy. Về ngay thôi, tao đưa mày về.",
+          "startTime": 55.43,
+          "endTime": 63.58
+        },
+        {
+          "speaker": "B",
+          "ja": "まあまあ、そんなこと[言](い)うなよ。もう[一軒](いっけん)[行](い)こう、[行](い)こう。",
+          "vi": "Này này, mày đừng nói thế chứ. Đi thêm một quán nữa đi. Đi nào.",
+          "startTime": 63.58,
+          "endTime": 67.04
+        },
+        {
+          "speaker": "A",
+          "ja": "おれたち、[土曜日](どようび)も[仕事](しごと)があるんだからな。そんなに[飲](の)むと、[明日](あした)の[仕事](しごと)にさしつかえるぞ。",
+          "vi": "Tụi mình, ngày thứ bảy cũng phải đi làm mà. Nếu uống nhiều như thế, ngày mai không làm việc được đâu.",
+          "startTime": 67.04,
+          "endTime": 73.08
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "20",
+  "title": "CẢM ƠN, XIN LỖI",
+  "translation": "",
+  "explanation": "Khi nói lời cảm ơn hoặc xin lỗi với cấp trên hoặc người không quen thân lắm, thay vì nói trọn vẹn hết câu, ví dụ: 「お世話になりましてありがとうございました」 thì người Nhật thường dùng hình thức bỏ lửng câu ở dạng 「〜まして…」 hoặc 「〜で…」.\\nCách nói lấp lửng này thực chất lại thể hiện sự thành tâm, lòng biết ơn hay sự hối lỗi một cách sâu sắc và lịch sự hơn.\n\n1. Cách nói khi cảm ơn:\\nVí dụ: いつもお世話になりまして... (Cảm ơn vì luôn được anh/chị giúp đỡ...)\n\n2. Cách nói khi xin lỗi:\\nVí dụ: 電車の事故で遅くなりまして... (Vì sự cố tàu điện nên tôi đến trễ...)",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka20.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "もしもし、ここ、わたしの[席](せき)なんですが…",
+          "vi": "Này này, đây là chỗ ngồi của tôi mà.",
+          "startTime": 0.05,
+          "endTime": 5.12
+        },
+        {
+          "speaker": "B",
+          "ja": "えっ？ここはわたしの席のはずですよ。ここに[切符](きっぷ)もありますよ。ほら、12Bでしょ？",
+          "vi": "Hả? Chỗ này chắc chắn là chỗ ngồi của tôi đấy. Tôi có vé đây này. Nhìn xem, 12B đúng không?",
+          "startTime": 5.12,
+          "endTime": 11.52
+        },
+        {
+          "speaker": "A",
+          "ja": "ここは3[号車](ごうしゃ)ですよ。あなたの切符は4号車じゃありませんか。",
+          "vi": "Đây là xe số 3 đấy. Vé của chị chẳng phải là xe số 4 đó sao?",
+          "startTime": 11.52,
+          "endTime": 16.35
+        },
+        {
+          "speaker": "B",
+          "ja": "あっ、ほんとだわ。_うっかりしておりまして_…",
+          "vi": "A, thật vậy. Xin lỗi tôi vô ý quá.",
+          "startTime": 16.35,
+          "endTime": 20.33
+        },
+        {
+          "speaker": "A",
+          "ja": "いいえ、どういたしまして。",
+          "vi": "Không có gì đâu.",
+          "startTime": 20.33,
+          "endTime": 22.1
+        },
+        {
+          "speaker": "B",
+          "ja": "すぐに4号車へ[移動](いどう)しますから。",
+          "vi": "Tôi phải qua xe số 4 ngay đây.",
+          "startTime": 22.1,
+          "endTime": 24.6
+        },
+        {
+          "speaker": "A",
+          "ja": "あっ、[痛](いた)い。[足](あし)が……。",
+          "vi": "Á, đau quá. Chân của tôi ...",
+          "startTime": 24.6,
+          "endTime": 26.64
+        },
+        {
+          "speaker": "B",
+          "ja": "ごめんなさい。_[踏](ふ)んでしまいまして_…。[申](もう)しわけございません。",
+          "vi": "Xin lỗi. Tôi đã lỡ giẫm lên chân của anh ... Thật xin lỗi.",
+          "startTime": 26.64,
+          "endTime": 31.94
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "もしもし、[山田](やまだ)さんのお[宅](たく)でしょうか。",
+          "vi": "A lô! A lô! Đây có phải là nhà của thầy Yamada không?",
+          "startTime": 31.94,
+          "endTime": 36.54
+        },
+        {
+          "speaker": "B",
+          "ja": "はい、そうですが…",
+          "vi": "Vâng, đúng rồi.",
+          "startTime": 36.54,
+          "endTime": 38.55
+        },
+        {
+          "speaker": "A",
+          "ja": "[私](わたくし)、[留学生](りゅうがくせい)の[林](りん)と[申](もう)しますが…",
+          "vi": "Em là Rin, du học sinh.",
+          "startTime": 38.55,
+          "endTime": 41.38
+        },
+        {
+          "speaker": "B",
+          "ja": "あいにく、[主人](しゅじん)は[出張](しゅっちょう)して_おりまして_…",
+          "vi": "Thật không may, chồng tôi đi công tác rồi.",
+          "startTime": 41.39,
+          "endTime": 44.35
+        },
+        {
+          "speaker": "A",
+          "ja": "このたびは山田さんにすっかり_お[世話](せわ)になりまして_…",
+          "vi": "Dạo gần đây em được thầy Yamada giúp đỡ rất nhiều.",
+          "startTime": 44.35,
+          "endTime": 47.31
+        },
+        {
+          "speaker": "B",
+          "ja": "そうですか。[何](なん)のお[役](やく)にも_[立](た)てませんで_…",
+          "vi": "Thế à. Nhưng có giúp được gì nhiều đâu.",
+          "startTime": 47.31,
+          "endTime": 50.61
+        },
+        {
+          "speaker": "A",
+          "ja": "いいえ、おかげさまで[新](あたら)しい[仕事](しごと)が[決](き)まりました。",
+          "vi": "Không đâu ạ. Nhờ thầy giúp đỡ mà em có được việc làm mới.",
+          "startTime": 50.61,
+          "endTime": 53.96
+        },
+        {
+          "speaker": "B",
+          "ja": "それはよかったですね。ご[就職](しゅうしょく)おめでとうございます。",
+          "vi": "Vậy thì tốt quá. Chúc mừng em đã có việc làm.",
+          "startTime": 53.96,
+          "endTime": 57.8
+        },
+        {
+          "speaker": "A",
+          "ja": "つきましては、[一度](いちど)私のアパートへおいでくださいませんか。お[口](くち)に[合](あ)うかどうかわかりませんが、私の手[料理](りょうり)でもめしあがっていただきたいと_[存](ぞん)じまして_…。",
+          "vi": "Nhân tiện đây, em muốn mời thầy cô đến thăm căn hộ của em một lần. Không biết có hợp khẩu vị hay không nhưng em muốn tự tay làm một ít thức ăn đãi thầy cô.",
+          "startTime": 57.8,
+          "endTime": 66.99
+        },
+        {
+          "speaker": "B",
+          "ja": "そうですか。ありがとうございます。主人が[戻](もど)りましたら、そのように[伝](つた)えておきます。",
+          "vi": "Thế à. Cám ơn em nhé. Khi nào chồng tôi trở về, tôi sẽ nói lại như vậy.",
+          "startTime": 66.99,
+          "endTime": 73.44
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "21",
+  "title": "PHÀN NÀN, TỪ CHỐI",
+  "translation": "",
+  "explanation": "Những khi phải nói lời phàn nàn với người không quen thân lắm hay từ chối sự nhờ vả hoặc lời mời của ai đó, thì nên chú ý đừng làm tổn thương đến tình cảm của đối phương. Những lúc như vậy, người ta thường sử dụng những từ như 「ちょっと...」 để bày tỏ sự ngập ngừng, khó xử.",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka21.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "ねえ、いつかつりに[行](い)こうよ。",
+          "vi": "Hôm nào đó mình đi câu cá đi.",
+          "startTime": 0,
+          "endTime": 4.12
+        },
+        {
+          "speaker": "B",
+          "ja": "いいけど。でも、[朝早](あさはや)く[起](お)きないといけないんじゃない？[早起](はやお)きは_あんまり_...",
+          "vi": "Hay đấy. Nhưng mà buổi sáng phải dậy sớm đúng không? Dậy sớm thì ...",
+          "startTime": 4.14,
+          "endTime": 9.65
+        },
+        {
+          "speaker": "A",
+          "ja": "[心配](しんぱい)ないよ。[前](まえ)の[晩](ばん)に[車](くるま)で[出](で)かけるんだから。",
+          "vi": "Đừng lo. Chúng ta sẽ đi bằng xe hơi vào đêm hôm trước.",
+          "startTime": 9.65,
+          "endTime": 13.53
+        },
+        {
+          "speaker": "B",
+          "ja": "わたし、[夜運転](よるうんてん)するのは_どうも_...",
+          "vi": "Em mà lái xe thì ...",
+          "startTime": 13.53,
+          "endTime": 16.82
+        },
+        {
+          "speaker": "A",
+          "ja": "ぼくの[車](くるま)で[行](い)けばいいじゃないか。",
+          "vi": "Đi bằng xe của anh là được chứ gì?",
+          "startTime": 16.82,
+          "endTime": 18.58
+        },
+        {
+          "speaker": "B",
+          "ja": "そうね。[運転](うんてん)してくれるなら[行](い)くわ。[次](つぎ)の[土曜日](どようび)はどう？",
+          "vi": "Ừ nhỉ. Nếu anh lái xe thì em đi. Thứ bảy tới này được không?",
+          "startTime": 18.58,
+          "endTime": 23.47
+        },
+        {
+          "speaker": "A",
+          "ja": "うーん。その[日](ひ)は_ちょっと_...",
+          "vi": "Ừm. Ngày hôm đó thì ...",
+          "startTime": 23.47,
+          "endTime": 25.79
+        },
+        {
+          "speaker": "B",
+          "ja": "じゃ、[再来週](さらいしゅう)の土曜日は？",
+          "vi": "Vậy thì, thứ bảy tuần tới nữa được chứ?",
+          "startTime": 25.79,
+          "endTime": 27.79
+        },
+        {
+          "speaker": "A",
+          "ja": "よし、[決](き)めた。そうしよう。",
+          "vi": "Được đấy, quyết định vậy nhé.",
+          "startTime": 27.79,
+          "endTime": 29.42
+        },
+        {
+          "speaker": "B",
+          "ja": "わたし、おにぎりとジュース[持](も)っていくわ。",
+          "vi": "Em sẽ mang theo cơm nắm và nước ngọt.",
+          "startTime": 29.42,
+          "endTime": 31.69
+        },
+        {
+          "speaker": "A",
+          "ja": "ジュースは_ちょっと_...",
+          "vi": "Nước ngọt thì ...",
+          "startTime": 31.69,
+          "endTime": 33.31
+        },
+        {
+          "speaker": "B",
+          "ja": "わかった、わかった。ビールにすればいいんでしょ？",
+          "vi": "Biết rồi, biết rồi. Bia là được chứ gì?",
+          "startTime": 33.31,
+          "endTime": 35.99
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "こんばんは。[今](いま)、ちょっとよろしいでしょうか。",
+          "vi": "Chào anh. Tôi xin phép làm phiền anh một chút được không?",
+          "startTime": 35.99,
+          "endTime": 41.4
+        },
+        {
+          "speaker": "B",
+          "ja": "どうぞ。[残業](ざんぎょう)で[遅](おそ)くなりましてね、これから[晩](ばん)ごはんなんですよ。",
+          "vi": "Dạ mời chị. Vì tôi tăng ca nên về trễ, bây giờ mới ăn tối đây.",
+          "startTime": 41.4,
+          "endTime": 45.47
+        },
+        {
+          "speaker": "A",
+          "ja": "たいへんですね、お[仕事](しごと)。[実](じつ)は、うちのおばあちゃんのことなんですけどね、[夜寝](よるね)るのが[早](はや)くて...。",
+          "vi": "Công việc vất vả quá nhỉ. Thật ra, bà cụ nhà tôi buổi tối thường hay đi ngủ sớm.",
+          "startTime": 45.47,
+          "endTime": 53.69
+        },
+        {
+          "speaker": "B",
+          "ja": "おばあちゃん、もうお[休](やす)みですか。",
+          "vi": "Bà cụ đã đi nghỉ rồi sao?",
+          "startTime": 53.69,
+          "endTime": 55.66
+        },
+        {
+          "speaker": "A",
+          "ja": "ええ。それでテレビの[音](おと)がちょっと[気](き)になるって[言](い)うもんですから。",
+          "vi": "Vâng. Vì vậy, bà nói âm thanh tivi hơi khó chịu một chút.",
+          "startTime": 55.66,
+          "endTime": 60.6
+        },
+        {
+          "speaker": "B",
+          "ja": "うちのテレビ、うるさいですか。",
+          "vi": "Tivi nhà tôi hơi ồn phải không?",
+          "startTime": 60.6,
+          "endTime": 62.69
+        },
+        {
+          "speaker": "A",
+          "ja": "ええ、_ちょっと_...。それに、[野球](やきゅう)を[応援](おうえん)なさる[声](こえ)が_ちょっと_...",
+          "vi": "Vâng, hơi ồn một chút. Hơn nữa, tiếng cổ vũ bóng chày cũng ...",
+          "startTime": 62.69,
+          "endTime": 68.66
+        },
+        {
+          "speaker": "B",
+          "ja": "すみませんでした。ちっとも[気](き)がつかなくて...。これからは[気](き)をつけますから。",
+          "vi": "Xin lỗi nhé. Tôi thật vô ý. Từ nay về sau tôi sẽ chú ý hơn.",
+          "startTime": 68.66,
+          "endTime": 73.63
+        }
+      ]
+    }
+  ]
+},
+ {
+  "id": "22",
+  "title": "TỪ CHỐI ĐỀ NGHỊ",
+  "translation": "",
+  "explanation": "Khi từ chối lời đề nghị của người khác thì cần phải chú ý tránh làm tổn thương đến tình cảm của họ. Nếu dùng 「から」 hoặc 「ので」 để trình bày lý do thì cho dù không từ chối một cách rõ ràng nhưng vẫn được đối phương hiểu cho.",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka22.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "いらっしゃい。",
+          "vi": "Chào quí khách.",
+          "startTime": 0.05,
+          "endTime": 2.68
+        },
+        {
+          "speaker": "B",
+          "ja": "みかんを[一箱](ひとはこ)買いたいんだけど、ちょっと[味見](あじみ)させて。",
+          "vi": "Tôi muốn mua một thùng táo, nhưng cho tôi thử vị của nó một chút.",
+          "startTime": 2.68,
+          "endTime": 6.3
+        },
+        {
+          "speaker": "A",
+          "ja": "はいよ。どうぞ[食](た)べてみて。[甘](あま)くておいしいだろ？",
+          "vi": "Vâng. Mời chị dùng thử. Nó ngọt và ngon phải không?",
+          "startTime": 6.3,
+          "endTime": 9.54
+        },
+        {
+          "speaker": "B",
+          "ja": "そうね。じゃ、これ[届](とど)けてちょうだい。[大阪](おおさか)の[親戚](しんせき)の[家](いえ)まで。",
+          "vi": "Ừ nhỉ. Vậy thì, làm ơn giao cái này đến nhà người họ hàng của tôi ở Osaka.",
+          "startTime": 9.54,
+          "endTime": 14.83
+        },
+        {
+          "speaker": "A",
+          "ja": "じゃ、この[宅急便](たっきゅうびん)の[用紙](ようし)に[記入](きにゅう)してもらえるかな",
+          "vi": "Vậy thì, xin chị ghi vào phiếu gởi hàng nhanh đến tận nhà được không ạ?",
+          "startTime": 14.83,
+          "endTime": 17.89
+        },
+        {
+          "speaker": "B",
+          "ja": "はい... これでいい？",
+          "vi": "Vâng, như vầy được chưa?",
+          "startTime": 17.89,
+          "endTime": 20.67
+        },
+        {
+          "speaker": "A",
+          "ja": "[夜間](やかん)[配達](はいたつ)ご[希望](きぼう)ですか。",
+          "vi": "Chị có muốn chúng tôi giao hàng vào ban đêm không?",
+          "startTime": 20.67,
+          "endTime": 22.81
+        },
+        {
+          "speaker": "B",
+          "ja": "夜間配達って？",
+          "vi": "Giao hàng ban đêm là thế nào?",
+          "startTime": 22.81,
+          "endTime": 24.54
+        },
+        {
+          "speaker": "A",
+          "ja": "このごろは[奥](おく)さんも[仕事](しごと)に[出](で)ているところが[多](おお)いから、[昼間](ひるま)、だれも[家](いえ)にいないでしょ。だから、[夜](よる)に[配達](はいたつ)してもらうんだよ。",
+          "vi": "Dạo này cũng có nhiều bà vợ đi làm nên ban ngày không có ai ở nhà. Vì vậy chúng tôi nhận giao hàng vào ban đêm.",
+          "startTime": 24.54,
+          "endTime": 32.57
+        },
+        {
+          "speaker": "B",
+          "ja": "なるほど。でも、それはいいわ。おばあちゃんがうちにいる_から_。えーっと、それから、このすいかもちょうだい。",
+          "vi": "Thế nữa à. Nhưng được rồi. Vì bà có ở nhà. À, còn nữa, cho tôi trái dưa hấu này luôn.",
+          "startTime": 32.57,
+          "endTime": 40.64
+        },
+        {
+          "speaker": "A",
+          "ja": "[配達](はいたつ)しますか。",
+          "vi": "Cũng giao đến tận nhà à?",
+          "startTime": 40.64,
+          "endTime": 41.74
+        },
+        {
+          "speaker": "B",
+          "ja": "いいえ、けっこうよ。[車](くるま)で[来](き)てる_から_。",
+          "vi": "Thôi, được rồi. Vì tôi đi bằng xe hơi.",
+          "startTime": 41.74,
+          "endTime": 44.66
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "もしもし、お[客](きゃく)さん。[終点](しゅうてん)ですよ。[起](お)きてください。",
+          "vi": "Này này, anh khách ơi. Đến ga cuối rồi. Anh dậy đi.",
+          "startTime": 44.66,
+          "endTime": 49.93
+        },
+        {
+          "speaker": "B",
+          "ja": "わかってるよ、そんな[大](おお)きな[声](こえ)で[言](い)わなくたって。",
+          "vi": "Biết rồi, anh không cần phải nói lớn tiếng như vậy.",
+          "startTime": 49.93,
+          "endTime": 54.23
+        },
+        {
+          "speaker": "A",
+          "ja": "[歩](ある)けますか。わたしの[手](て)につかまってください。",
+          "vi": "Anh đi được không? Hãy nắm lấy tay tôi.",
+          "startTime": 54.23,
+          "endTime": 56.92
+        },
+        {
+          "speaker": "B",
+          "ja": "[平気](へいき)平気。[一人](ひとり)で歩ける_から_。",
+          "vi": "Không sao không sao. Tôi có thể đi một mình được mà.",
+          "startTime": 56.92,
+          "endTime": 59.59
+        },
+        {
+          "speaker": "A",
+          "ja": "でも、お客さんはお[酒](さけ)をたくさんめしあがっているようだから[危](あぶ)ないですよ。",
+          "vi": "Nhưng hình như anh đã uống nhiều rượu nên nguy hiểm lắm đấy.",
+          "startTime": 59.59,
+          "endTime": 64.32
+        },
+        {
+          "speaker": "B",
+          "ja": "だいじょうぶだよ。まっすぐ[歩](ある)いてる_から_。トイレはここかい？",
+          "vi": "Không sao đâu. Vì tôi đi thẳng tới là được mà. Nhà vệ sinh ở đâu vậy?",
+          "startTime": 64.32,
+          "endTime": 69.12
+        },
+        {
+          "speaker": "A",
+          "ja": "あっ、[違](ちが)います。ちょっと[待](ま)ってください。ご[案内](あんない)しますから。",
+          "vi": "A, nhầm rồi, chờ tôi một chút. Tôi sẽ dẫn cho.",
+          "startTime": 69.12,
+          "endTime": 72.34
+        },
+        {
+          "speaker": "B",
+          "ja": "いらない、いらない。[自分](じぶん)で[行](い)ける_から_。",
+          "vi": "Không cần, không cần. Tôi tự đi được mà.",
+          "startTime": 72.34,
+          "endTime": 74.58
+        },
+        {
+          "speaker": "A",
+          "ja": "タクシー、[呼](よ)びましょうか。",
+          "vi": "Tôi gọi taxi cho anh nhé.",
+          "startTime": 74.58,
+          "endTime": 76.15
+        },
+        {
+          "speaker": "B",
+          "ja": "いいよ、いいよ。[歩](ある)いて[帰](かえ)る_から_。",
+          "vi": "Được rồi, được rồi. Tôi đi bộ về.",
+          "startTime": 76.15,
+          "endTime": 78.62
+        }
+      ]
+    }
+  ]
+},
+  {
+  "id": "23",
+  "title": "ĐẶT CÂU HỎI",
+  "translation": "",
+  "explanation": "Những từ 「かな」, 「かしら」 thường được sử dụng khi nói chuyện một mình, nhưng cũng được dùng thay cho câu hỏi trong đàm thoại thân mật. Từ 「かしら」 chủ yếu phái nữ dùng. Ngoài ra, nhiều người cũng dùng trợ từ 「っけ」.\n\n<Chú ý>\\n① Khi quên đi những chuyện đã nghe trước đây và muốn hỏi lại lần nữa thì chúng ta dùng hình thức quá khứ.\\nVí dụ: あの人はだれだったかな？ (Người đó là ai vậy nhỉ?)\\n② 「そうかな」 / 「そうかしら」: Được sử dụng khi có ý kiến khác với ý kiến của đối phương.\\n③ 「〜じゃないかな」 / 「〜じゃないかしら」: Được dùng khi muốn khẳng định ý kiến của mình một cách dè dặt, nhẹ nhàng.\\nVí dụ: 君にも少し責任があるんじゃないかな。(Chẳng phải em cũng có một phần trách nhiệm đó sao?)",
+  "audioPath": "./data/filenghesachkaiwa/nameraka/nameraka23.m4a",
+  "conversations": [
+    {
+      "context": "Tình huống 1",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "明日、アメフトの試合、[見](み)に[行](い)こうと[思](おも)ってるんだけど...",
+          "vi": "Ngày mai tớ định đi xem trận đấu bóng.",
+          "startTime": 0,
+          "endTime": 5.01
+        },
+        {
+          "speaker": "B",
+          "ja": "どことどこの[試合](しあい)なんだい？",
+          "vi": "Đội nào đấu với đội nào?",
+          "startTime": 5.01,
+          "endTime": 6.64
+        },
+        {
+          "speaker": "A",
+          "ja": "[学生](がくせい)オールスターと[社会人](しゃかいじん)オールスターだよ。",
+          "vi": "Đội tuyển học sinh và đội tuyển thành viên xã hội.",
+          "startTime": 6.64,
+          "endTime": 9.19
+        },
+        {
+          "speaker": "B",
+          "ja": "そうか。おもしろそうだな。いっしょに[行](い)ってもいい_かな_。",
+          "vi": "Thế à. Nghe có vẻ hấp dẫn quá. Tớ đi cùng có được không?",
+          "startTime": 9.19,
+          "endTime": 13.42
+        },
+        {
+          "speaker": "A",
+          "ja": "もちろんだよ。おおぜいで[行](い)った[方](ほう)がおもしろいからな。",
+          "vi": "Dĩ nhiên là được mà. Có nhiều người đi sẽ vui hơn.",
+          "startTime": 13.42,
+          "endTime": 16.52
+        },
+        {
+          "speaker": "B",
+          "ja": "どっちが[勝](か)つ_かな_。",
+          "vi": "Không biết đội nào sẽ thắng đây.",
+          "startTime": 16.52,
+          "endTime": 17.82
+        },
+        {
+          "speaker": "A",
+          "ja": "どっちも[強](つよ)いチームだからなあ、[何](なん)とも[言](い)えないなあ。",
+          "vi": "Đội nào cũng mạnh cả nên không biết được.",
+          "startTime": 17.82,
+          "endTime": 21.2
+        },
+        {
+          "speaker": "B",
+          "ja": "[試合](しあい)は[何時](なんじ)から？",
+          "vi": "Trận đấu bắt đầu từ mấy giờ?",
+          "startTime": 21.2,
+          "endTime": 23.23
+        },
+        {
+          "speaker": "A",
+          "ja": "[午後](ごご)5[時](じ)からだよ。",
+          "vi": "Từ 5 giờ chiều.",
+          "startTime": 23.23,
+          "endTime": 24.54
+        },
+        {
+          "speaker": "B",
+          "ja": "[雨](あめ)が[降](ふ)ってもやるの_かな_。",
+          "vi": "Trời mưa cũng vẫn đấu phải không?",
+          "startTime": 24.54,
+          "endTime": 26
+        },
+        {
+          "speaker": "A",
+          "ja": "うん、そうだよ。ところで、[君](きみ)、[前売](まえう)り[券](けん)買っておいてくれないか？",
+          "vi": "Ừ, đúng vậy đấy. À này. Cậu mua vé trước dùm tớ được không?",
+          "startTime": 26,
+          "endTime": 30.37
+        },
+        {
+          "speaker": "B",
+          "ja": "いいけど。でも、[今日](きょう)はぼく[金](かね)、[持](も)ってきてないよ。",
+          "vi": "Cũng được. Nhưng hôm nay tớ không mang theo tiền.",
+          "startTime": 30.37,
+          "endTime": 34.79
+        },
+        {
+          "speaker": "A",
+          "ja": "[実](じつ)はぼくもなんだ。しかたないなあ。[当日券](とうじつけん)にするか。",
+          "vi": "Thật ra, tớ cũng vậy. Chẳng còn cách nào, đành phải mua vé ngày hôm đó thôi.",
+          "startTime": 34.79,
+          "endTime": 39.27
+        }
+      ]
+    },
+    {
+      "context": "Tình huống 2",
+      "dialogues": [
+        {
+          "speaker": "A",
+          "ja": "たけし、[大学生活](だいがくせいかつ)は[楽](たの)しいか？",
+          "vi": "Takeshi này, cuộc sống sinh viên có vui không?",
+          "startTime": 39.27,
+          "endTime": 43.92
+        },
+        {
+          "speaker": "B",
+          "ja": "うん、クラブ[活動](かつどう)が[楽](たの)しいなあ。",
+          "vi": "Dạ, hoạt động ở câu lạc bộ vui lắm.",
+          "startTime": 43.92,
+          "endTime": 46.42
+        },
+        {
+          "speaker": "A",
+          "ja": "どんなクラブに[入](はい)ったんだい？",
+          "vi": "Con tham gia câu lạc bộ gì?",
+          "startTime": 46.42,
+          "endTime": 48.08
+        },
+        {
+          "speaker": "B",
+          "ja": "[国際学生](こくさいがくせい)クラブだよ。",
+          "vi": "Câu lạc bộ sinh viên quốc tế.",
+          "startTime": 48.08,
+          "endTime": 49.71
+        },
+        {
+          "speaker": "A",
+          "ja": "[外国人](がいこくじん)学生との[交流](こうりゅう)もあるの_かな_。",
+          "vi": "Chắc có giao lưu với sinh viên nước ngoài phải không?",
+          "startTime": 49.71,
+          "endTime": 52.03
+        },
+        {
+          "speaker": "B",
+          "ja": "うん、そうなんだ。ぼくも[留学](りゅうがく)したいと[思](おも)ってるんだけど...",
+          "vi": "Dạ, đúng vậy. Con cũng muốn đi du học nhưng...",
+          "startTime": 52.03,
+          "endTime": 55.94
+        },
+        {
+          "speaker": "A",
+          "ja": "[若](わか)いうちにいろんな[経験](けいけん)をするのはいいことだけど、[費用](ひよう)は[自分](じぶん)で何とかしろよ。",
+          "vi": "Trong khi còn trẻ chịu khó học hỏi nhiều kinh nghiệm thì cũng tốt. Thế nhưng, chi phí con hãy tự xoay sở đấy nhé.",
+          "startTime": 55.94,
+          "endTime": 61.07
+        },
+        {
+          "speaker": "B",
+          "ja": "わかってるよ。だから、アルバイトしてるんじゃないか。",
+          "vi": "Con biết rồi. Cho nên con mới đi làm thêm.",
+          "startTime": 61.07,
+          "endTime": 64.5
+        },
+        {
+          "speaker": "A",
+          "ja": "おまえ、クラブやアルバイトが[忙](いそが)しそうだけど、[勉強](べんきょう)の[方](ほう)もしっかりやってる_かな_。",
+          "vi": "Bố thấy con luôn bận rộn với câu lạc bộ và công việc làm thêm. Còn chuyện học hành con có học đàng hoàng không đấy?",
+          "startTime": 64.5,
+          "endTime": 69.43
+        },
+        {
+          "speaker": "B",
+          "ja": "だいじょうぶ、だいじょうぶ。[先輩](せんぱい)がノートを[貸](か)してくれるんだ。",
+          "vi": "Không sao không sao. Mấy anh chị lớp trên sẽ cho con mượn vở.",
+          "startTime": 69.43,
+          "endTime": 73.56
+        }
+      ]
+    }
+  ]
+}
+]
