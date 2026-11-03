@@ -9,7 +9,7 @@
 // ---------------------------------------------------------
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch(() => {});
+    navigator.serviceWorker.register((window.SITE_BASE || "/") + "sw.js").catch(() => {});
   });
 }
 
@@ -58,7 +58,7 @@ if (isStandalonePwa) {
 function redirectToLogin() {
   const returnTo = window.location.pathname + window.location.search;
   window.location.href =
-    "/login?redirect=" + encodeURIComponent(returnTo);
+    (window.SITE_BASE || "/") + "login?redirect=" + encodeURIComponent(returnTo);
 }
 
 // Trang tự gắn sẵn class "auth-pending" lên <html> + CSS ẩn <body> bằng

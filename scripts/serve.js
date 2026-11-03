@@ -8,6 +8,8 @@
  *   /slides/...   -> ảnh slide, nằm sẵn trong site/slides (từ public/slides)
  *
  * Chạy: npm start   (PORT=3001 npm start để đổi cổng)
+ * Thử bản build dạng GitHub Pages project page: SITE_BASE=/dora-kaiwa/ npm run build,
+ * rồi SITE_BASE=/dora-kaiwa/ npm start và mở http://localhost:3000/dora-kaiwa/
  */
 
 const http = require("http");
@@ -16,6 +18,8 @@ const path = require("path");
 
 const siteDir = path.join(__dirname, "..", "site");
 const port = Number(process.env.PORT) || 3000;
+const baseTrimmed = (process.env.SITE_BASE || "/").replace(/^\/+|\/+$/g, "");
+const siteBase = baseTrimmed ? `/${baseTrimmed}/` : "/";
 
 const TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -65,7 +69,16 @@ if (!fs.existsSync(path.join(siteDir, "index.html"))) {
 
 http
   .createServer((req, res) => {
-    const { pathname } = new URL(req.url, "http://localhost");
+    let { pathname } = new URL(req.url, "http://localhost");
+    if (siteBase !== "/") {
+      // Giống GitHub Pages project page: web chỉ có dưới /<repo>/, ngoài đó là 404
+      if (pathname === siteBase.slice(0, -1)) {
+        res.writeHead(301, { Location: siteBase });
+        return res.end();
+      }
+      if (pathname.startsWith(siteBase)) pathname = "/" + pathname.slice(siteBase.length);
+      else pathname = "/__ngoai-site-base__";
+    }
     let file = resolveFile(pathname);
     let status = 200;
     if (!file) {
@@ -80,5 +93,5 @@ http
     fs.createReadStream(file).pipe(res);
   })
   .listen(port, () => {
-    console.log(`Web tĩnh đang chạy: http://localhost:${port}`);
+    console.log(`Web tĩnh đang chạy: http://localhost:${port}${siteBase}`);
   });

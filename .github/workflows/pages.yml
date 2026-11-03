@@ -34,9 +34,15 @@ jobs:
 
       - run: npm ci
       - run: npm ci --prefix kaiwa
-      - run: npm run build
 
+      # base_path = "" khi dùng domain riêng, "/<repo>" khi chạy ở
+      # https://<user>.github.io/<repo>/ -> build phải biết để đặt đúng đường dẫn.
       - uses: actions/configure-pages@v5
+        id: pages
+      - run: npm run build
+        env:
+          SITE_BASE: ${{ steps.pages.outputs.base_path }}/
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

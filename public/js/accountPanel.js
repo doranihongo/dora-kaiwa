@@ -242,7 +242,7 @@ if (accountLogoutBtn) {
   accountLogoutBtn.addEventListener("click", async () => {
     await supabaseClient.auth.signOut();
     clearAccountCache();
-    window.location.href = "/login";
+    window.location.href = (window.SITE_BASE || "/") + "login";
   });
 }
 

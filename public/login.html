@@ -156,7 +156,7 @@
       // authGuard trong đó sẽ redirect ngay trên chính trang login.
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          navigator.serviceWorker.register("/sw.js").catch(() => {});
+          navigator.serviceWorker.register((window.SITE_BASE || "/") + "sw.js").catch(() => {});
         });
       }
     </script>

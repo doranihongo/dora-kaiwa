@@ -12,6 +12,12 @@
  *   5. 404.html (về trang chủ, giống catch-all cũ của server) + .nojekyll
  *
  * "/login" -> GitHub Pages tự phục vụ login.html (không cần đuôi .html).
+ *
+ * SITE_BASE (biến môi trường, mặc định "/"): đường dẫn gốc của web. Domain riêng
+ * (doranihongo.com) hoặc chạy local -> "/". GitHub Pages dạng project page
+ * (https://<user>.github.io/<repo>/) -> "/<repo>/" (workflow lấy từ configure-pages).
+ * Khác "/" thì mọi đường dẫn tuyệt đối trong HTML/manifest được thêm tiền tố này, và
+ * <head> được chèn `window.SITE_BASE` cho JS (xem public/js/common.js).
  */
 
 const { execSync } = require("child_process");
@@ -20,6 +26,12 @@ const path = require("path");
 const esbuild = require("esbuild");
 
 const root = path.join(__dirname, "..");
+
+// Chuẩn hóa SITE_BASE thành "/" hoặc "/tên/" - đặt lại vào env để vite (build-kaiwa) đọc đúng.
+const siteBaseTrimmed = (process.env.SITE_BASE || "/").replace(/^\/+|\/+$/g, "");
+const SITE_BASE = siteBaseTrimmed ? `/${siteBaseTrimmed}/` : "/";
+process.env.SITE_BASE = SITE_BASE;
+console.log(`[build:site] SITE_BASE = ${SITE_BASE}`);
 const publicDir = path.join(root, "public");
 const siteDir = path.join(root, "site");
 
@@ -42,6 +54,37 @@ if (!fs.existsSync(kaiwaIndex)) {
   process.exit(1);
 }
 fs.copyFileSync(kaiwaIndex, path.join(siteDir, "index.html"));
+
+/** Thêm tiền tố SITE_BASE cho đường dẫn tuyệt đối trong HTML (bỏ qua đường dẫn đã có tiền tố). */
+function prefixAbsolute(p) {
+  return SITE_BASE === "/" || p.startsWith(SITE_BASE) ? p : SITE_BASE + p.slice(1);
+}
+
+function rewriteHtml(file) {
+  let html = fs.readFileSync(file, "utf8");
+  if (SITE_BASE !== "/") {
+    // href="/x" | src="/x" (không phải "//x")
+    html = html.replace(/\b(href|src)="(\/(?!\/)[^"]*)"/g, (_, attr, p) => `${attr}="${prefixAbsolute(p)}"`);
+    // manifest nhúng dạng data: URI trong kaiwa/index.html
+    html = html
+      .replace(/"start_url":"\/"/g, `"start_url":"${SITE_BASE}"`)
+      .replace(/"src":"\/images\//g, `"src":"${SITE_BASE}images/`);
+  }
+  if (!html.includes("<head>")) throw new Error(`Không thấy <head> trong ${file}`);
+  html = html.replace("<head>", `<head>
+    <script>window.SITE_BASE=${JSON.stringify(SITE_BASE)};</script>`);
+  fs.writeFileSync(file, html);
+}
+
+for (const f of ["index.html", "kaiwa/index.html", "login.html"]) rewriteHtml(path.join(siteDir, f));
+
+const manifestFile = path.join(siteDir, "manifest.json");
+if (SITE_BASE !== "/" && fs.existsSync(manifestFile)) {
+  const m = JSON.parse(fs.readFileSync(manifestFile, "utf8"));
+  for (const k of ["start_url", "scope", "id"]) if (typeof m[k] === "string") m[k] = prefixAbsolute(m[k]);
+  for (const icon of m.icons || []) icon.src = prefixAbsolute(icon.src);
+  fs.writeFileSync(manifestFile, JSON.stringify(m, null, 2));
+}
 
 let before = 0;
 let after = 0;
@@ -70,7 +113,7 @@ fs.writeFileSync(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DORA KAIWA</title>
-    <script>location.replace("/");</script>
+    <script>location.replace(${JSON.stringify(SITE_BASE)});</script>
   </head>
   <body></body>
 </html>

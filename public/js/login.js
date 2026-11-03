@@ -114,7 +114,7 @@ function getRedirectTarget() {
   if (raw && raw.startsWith("/") && !raw.startsWith("//")) {
     return raw;
   }
-  return "/";
+  return window.SITE_BASE || "/";
 }
 
 /**

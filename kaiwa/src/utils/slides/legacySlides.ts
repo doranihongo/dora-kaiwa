@@ -15,6 +15,9 @@
 // ---------------------------------------------------------
 
 const LEGACY_SLIDE_ORIGIN = 'https://kaiwa.jlptdora.online/';
+// Đường dẫn gốc của web (vd "/" hoặc "/dora-kaiwa/"): BASE_URL của app là
+// "<gốc>kaiwa/" (xem vite.config.ts) nên bỏ phần "kaiwa/" ở cuối là ra gốc.
+const SITE_BASE = import.meta.env.BASE_URL.replace(/kaiwa\/$/, '');
 
 export interface LegacySlideLesson {
   slideFolder?: string;
@@ -28,7 +31,7 @@ export function mapLegacySlideLesson<T extends LegacySlideLesson>(lesson: T): T 
 
   return {
     ...lesson,
-    slideFolder: `${window.location.origin}/slides/${folder.slice(LEGACY_SLIDE_ORIGIN.length)}`,
+    slideFolder: `${window.location.origin}${SITE_BASE}slides/${folder.slice(LEGACY_SLIDE_ORIGIN.length)}`,
     slideExt: 'webp',
   };
 }
