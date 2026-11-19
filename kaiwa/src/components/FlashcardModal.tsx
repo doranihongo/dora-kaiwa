@@ -15,6 +15,7 @@
 import React from 'react';
 import confetti from 'canvas-confetti';
 import type { VocabWord } from '../types';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 // Cỡ chữ BAN ĐẦU của mặt chữ theo số ký tự - quy đổi trực tiếp từ getFlashcardFontSize() gốc
 // (text-7xl..text-lg) ra px, để chữ ngắn (vd "こんにちは") vẫn to hệt bản gốc; FitText bên dưới
@@ -202,24 +203,10 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
     }
   }, [isOpen, vocabulary]);
 
-  React.useEffect(() => {
-    const container = document.getElementById('lesson-view-container') || document.getElementById('course-detail-container') || document.body;
-    if (isOpen) {
-      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-      document.documentElement.style.overflow = 'hidden';
-      container.style.overflow = 'hidden';
-      container.style.paddingRight = `${scrollBarWidth}px`;
-    } else {
-      document.documentElement.style.overflow = '';
-      container.style.overflow = '';
-      container.style.paddingRight = '';
-    }
-    return () => {
-      document.documentElement.style.overflow = '';
-      container.style.overflow = '';
-      container.style.paddingRight = '';
-    };
-  }, [isOpen]);
+  // Khóa cuộn nền lúc đang mở (hook dùng chung có đếm lượt, xem
+  // hooks/useBodyScrollLock.ts). Modal này luôn mở BÊN TRONG overlay buổi học
+  // (đã tự khóa body từ trước) nên chỉ cộng thêm 1 lượt khóa, không đổi gì thêm.
+  useBodyScrollLock(isOpen);
 
   const toggleFlip = React.useCallback(() => {
     setIsFlipped((prev) => !prev);

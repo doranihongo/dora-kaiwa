@@ -4,6 +4,7 @@ import confetti from 'canvas-confetti';
 import { Headphones } from 'lucide-react';
 import { convertToKana } from '../utils/helpers';
 import { DATA_BASE } from '../utils/dataBase';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 // Dữ liệu (JSON + audio) nằm trong public/data của repo này - xem utils/dataBase.ts
 
@@ -58,21 +59,12 @@ export default function DictationModal({ isOpen, onClose }: DictationModalProps)
   const [selectedBookTitle, setSelectedBookTitle] = useState('');
   const [currentPartIndex, setCurrentPartIndex] = useState(0);
 
-  useEffect(() => {
-    if (isOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
-      if (scrollY) window.scrollTo(0, parseInt(scrollY || '0') * -1);
+  // Khóa cuộn nền lúc đang mở (hook dùng chung có đếm lượt, xem hooks/useBodyScrollLock.ts).
+  useBodyScrollLock(isOpen);
 
+  // Mỗi lần đóng thì reset về màn đầu - mở lại luôn bắt đầu sạch.
+  useEffect(() => {
+    if (!isOpen) {
       setView('books');
       setPartsList([]);
       hasFinishedRef.current = false;

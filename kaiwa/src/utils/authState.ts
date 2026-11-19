@@ -19,6 +19,34 @@
 const POLL_MS = 50;
 const WAIT_FOR_SCRIPT_TIMEOUT_MS = 8000;
 
+// Đợi window.supabaseClient (do public/js/supabaseClient.js gắn vào) xuất hiện.
+//
+// Sau khi build, Vite đưa <script type="module"> của React lên <head> - tức
+// module React chạy TRƯỚC các <script defer> classic ở cuối <body> (xem
+// dist/index.html), kể cả supabaseClient.js (còn phải đợi supabase-js từ CDN).
+// Effect lúc mount đọc window.supabaseClient quá sớm sẽ thấy undefined: danh sách
+// khóa học rơi về rỗng và KHÔNG tự thử lại. Mạng chậm/lần mở đầu chưa có cache
+// (đúng tình huống mở từ icon màn hình chính) là lúc dễ dính nhất. Trả về null
+// nếu quá hạn mà vẫn không có (chạy ngoài server chính) - nơi gọi tự xử lý.
+export function waitForSupabaseClient(): Promise<any | null> {
+  return new Promise((resolve) => {
+    const start = Date.now();
+    const tryResolve = () => {
+      const client = (window as any).supabaseClient;
+      if (client) {
+        resolve(client);
+        return;
+      }
+      if (Date.now() - start >= WAIT_FOR_SCRIPT_TIMEOUT_MS) {
+        resolve(null);
+        return;
+      }
+      setTimeout(tryResolve, POLL_MS);
+    };
+    tryResolve();
+  });
+}
+
 export function waitForAuthUser(): Promise<any> {
   return new Promise((resolve) => {
     const start = Date.now();

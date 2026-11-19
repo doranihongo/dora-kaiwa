@@ -7,10 +7,12 @@ import type { Course, VocabWord, GrammarPoint } from '../../types';
  * không cần F5.
  *
  * Dùng CHUNG 1 client Supabase với cả trang (không tự tạo client riêng ở
- * đây): public/js/supabaseClient.js (classic script, load TRƯỚC bundle
- * React này trong kaiwa/index.html) đã khởi tạo sẵn và gắn vào
- * window.supabaseClient - dùng lại đúng client đó để chia sẻ chung 1
+ * đây): public/js/supabaseClient.js (classic script) khởi tạo sẵn và gắn
+ * vào window.supabaseClient - dùng lại đúng client đó để chia sẻ chung 1
  * phiên đăng nhập, không mở 2 kết nối realtime song song tốn tài nguyên.
+ * LƯU Ý: sau khi build, module React có thể chạy TRƯỚC supabaseClient.js
+ * (Vite đưa thẻ module lên <head>) - nơi gọi phải đợi client sẵn sàng bằng
+ * waitForSupabaseClient() (utils/authState.ts) trước khi gọi các hàm ở đây.
  */
 function getSupabaseClient(): any | null {
   const client = (window as any).supabaseClient;

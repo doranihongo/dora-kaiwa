@@ -14,37 +14,21 @@ if ("serviceWorker" in navigator) {
 }
 
 // ---------------------------------------------------------
-// PWA standalone mode (opened from the home-screen icon, not a normal
-// Safari/Chrome tab): iOS still lets the whole page rubber-band/bounce
-// on drag at the native WKWebView level even though the page itself has
-// overflow:hidden. Block that drag here (normal browser-tab visits are
-// untouched); still lets any element that's actually meant to scroll
-// (chat log, settings panel, etc.) scroll normally.
+// KHÔNG được chặn "touchmove" toàn trang ở đây.
+//
+// Trước đây có 1 bộ chặn chỉ bật khi chạy từ icon màn hình chính (PWA
+// standalone): preventDefault() mọi lần vuốt không nằm trong 1 phần tử có
+// overflow:auto/scroll riêng - viết cho trang gọi điện (cả trang đứng yên,
+// chỉ các khung con cuộn). Trang chủ kaiwa thì ngược lại: cuộn bằng CHÍNH
+// trang (document) nên bộ chặn nuốt hết mọi cú vuốt => học viên cài vào màn
+// hình chính (iPhone) mở lên là KHÔNG vuốt lên/xuống được, chỉ cuộn được
+// bên trong bảng tài khoản (vì bảng đó có overflow-y:auto riêng). Mở bằng
+// trình duyệt thường thì không dính vì bộ chặn chỉ bật ở chế độ standalone.
+//
+// Việc chống "kéo dội" (rubber-band) đã có overscroll-behavior:none ở CSS
+// (kaiwa/src/index.css, iOS 16+) - không cần JS. Khóa cuộn nền khi mở popup
+// do hook useBodyScrollLock (kaiwa/src/hooks) lo, cũng không dùng touchmove.
 // ---------------------------------------------------------
-const isStandalonePwa =
-  window.matchMedia?.("(display-mode: standalone)")?.matches ||
-  window.navigator.standalone === true;
-
-if (isStandalonePwa) {
-  document.addEventListener(
-    "touchmove",
-    (e) => {
-      let el = e.target;
-      while (el && el !== document.documentElement) {
-        const style = window.getComputedStyle(el);
-        if (
-          /(auto|scroll)/.test(style.overflowY) &&
-          el.scrollHeight > el.clientHeight
-        ) {
-          return; // inside a genuinely scrollable element - let it scroll
-        }
-        el = el.parentElement;
-      }
-      e.preventDefault();
-    },
-    { passive: false },
-  );
-}
 
 // ---------------------------------------------------------
 // Auth guard - chạy trên mọi trang có gắn script này (kaiwa, login).

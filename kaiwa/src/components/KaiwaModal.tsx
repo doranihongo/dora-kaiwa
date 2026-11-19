@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Howl } from 'howler';
 import { Mic } from 'lucide-react';
 import { DATA_BASE } from '../utils/dataBase';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 // Dữ liệu (JSON + audio) nằm trong public/data của repo này - xem utils/dataBase.ts
 
@@ -102,17 +103,15 @@ export default function KaiwaModal({ isOpen, onClose }: KaiwaModalProps) {
   // nút "Đóng" trong popup mới thật sự gọi handleClose().
   const [showCloseConfirm, setShowCloseConfirm] = useState(false);
 
+  // Khóa cuộn nền lúc đang mở (hook dùng chung có đếm lượt, xem hooks/useBodyScrollLock.ts).
+  useBodyScrollLock(isOpen);
+
+  // Mỗi lần đóng thì reset về màn đầu - mở lại luôn bắt đầu sạch.
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+    if (!isOpen) {
       setView('categories');
       setIsGuideOpen(false);
     }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
   }, [isOpen]);
 
   if (!isOpen) return null;

@@ -3,6 +3,8 @@ import { BookOpen, ChevronRight, MessageCircle, MessagesSquare, Lock, Unlock, Li
 import { useCourses } from '../CoursesContext';
 import { isCourseAllowed } from '../utils/courses/courseAccess';
 import { waitForAuthUser } from '../utils/authState';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
+import UserAccountMenu from './UserAccountMenu';
 import KaiwaModal from './KaiwaModal';
 import DictationModal from './DictationModal';
 import YoutubeShadowingModal from './YoutubeShadowingModal';
@@ -33,12 +35,11 @@ const OTHER_ITEMS = [
   { name: 'Nhóm học tập', description: 'Trao đổi, thảo luận', icon: Users },
 ];
 
-export default function Home({ onSelectCourse, onLogout, isHiddenByOverlay }: { onSelectCourse: (cId: string) => void, onLogout: () => void, isHiddenByOverlay?: boolean }) {
+export default function Home({ onSelectCourse, onLogout }: { onSelectCourse: (cId: string) => void, onLogout: () => void }) {
   const { courses } = useCourses();
 
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
   const [showContactPopup, setShowContactPopup] = useState(false);
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [isDocsModalOpen, setIsDocsModalOpen] = useState(false);
   const [activeToolModal, setActiveToolModal] = useState<string | null>(null);
 
@@ -68,37 +69,40 @@ export default function Home({ onSelectCourse, onLogout, isHiddenByOverlay }: { 
     });
   }, []);
 
-  useEffect(() => {
-    if (isHiddenByOverlay) return;
-    const isAnyModalOpen = showLogoutConfirm || showContactPopup || showProfileMenu || isDocsModalOpen || !!activeToolModal;
-    if (isAnyModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [showLogoutConfirm, showContactPopup, showProfileMenu, isDocsModalOpen, activeToolModal, isHiddenByOverlay]);
-
-  // #kaiwaAccountWidget nổi cố định z-index 10000 (xem kaiwa/index.html) -
-  // cao hơn mọi popup full-screen của Home (Shadowing/Nghe chính tả/Luyện
-  // phát âm dùng z-[500]/z-[200], Tài liệu tham khảo z-[200]), nên đè lên
-  // đúng góc trên-phải của các popup này (chỗ nút đóng). Ẩn nút đi trong
-  // lúc 1 trong các popup đó đang mở, hiện lại khi đóng.
-  useEffect(() => {
-    const widget = document.getElementById('kaiwaAccountWidget');
-    if (!widget) return;
-    widget.style.display = (isDocsModalOpen || activeToolModal) ? 'none' : '';
-  }, [isDocsModalOpen, activeToolModal]);
+  // Khóa cuộn nền cho các popup do CHÍNH Home dựng (xác nhận đăng xuất, liên
+  // hệ mở khóa, tài liệu, popup công cụ tạm). 3 công cụ học (KaiwaModal/
+  // DictationModal/YoutubeShadowingModal) và bảng tài khoản tự khóa bên trong
+  // component của chúng - cùng 1 hook có đếm lượt nên các khóa không giẫm lên
+  // nhau (xem hooks/useBodyScrollLock.ts).
+  const isToolPlaceholderOpen =
+    !!activeToolModal &&
+    activeToolModal !== 'SHADOWING' &&
+    activeToolModal !== 'NGHE CHÍNH TẢ' &&
+    activeToolModal !== 'SHADOWING_YT';
+  useBodyScrollLock(showLogoutConfirm);
+  useBodyScrollLock(showContactPopup);
+  useBodyScrollLock(isDocsModalOpen);
+  useBodyScrollLock(isToolPlaceholderOpen);
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans ${showLogoutConfirm ? 'h-screen overflow-hidden' : ''}`}>
-       <nav className="h-16 px-6 flex flex-shrink-0 items-center justify-between border-b border-white/10 bg-white/5 backdrop-blur-md z-50 sticky top-0">
+    <div className="min-h-dvh flex flex-col font-sans">
+       {/* Thanh điều hướng: "sticky top-0" + nền ĐẶC + shadow-sm, KHÔNG backdrop-blur -
+           cùng cấu trúc navbar của web "xóa mù kanji" (components/Home.tsx: bg-white,
+           border-b, z-50, sticky top-0, shadow-sm; web Phá Đảo cũng dùng nền đặc không
+           blur). Bản cũ là nền trong suốt bg-white/5 + backdrop-blur-md: backdrop-filter
+           bắt trình duyệt làm mờ lại toàn bộ nội dung phía sau thanh ở MỖI khung hình
+           lúc cuộn (tốn tài nguyên, dễ giật trên iPhone), nội dung cuộn qua còn lộ ra
+           sau thanh. Nền #22476f = cùng tông xanh với màu card nền tối của app
+           (bg-surface #1c3b5c, xem @theme trong index.css) nhưng sáng hơn chút để
+           thanh nổi lên khỏi nền trang - đóng vai "bg-white" của web kia. */}
+       <nav className="h-16 px-6 flex flex-shrink-0 items-center justify-between border-b border-white/10 bg-[#22476f] shadow-sm z-50 sticky top-0">
           <div className="w-full flex items-center justify-between">
              <div className="flex items-center gap-3 text-blue-700">
                <img src="https://i.ibb.co/GvC0pFmy/Logo-tr-ng.png" alt="DORA" className="h-8 object-contain -mt-[5px]" />
              </div>
+             {/* Nút tài khoản nằm TRONG thanh điều hướng (bảng của nó render
+                 qua Portal ra <body>) - xem UserAccountMenu.tsx. */}
+             <UserAccountMenu />
           </div>
        </nav>
 
@@ -298,7 +302,7 @@ export default function Home({ onSelectCourse, onLogout, isHiddenByOverlay }: { 
        />
 
        {/* Tool Modal (Placeholder for other tools) */}
-       {activeToolModal && activeToolModal !== 'SHADOWING' && activeToolModal !== 'NGHE CHÍNH TẢ' && activeToolModal !== 'SHADOWING_YT' && (
+       {isToolPlaceholderOpen && (
           <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200" onClick={() => setActiveToolModal(null)}>
              <div className="bg-surface rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden border border-surface-border flex flex-col min-h-[380px]" onClick={e => e.stopPropagation()}>
                 <div className="p-5 border-b border-surface-border flex justify-between items-center bg-surface-panel">

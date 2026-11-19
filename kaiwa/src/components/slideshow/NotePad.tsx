@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import useBodyScrollLock from '../../hooks/useBodyScrollLock';
 
 interface NotePadProps {
   isOpen: boolean;
@@ -146,14 +147,8 @@ export function NotePad({ isOpen, onClose, text, setText }: NotePadProps) {
     return () => window.removeEventListener('resize', checkBoundary);
   }, [isMaximized]);
 
-  useEffect(() => {
-    if (!isOpen || !isMaximized) return;
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = originalOverflow;
-    };
-  }, [isOpen, isMaximized]);
+  // Khóa cuộn nền khi phóng to toàn màn hình (hook dùng chung có đếm lượt).
+  useBodyScrollLock(isOpen && isMaximized);
 
   const toggleMaximize = (e?: any) => {
     if (e) e.stopPropagation();

@@ -15,6 +15,7 @@ import {
   loadDisplayPrefs,
   saveDisplayPrefs,
 } from '../utils/shadowingProgress';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 interface Segment {
   start: number;
@@ -159,25 +160,9 @@ export default function YoutubeShadowingModal({ isOpen, onClose }: YoutubeShadow
   const hideControlsTimerRef = useRef<number | null>(null);
 
   // Khóa cuộn trang nền lúc modal đang mở (full-screen trên điện thoại) -
-  // giữ đúng vị trí cuộn cũ khi đóng lại, cùng cách DictationModal.tsx làm
-  // (position:fixed + bù top thay vì overflow:hidden suông, để tránh Safari
-  // iOS tự cuộn nền qua lại lúc modal đang mở).
-  useEffect(() => {
-    if (isOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
-      if (scrollY) window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    }
-  }, [isOpen]);
+  // hook dùng chung có đếm lượt, giữ đúng vị trí cuộn cũ khi đóng lại
+  // (xem hooks/useBodyScrollLock.ts).
+  useBodyScrollLock(isOpen);
 
   // Reset về màn danh sách mỗi lần modal đóng - mở lại luôn bắt đầu sạch.
   useEffect(() => {

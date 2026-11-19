@@ -122,10 +122,8 @@
 
 /* ---------- Account panel ---------- */
 /* .account-btn/.account-avatar phía trên + toàn bộ khối account-panel*
-   dưới đây giờ phục vụ trang chủ kaiwa (kaiwa/index.html load lại đúng
-   file CSS này) - landing.html không còn dùng nữa (đã bỏ accountBtn +
-   accountPanelOverlay + .bottom-bar/.bottom-bar-github, icon GitHub đã
-   chuyển sang footer của kaiwa dưới dạng Tailwind class). */
+   dưới đây phục vụ trang chủ kaiwa (kaiwa/index.html load file CSS này;
+   markup nằm trong kaiwa/src/components/UserAccountMenu.tsx). */
 .hidden {
   display: none !important;
 }
@@ -138,23 +136,16 @@
   backdrop-filter: blur(2px);
   display: flex;
   justify-content: flex-end;
-  /* Nền phía sau đã khoá cuộn qua .account-panel-open trên <body> - chặn
-     luôn touch-scroll ngay trên chính lớp phủ này (vùng ngoài .account-panel),
-     để vuốt ở đó không kéo/rung trang nền theo kiểu "cuộn dội" trên mobile. */
-  touch-action: none;
+  /* Nền phía sau được khoá cuộn bằng hook useBodyScrollLock (kaiwa/src/hooks)
+     lúc bảng mount - ở đây chỉ chặn cuộn "dội" lọt xuống trang nền. KHÔNG đặt
+     touch-action: none ở lớp phủ: bản trước làm vậy rồi phải "trả lại" pan-y
+     cho bảng, rất dễ sót và từng góp phần làm hỏng việc vuốt trên iPhone. */
   overscroll-behavior: contain;
 }
 
-/* Khoá cuộn/vuốt trang nền trong lúc bảng tài khoản đang mở (xem
-   accountPanel.js openAccountPanel/closeAccountPanel). */
-body.account-panel-open {
-  overflow: hidden;
-}
-
-/* Trượt vào từ phải mỗi lần overlay hết "hidden" - animation tự phát
-   lại vì element chuyển từ display:none sang hiện, giống hệt
-   "animate-in slide-in-from-right duration-300" bên UserProfileSidebar
-   (kanji). */
+/* Trượt vào từ phải mỗi lần bảng được dựng (UserAccountMenu.tsx mount bảng
+   mỗi lần mở) - giống hệt "animate-in slide-in-from-right duration-300" bên
+   UserProfileSidebar (kanji). */
 @keyframes accountPanelSlideIn {
   from {
     transform: translateX(100%);
@@ -174,10 +165,6 @@ body.account-panel-open {
   flex-direction: column;
   box-shadow: var(--ds-shadow-lg);
   animation: accountPanelSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  /* .account-panel-overlay chặn touch-action ở lớp phủ (nền) - trả lại
-     cuộn dọc bình thường bên trong chính bảng này (accountPanelBody vẫn
-     cần cuộn được khi nội dung dài, form đổi mật khẩu...). */
-  touch-action: pan-y;
 }
 
 /* Trên mobile panel chiếm trọn màn hình (không còn giữ max-width: 380px

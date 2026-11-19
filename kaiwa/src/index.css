@@ -386,8 +386,10 @@ button:focus {
   }
 }
 
+/* Chống "kéo dội" (rubber-band) ở CSS - thay cho bộ chặn touchmove bằng JS đã
+   gỡ khỏi public/js/common.js (bộ đó làm trang chủ không vuốt được trên iPhone
+   khi mở từ icon màn hình chính). Khóa cuộn nền khi mở popup do hook
+   hooks/useBodyScrollLock.ts lo (không còn class .global-lock). */
 html, body {
   overscroll-behavior: none;
 }
-
-.global-lock { overflow: hidden !important; }

@@ -652,8 +652,7 @@ export default function SlideShow({ images, title, onClose, isBoardOpen, onToggl
           (320/330) để luôn nổi trên cùng. */}
       {showExitConfirm && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[400] flex items-center justify-center p-4 touch-none overscroll-none"
-          onTouchMove={(e) => e.preventDefault()}
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[400] flex items-center justify-center p-4 overscroll-none"
         >
           <div
             className="bg-surface border border-surface-border rounded-3xl max-w-sm w-full p-6 sm:p-8 shadow-xl flex flex-col text-center"

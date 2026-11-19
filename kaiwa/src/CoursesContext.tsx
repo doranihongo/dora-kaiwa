@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { Course } from './types';
 import { fetchCourses as fetchCoursesFromDb, fetchCourseLessons, subscribeToCourseChanges } from './utils/courses/supabaseCourses';
+import { waitForSupabaseClient } from './utils/authState';
 
 type CoursesContextType = {
   courses: Course[];
@@ -67,8 +68,16 @@ export const CoursesProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setDetailsLoading(false);
   };
 
+  // Đợi supabaseClient.js chạy xong rồi mới tải (module React có thể chạy
+  // trước script đó - xem waitForSupabaseClient trong utils/authState.ts).
   useEffect(() => {
-    fetchCourses();
+    let cancelled = false;
+    waitForSupabaseClient().then(() => {
+      if (!cancelled) fetchCourses();
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // "dora:refreshCourses" - client.js gửi mỗi lần thật sự mở overlay trang
@@ -95,13 +104,21 @@ export const CoursesProvider: React.FC<{ children: React.ReactNode }> = ({ child
   // không cần F5. Tải lại danh sách khóa học, và nếu đang xem chi tiết 1
   // khóa thì tải lại luôn buổi học của khóa đó.
   useEffect(() => {
-    const unsubscribe = subscribeToCourseChanges(() => {
-      fetchCourses();
-      if (openCourseIdRef.current) {
-        loadCourseDetails(openCourseIdRef.current);
-      }
+    let cancelled = false;
+    let unsubscribe: (() => void) | undefined;
+    waitForSupabaseClient().then(() => {
+      if (cancelled) return;
+      unsubscribe = subscribeToCourseChanges(() => {
+        fetchCourses();
+        if (openCourseIdRef.current) {
+          loadCourseDetails(openCourseIdRef.current);
+        }
+      });
     });
-    return unsubscribe;
+    return () => {
+      cancelled = true;
+      unsubscribe?.();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
