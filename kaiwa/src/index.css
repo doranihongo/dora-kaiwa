@@ -15,52 +15,14 @@
   --color-zen-black: #1a1a1a;
   --color-zen-white: #ffffff;
 
-  /* Đè lại nguyên thang "blue" mặc định của Tailwind bằng đúng bảng màu
-     "Ocean" bên web gọi điện (public/css/_tokens.css: --ds-brand-*) -
-     để mọi class blue-50..blue-900 đang dùng khắp Home.tsx (và các
-     component con) tự động ra đúng tông xanh lam-ngả-cyan của app gọi
-     điện, không cần sửa từng class. Chỉ 50/100/300/500/600/700 là lấy
-     đúng giá trị token gốc; 200/400/800/900/950 nội suy thêm cho đủ
-     thang, không có token gốc tương ứng. */
-  --color-blue-50: #eef6fb;
-  --color-blue-100: #d3e9f5;
-  --color-blue-200: #a9d8ec;
-  --color-blue-300: #7fcbea;
-  --color-blue-400: #63c0e2;
-  --color-blue-500: #4bb4de;
-  --color-blue-600: #3b8ac4;
-  --color-blue-700: #345da7;
-  --color-blue-800: #2a4a86;
-  --color-blue-900: #1f3766;
-  --color-blue-950: #16284a;
-
-  /* Bề mặt "card tối" giống hệt app gọi điện (--ds-bg-elevated/
-     --ds-bg-panel/--ds-border/--ds-border-strong trong _tokens.css) -
-     dùng cho card khóa học/công cụ/tài nguyên thay vì nền trắng, để
-     đồng bộ với bảng "Tài khoản của tôi" đã có sẵn (topbar.css). */
-  --color-surface: #1c3b5c; /* card nổi trên nền trang, = --ds-bg-elevated */
-  --color-surface-panel: #16324f; /* card lồng bên trong 1 card khác, = --ds-bg-panel */
-  --color-surface-border: #24406b; /* = --ds-border */
-  --color-surface-border-strong: #3c6693; /* = --ds-border-strong */
-
-  /* Đè thang bo góc/đổ bóng mặc định của Tailwind bằng đúng thang của
-     app gọi điện (--ds-radius-*/--ds-shadow-* trong _tokens.css) - các
-     card/nút đang "tròn" hơn hẳn (rounded-3xl mặc định = 24px) so với
-     phong cách "vuông vắn" của app gọi điện (bo góc lớn nhất chỉ 20px,
-     nút chính chỉ 8px). Đổi ở đây để mọi rounded-xl/2xl/3xl và
-     shadow-md/lg/xl/2xl khắp kaiwa (Home.tsx lẫn các modal con) tự động
-     khớp, không cần sửa từng class. rounded-md/rounded-lg mặc định của
-     Tailwind (6px/8px) đã trùng sẵn với ds-radius-sm/nút .button bên
-     kia nên không cần đổi.
-  */
-  --radius-xl: 0.625rem; /* 10px, = --ds-radius-md */
-  --radius-2xl: 0.875rem; /* 14px, = --ds-radius-lg */
-  --radius-3xl: 1.25rem; /* 20px, = --ds-radius-xl (mức bo góc lớn nhất bên app gọi điện) */
-
-  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.22); /* = --ds-shadow-md */
-  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.32); /* = --ds-shadow-lg */
-  --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.32); /* Ocean chỉ có 3 mức, cap ở mức lg */
-  --shadow-2xl: 0 20px 48px rgba(0, 0, 0, 0.4);
+  /* GIAO DIỆN SÁNG (đồng bộ web Phá Đảo Tiếng Nhật): thang "blue" + bo góc + đổ bóng dùng
+     đúng mặc định của Tailwind như bên đó (trước đây đè sang tông xanh tối của app gọi điện).
+     Bảng màu của web: nền trang #F0F6FF, viền #D3E4FC, chữ chính #1A2A54, chữ phụ #5B6B85,
+     xanh thương hiệu #2F7DF6, nền rê chuột #E3EEFF. */
+  --color-surface: #ffffff; /* thẻ nổi trên nền trang */
+  --color-surface-panel: #f0f6ff; /* khung lồng bên trong 1 thẻ khác = nền trang */
+  --color-surface-border: #d3e4fc; /* viền thẻ */
+  --color-surface-border-strong: #b6d0f7; /* viền khi rê chuột / nhấn mạnh */
 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
@@ -85,17 +47,9 @@
 
 body {
   font-family: var(--font-sans);
-  /* Cùng công thức gradient chéo với trang /join (landing.css), điểm
-     dừng sáng nhất (100%) lấy ĐÚNG màu "vùng sáng" của join
-     (--ds-hero-1/--ds-brand-700 #345da7) - để 2 trang nhìn cùng 1 tông.
-     Điểm dừng tối nhất (0%) đổi từ --ds-bg-2 (rất tối, join đang dùng)
-     sang --ds-neutral-700/--ds-bg-panel #16324f - sáng hơn hẳn để vùng
-     tối trên trang chủ không bị tối quá. Kaiwa không load _tokens.css
-     cho phần body này (chỉ topbar.css dùng token, xem index.html) nên
-     ghi thẳng hex cho chắc. */
-  background: linear-gradient(315deg, #16324f 0%, #24406b 45%, #345da7 100%);
-  background-attachment: fixed;
-  color: var(--color-zen-black);
+  /* Nền trang = #F0F6FF y hệt web Phá Đảo Tiếng Nhật (min-h-dvh bg-[#F0F6FF]). */
+  background: #f0f6ff;
+  color: #1a2a54;
 }
 
 .font-jp {
@@ -105,20 +59,17 @@ body {
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Trắng mờ (không phải zinc-200 xám sáng) - mọi nơi dùng class này giờ đều
-   là nền tối (Home/LessonView/3 modal công cụ học), zinc-200 nổi bật hẳn lên
-   như 1 vệt xám sáng lạc quẻ. Trắng mờ tự "hoà" vào bất kỳ nền tối nào bên
-   dưới, đúng yêu cầu "ẩn đi hoặc cho giống màu nền". */
+/* Thanh cuộn mảnh, thumb xanh xám nhạt hợp nền sáng. */
 .custom-scrollbar::-webkit-scrollbar { width: 6px; }
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; border-radius: 10px; }
-.custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.15); border-radius: 10px; }
-.custom-scrollbar::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, 0.3); }
+.custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(47, 125, 246, 0.25); border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background-color: rgba(47, 125, 246, 0.45); }
 
-/* Thanh tua/âm lượng tự code cho tool Shadowing YouTube (khung nhúng bị
-   khoá, thay UI gốc của YouTube - xem YoutubeShadowingModal.tsx). Nằm đè
-   trên video nên cố tình dùng tông "kính tối" cố định (trắng/indigo trên
-   nền đen mờ), không theo theme sáng của app, để luôn đọc được trên mọi
-   nội dung video bên dưới.
+/* Thanh tua/âm lượng tự code cho trang Nghe Podcast (khung nhúng bị khoá,
+   thay UI gốc của YouTube - xem pages/PodcastPage.tsx). Nằm đè trên video
+   nên cố tình dùng tông "kính tối" cố định (trắng + xanh #5B9BFF trên nền
+   đen mờ, như web Phá Đảo), không theo theme sáng của app, để luôn đọc
+   được trên mọi nội dung video bên dưới.
    Phần "đã tua qua" tô màu bằng biến --fill (0%-100%, tính trong JS theo
    currentTime/duration hoặc volume) - Chrome/Safari (WebKit) tô trực tiếp
    qua background của chính input (track mặc định trong suốt nên lộ ra
@@ -130,7 +81,7 @@ body {
   appearance: none;
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(to right, #818cf8 var(--fill), rgba(255, 255, 255, 0.35) var(--fill));
+  background: linear-gradient(to right, #5b9bff var(--fill), rgba(255, 255, 255, 0.35) var(--fill));
   outline: none;
   cursor: pointer;
 }
@@ -157,7 +108,7 @@ body {
 .player-range::-moz-range-progress {
   height: 4px;
   border-radius: 999px;
-  background: #818cf8;
+  background: #5b9bff;
 }
 .player-range::-moz-range-thumb {
   width: 13px;
@@ -169,7 +120,7 @@ body {
   cursor: pointer;
 }
 
-/* Thẻ "câu đang phát" dưới video trong tool Shadowing YouTube - chỉ dành
+/* Thẻ "câu đang phát" dưới video trong trang Nghe Podcast - chỉ dành
    cho máy tính. Ẩn theo THIẾT BỊ CẢM ỨNG THẬT (không có chuột) chứ không
    theo độ rộng cửa sổ (breakpoint sm:/md:) - 1 cửa sổ desktop dù chưa
    maximize/kéo hẹp cỡ nào vẫn còn chuột thật (hover: hover, pointer: fine)
@@ -181,6 +132,20 @@ body {
     display: none !important;
   }
 }
+
+/* TRANG VIDEO SHADOWING (pages/PodcastPage.tsx) - chép từ kaiwa/video/index.html của web Phá Đảo Tiếng Nhật. */
+/* Giấu thanh cuộn của khung ngoài. */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+/* Furigana tự vẽ (xem FuriText trong PodcastPage.tsx): KHÔNG position/transform (nhẹ khi cuộn trên điện thoại); cỡ chữ + lề do style inline. */
+.pod-furi { display: inline-block; line-height: 1; white-space: nowrap; vertical-align: baseline; }
+.pod-furi-rt {
+  display: block; text-align: center; font-size: 0.62em; font-weight: 500; line-height: 1; white-space: nowrap; color: #5b6b85; letter-spacing: 0;
+  user-select: none; -webkit-user-select: none; pointer-events: none;
+}
+/* KHUNG VIDEO: luôn 16:9. Điện thoại/iPad = rộng 92% cột, căn giữa; máy tính: PodcastPage.tsx đặt bề rộng (thu nhỏ khi thẻ câu đang phát dài). */
+.pod-vid-box { width: 100%; aspect-ratio: 16 / 9; }
+@media (max-width: 1023.98px) { .pod-vid-box { width: 92% !important; } }
 
 @keyframes drawStroke {
   0% { stroke-dashoffset: 500; opacity: 0; }

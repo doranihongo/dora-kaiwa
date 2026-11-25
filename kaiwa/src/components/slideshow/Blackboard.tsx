@@ -22,14 +22,19 @@ export function Blackboard({ isOpen, onClose }: BlackboardProps) {
   // thật của người dùng (kéo/resize/phóng to), KHÔNG tự "recenter" hay
   // reset mỗi khi đóng/mở lại (X rồi mở lại) nữa - đóng ở đâu, kích cỡ/vị
   // trí/trạng thái phóng to nào thì mở lại giữ ĐÚNG y hệt vậy.
-  const [rect, setRect] = useState(() => ({
-    x: Math.max(0, (window.innerWidth - 820) / 2),
-    y: Math.max(0, (window.innerHeight - 520) / 2),
-    w: 820,
-    h: 520,
-  }));
-  const MIN_W = 450;
-  const MIN_H = 300;
+  const [rect, setRect] = useState(() => {
+    // Không rộng/cao hơn màn hình (điện thoại: chừa lề 8px mỗi bên) - máy tính vẫn 820x520 như cũ.
+    const w = Math.min(820, window.innerWidth - 16);
+    const h = Math.min(520, window.innerHeight - 24);
+    return {
+      x: Math.max(0, (window.innerWidth - w) / 2),
+      y: Math.max(0, (window.innerHeight - h) / 2),
+      w,
+      h,
+    };
+  });
+  const MIN_W = Math.min(450, window.innerWidth - 16);
+  const MIN_H = Math.min(300, window.innerHeight - 24);
 
   const [isMaximized, setIsMaximized] = useState(false);
   const preMaxRectRef = useRef<typeof rect | null>(null);

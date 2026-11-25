@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, BookOpen, ExternalLink, Languages, ListChecks, ChevronDown, MonitorPlay, Layers, Volume2 } from 'lucide-react';
+import { ChevronLeft, BookOpen, ExternalLink, Languages, ListChecks, ChevronDown, MonitorPlay, Layers, Volume2 } from 'lucide-react';
 import { useCourses } from '../CoursesContext';
 import { waitForAuthUser } from '../utils/authState';
 import SlideShow from './slideshow/SlideShow';
@@ -372,7 +372,7 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
         return (
           <ruby key={index} className="leading-loose">
             {match[1]}
-            <rt className="text-[0.6em] text-blue-500 font-semibold select-none"><span className="inline-block -translate-y-0.5">{match[2]}</span></rt>
+            <rt className="text-[0.6em] text-[#2F7DF6] font-semibold select-none"><span className="inline-block -translate-y-0.5">{match[2]}</span></rt>
           </ruby>
         );
       }
@@ -383,7 +383,7 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
   if (detailsLoading) {
     return (
       <div className="flex justify-center items-center p-12 min-h-screen">
-        <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-10 h-10 border-4 border-[#2F7DF6] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -396,16 +396,29 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
     // Đi kèm flex-auto (không phải flex-1) ở <main> bên dưới.
     <div className="flex flex-col font-sans h-full min-h-0">
       {/* Header Navigation */}
-      <nav className="h-16 flex-shrink-0 px-6 flex items-center justify-between border-b border-white/10 bg-white/5 backdrop-blur-md z-50">
-        <div className="w-full flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <button onClick={onBack} className="hover:bg-white/10 text-white p-2 rounded-lg transition-colors border border-transparent mr-2">
-              <ArrowLeft className="w-5 h-5" />
+      {/* Thanh đầu sáng - y hệt InnerNav của web Phá Đảo Tiếng Nhật: nút "<" tròn (về trang khóa học)
+          + tên trang quay về (tên khóa) + nút TRANG CHỦ viên thuốc. */}
+      <nav className="flex-shrink-0 bg-[#F0F6FF] border-b border-[#D3E4FC] z-50" style={{ fontFamily: 'ui-sans-serif, system-ui, sans-serif' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-14 sm:h-16 gap-3">
+            <div className="flex items-center gap-2 min-w-0">
+              <button
+                onClick={onBack}
+                aria-label="Quay lại khóa học"
+                style={{ WebkitTapHighlightColor: 'transparent' }}
+                className="w-9 h-9 shrink-0 flex items-center justify-center rounded-full bg-[#E3EEFF] hover:bg-[#D3E4FC] text-[#2F7DF6] transition-colors outline-none"
+              >
+                <ChevronLeft className="w-5 h-5" strokeWidth={3} />
+              </button>
+              <span className="text-base sm:text-lg font-black text-[#1A2A54] uppercase truncate">{course?.title || 'Khóa học'}</span>
+            </div>
+            <button
+              onClick={() => setShowExitConfirm(true)}
+              style={{ WebkitTapHighlightColor: 'transparent' }}
+              className="inline-flex items-center px-4 h-10 bg-[#DCEAFE] hover:bg-[#BFDBFE] active:scale-95 transition-all rounded-full text-sm font-bold text-[#2F7DF6] shadow-sm flex-shrink-0 whitespace-nowrap"
+            >
+              TRANG CHỦ
             </button>
-            <img src="https://i.ibb.co/GvC0pFmy/Logo-tr-ng.png" alt="DORA" className="h-8 object-contain -mt-[5px]" />
-          </div>
-          <div className="flex items-center gap-3 sm:gap-6">
-            <button onClick={() => setShowExitConfirm(true)} className="h-10 px-3 sm:px-4 hover:text-blue-200 transition-colors uppercase border border-white/20 rounded-lg hover:border-white/40 text-xs sm:text-sm font-semibold text-white flex items-center justify-center whitespace-nowrap">Trang chủ</button>
           </div>
         </div>
       </nav>
@@ -417,13 +430,13 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
           để chiều cao nội dung thật của main truyền lên được div cha ở
           trên (chứa nav sticky) - xem comment ở div cha. */}
       <div className="flex-1 min-h-0 overflow-y-auto hide-scrollbar">
-      <main className="max-w-4xl w-full mx-auto p-4 md:p-8 flex flex-col gap-6">
-        <div className="bg-surface-border-strong p-6 md:p-10 rounded-3xl border border-white/10 shadow-sm flex flex-col gap-4">
-          <div className="flex items-center gap-3 text-blue-200">
-            <BookOpen className="w-6 h-6" />
-            <span className="text-sm font-bold uppercase tracking-wider">{course?.title || 'Khóa học'}</span>
+      <main className="max-w-4xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-12 flex flex-col gap-5 sm:gap-6">
+        <div className="bg-white p-5 md:p-8 rounded-2xl border border-[#D3E4FC] shadow-sm flex flex-col gap-3">
+          <div className="flex items-center gap-2.5 text-[#2F7DF6]">
+            <BookOpen className="w-5 h-5" />
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider">{course?.title || 'Khóa học'}</span>
           </div>
-          <h1 className="text-2xl md:text-3xl font-bold text-white">{lesson?.title || 'Buổi học'}</h1>
+          <h1 className="text-2xl md:text-3xl font-black uppercase leading-tight text-[#1A2A54] break-words">{lesson?.title || 'Buổi học'}</h1>
         </div>
 
         {/* NỘI DUNG BUỔI HỌC: Từ vựng/Ngữ pháp - accordion, bấm tiêu đề mới trượt
@@ -433,18 +446,18 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
             overflow-hidden mặc nhiên có kích thước tối thiểu = 0 theo spec flexbox,
             nên bị flex co bóp nhỏ lại thay vì tràn ra cho main cuộn, nếu không có
             shrink-0 chặn co. */}
-        <div className="bg-surface-border-strong rounded-3xl p-5 md:p-6 border border-white/10 shadow-sm shrink-0">
-          <h2 className="text-white font-bold mb-4 flex items-center gap-2 text-base md:text-lg uppercase tracking-wide">
-            <BookOpen className="w-5 h-5 text-blue-300" />
+        <div className="bg-white rounded-2xl p-4 sm:p-5 md:p-6 border border-[#D3E4FC] shadow-sm shrink-0">
+          <h2 className="text-[#1A2A54] font-black mb-4 flex items-center gap-2 text-base md:text-lg uppercase tracking-wide">
+            <BookOpen className="w-5 h-5 text-[#2F7DF6]" />
             Nội dung buổi học
           </h2>
 
           <div className="flex flex-col gap-3">
             {/* Từ vựng */}
-            <div className={`rounded-2xl overflow-hidden border transition-all duration-300 ${activeContentTab === 'vocab' ? 'border-blue-400/50 shadow-sm' : 'border-white/10 hover:border-blue-400/30'}`}>
+            <div className={`rounded-2xl overflow-hidden border bg-white transition-all duration-300 ${activeContentTab === 'vocab' ? 'border-[#2F7DF6]/60 shadow-md' : 'border-[#D3E4FC] hover:border-[#B6D0F7]'}`}>
               <button
                 onClick={() => toggleContentTab('vocab')}
-                className={`w-full flex items-center justify-between gap-3 px-5 py-3.5 font-bold transition-all duration-300 ${activeContentTab === 'vocab' ? 'bg-blue-600 text-white' : 'bg-white/5 text-white hover:bg-white/10'}`}
+                className={`w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3.5 font-bold transition-all duration-300 ${activeContentTab === 'vocab' ? 'bg-[#2F7DF6] text-white' : 'bg-white text-[#1A2A54] hover:bg-[#E3EEFF]'}`}
                 aria-expanded={activeContentTab === 'vocab'}
               >
                 <span className="flex items-center gap-2 uppercase tracking-wide text-sm">
@@ -458,54 +471,63 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
               <div className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${activeContentTab === 'vocab' ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
                 <div className="overflow-hidden">
                   {vocabulary.length > 0 ? (
-                    <div className="p-4 bg-black/10 border-t border-white/10 grid sm:grid-cols-2 gap-2 max-h-96 overflow-y-auto custom-scrollbar">
-                      {vocabulary.map((v, i) => {
-                        const isPlaying = playingVocabId === v.id;
-                        return (
-                          <button
-                            key={v.id}
-                            type="button"
-                            onClick={() => playVocabAudio(v)}
-                            disabled={IS_IOS}
-                            title={IS_IOS ? undefined : 'Bấm để nghe phát âm'}
-                            className={`relative p-3 pt-6 rounded-xl text-left w-full border shadow-sm transition-colors ${
-                              IS_IOS
-                                ? 'bg-blue-50 cursor-default'
-                                : isPlaying
-                                ? 'bg-white border-blue-400 ring-2 ring-blue-400/50'
-                                : 'bg-blue-50 hover:bg-white border-blue-100/70'
-                            }`}
-                          >
-                            <span className="absolute top-2 left-2.5 text-[11px] font-bold text-blue-700/70">
-                              {String(i + 1).padStart(2, '0')}
-                            </span>
-                            {/* Tắt hẳn icon loa trên iOS - giọng máy không phát ra tiếng
-                                trên iPhone thật (xem IS_IOS đầu file), hiện icon vẫn bấm
-                                được sẽ gây hiểu lầm là app lỗi. */}
-                            {!IS_IOS && (
-                              <Volume2
-                                className={`absolute top-2 right-2.5 w-3.5 h-3.5 ${
-                                  isPlaying ? 'text-blue-600 animate-pulse' : 'text-blue-700/40'
-                                }`}
-                              />
-                            )}
-                            {/* flex-wrap + break-words: từ dài tự động đẩy cách đọc
-                                xuống dòng riêng thay vì đè/tràn ra ngoài thẻ - từ
-                                ngắn thì 2 phần vẫn nằm chung 1 hàng như cũ. */}
-                            <div className="flex items-baseline justify-between flex-wrap gap-x-2 gap-y-0.5 pr-4">
-                              <span className="font-jp text-lg font-bold text-zinc-900 break-words">{v.word}</span>
-                              {v.reading && v.reading !== v.word && (
-                                <span className="font-jp text-base font-bold text-blue-600 break-words">{v.reading}</span>
+                    <div className="p-3 sm:p-4 bg-[#F0F6FF] border-t border-[#D3E4FC] max-h-96 overflow-y-auto custom-scrollbar">
+                      {/* Bảng từ vựng: hàng xen kẽ trắng / #F0F6FF, bấm 1 hàng để nghe phát âm. */}
+                      <div className="rounded-xl border border-[#D3E4FC] overflow-hidden bg-white">
+                        <div className="hidden sm:flex items-center gap-3 px-4 py-2 bg-[#E3EEFF] text-[11px] font-black uppercase tracking-wider text-[#5B6B85]">
+                          <span className="w-6 shrink-0">#</span>
+                          <span className="flex-1 min-w-0 grid grid-cols-2 gap-x-4">
+                            <span>Từ vựng</span>
+                            <span>Nghĩa</span>
+                          </span>
+                          {!IS_IOS && <span className="w-4 shrink-0" />}
+                        </div>
+                        {vocabulary.map((v, i) => {
+                          const isPlaying = playingVocabId === v.id;
+                          return (
+                            <button
+                              key={v.id}
+                              type="button"
+                              onClick={() => playVocabAudio(v)}
+                              disabled={IS_IOS}
+                              title={IS_IOS ? undefined : 'Bấm để nghe phát âm'}
+                              className={`w-full flex items-center gap-3 px-3 sm:px-4 py-3 text-left transition-colors ${i > 0 ? 'border-t border-[#E3EEFF]' : ''} ${
+                                isPlaying
+                                  ? 'bg-[#E3EEFF] shadow-[inset_3px_0_0_#2F7DF6]'
+                                  : `${i % 2 === 0 ? 'bg-white' : 'bg-[#F0F6FF]'} ${IS_IOS ? 'cursor-default' : 'hover:bg-[#E3EEFF]'}`
+                              }`}
+                            >
+                              <span className="w-6 shrink-0 text-[11px] font-bold text-[#8B9BB8] tabular-nums">
+                                {String(i + 1).padStart(2, '0')}
+                              </span>
+                              {/* flex-wrap + break-words: từ dài tự động đẩy cách đọc xuống dòng
+                                  riêng thay vì đè/tràn ra ngoài - từ ngắn thì 2 phần vẫn nằm chung 1 hàng.
+                                  Điện thoại: nghĩa nằm dưới từ; từ sm: 2 cột Từ vựng | Nghĩa. */}
+                              <span className="flex-1 min-w-0 grid sm:grid-cols-2 gap-x-4 gap-y-0.5 sm:items-center">
+                                <span className="flex items-baseline flex-wrap gap-x-2 gap-y-0.5">
+                                  <span className="font-jp text-lg font-bold text-[#1A2A54] break-words">{v.word}</span>
+                                  {v.reading && v.reading !== v.word && (
+                                    <span className="font-jp text-base font-bold text-[#2F7DF6] break-words">{v.reading}</span>
+                                  )}
+                                </span>
+                                <span className="text-sm text-[#5B6B85] font-semibold break-words">{v.meaning}</span>
+                              </span>
+                              {/* Tắt hẳn icon loa trên iOS - giọng máy không phát ra tiếng
+                                  trên iPhone thật (xem IS_IOS đầu file), hiện icon vẫn bấm
+                                  được sẽ gây hiểu lầm là app lỗi. */}
+                              {!IS_IOS && (
+                                <Volume2
+                                  className={`w-4 h-4 shrink-0 ${isPlaying ? 'text-[#2F7DF6] animate-pulse' : 'text-[#B6D0F7]'}`}
+                                />
                               )}
-                            </div>
-                            <p className="text-sm text-zinc-700 font-bold mt-1 break-words">{v.meaning}</p>
-                          </button>
-                        );
-                      })}
+                            </button>
+                          );
+                        })}
+                      </div>
                     </div>
                   ) : (
-                    <div className="p-4 bg-black/10 border-t border-white/10">
-                      <div className="rounded-2xl border border-dashed border-white/10 bg-black/20 py-8 text-center text-sm text-[#8fb0ce] font-medium">
+                    <div className="p-3 sm:p-4 bg-[#F0F6FF] border-t border-[#D3E4FC]">
+                      <div className="rounded-2xl border border-dashed border-[#B6D0F7] bg-white py-8 text-center text-sm text-[#6B7A96] font-medium">
                         Chưa có dữ liệu từ vựng.
                       </div>
                     </div>
@@ -515,10 +537,10 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
             </div>
 
             {/* Ngữ pháp */}
-            <div className={`rounded-2xl overflow-hidden border transition-all duration-300 ${activeContentTab === 'grammar' ? 'border-blue-400/50 shadow-sm' : 'border-white/10 hover:border-blue-400/30'}`}>
+            <div className={`rounded-2xl overflow-hidden border bg-white transition-all duration-300 ${activeContentTab === 'grammar' ? 'border-[#2F7DF6]/60 shadow-md' : 'border-[#D3E4FC] hover:border-[#B6D0F7]'}`}>
               <button
                 onClick={() => toggleContentTab('grammar')}
-                className={`w-full flex items-center justify-between gap-3 px-5 py-3.5 font-bold transition-all duration-300 ${activeContentTab === 'grammar' ? 'bg-blue-600 text-white' : 'bg-white/5 text-white hover:bg-white/10'}`}
+                className={`w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3.5 font-bold transition-all duration-300 ${activeContentTab === 'grammar' ? 'bg-[#2F7DF6] text-white' : 'bg-white text-[#1A2A54] hover:bg-[#E3EEFF]'}`}
                 aria-expanded={activeContentTab === 'grammar'}
               >
                 <span className="flex items-center gap-2 uppercase tracking-wide text-sm">
@@ -532,22 +554,22 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
               <div className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${activeContentTab === 'grammar' ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
                 <div className="overflow-hidden">
                   {grammar.length > 0 ? (
-                    <div className="p-4 bg-black/10 border-t border-white/10 flex flex-col gap-2 max-h-96 overflow-y-auto custom-scrollbar">
+                    <div className="p-3 sm:p-4 bg-[#F0F6FF] border-t border-[#D3E4FC] flex flex-col gap-2.5 max-h-96 overflow-y-auto custom-scrollbar">
                       {grammar.map((g, i) => (
-                        <div key={g.id} className="rounded-xl border border-blue-100/70 bg-blue-50 hover:bg-white shadow-sm p-4 flex flex-col gap-1.5 transition-colors">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-100 px-2 py-0.5 rounded-md w-fit">
+                        <div key={g.id} className="rounded-xl border border-[#D3E4FC] bg-white hover:border-[#B6D0F7] shadow-sm p-4 flex flex-col gap-1.5 transition-colors">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#2F7DF6] bg-[#E3EEFF] px-2 py-0.5 rounded-md w-fit">
                             Mẫu {i + 1}
                           </span>
-                          <p className="font-jp text-base md:text-lg font-bold text-blue-800">{renderFurigana(g.pattern)}</p>
-                          <p className="text-sm text-zinc-600 font-medium">{g.meaning}</p>
+                          <p className="font-jp text-base md:text-lg font-bold text-[#1E5FD9]">{renderFurigana(g.pattern)}</p>
+                          <p className="text-sm text-[#5B6B85] font-semibold">{g.meaning}</p>
                           {g.exampleJapanese && (
-                            <div className="mt-1.5 pt-2.5 border-t border-blue-100 flex flex-col gap-0.5">
-                              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-100 px-2 py-0.5 rounded-md w-fit mb-1">
+                            <div className="mt-1.5 pt-2.5 border-t border-[#E3EEFF] flex flex-col gap-0.5">
+                              <span className="text-[10px] font-bold uppercase tracking-wider text-[#2F7DF6] bg-[#E3EEFF] px-2 py-0.5 rounded-md w-fit mb-1">
                                 Ví dụ
                               </span>
-                              <p className="font-jp text-base md:text-lg text-zinc-800 font-bold">{renderFurigana(g.exampleJapanese)}</p>
+                              <p className="font-jp text-base md:text-lg text-[#1A2A54] font-bold">{renderFurigana(g.exampleJapanese)}</p>
                               {g.exampleVietnamese && (
-                                <p className="text-sm text-zinc-600 font-bold">{g.exampleVietnamese}</p>
+                                <p className="text-sm text-[#5B6B85] font-semibold">{g.exampleVietnamese}</p>
                               )}
                             </div>
                           )}
@@ -555,8 +577,8 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
                       ))}
                     </div>
                   ) : (
-                    <div className="p-4 bg-black/10 border-t border-white/10">
-                      <div className="rounded-2xl border border-dashed border-white/10 bg-black/20 py-8 text-center text-sm text-[#8fb0ce] font-medium">
+                    <div className="p-3 sm:p-4 bg-[#F0F6FF] border-t border-[#D3E4FC]">
+                      <div className="rounded-2xl border border-dashed border-[#B6D0F7] bg-white py-8 text-center text-sm text-[#6B7A96] font-medium">
                         Chưa có dữ liệu ngữ pháp.
                       </div>
                     </div>
@@ -571,7 +593,7 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
             Flashcard: logic/giao diện y hệt FlashcardModal của dự án "Xóa mù
             Kanji" (xem FlashcardModal.tsx), chỉ đổi nguồn dữ liệu sang
             VocabWord của kaiwa. */}
-        <div className="bg-surface-border-strong rounded-3xl p-5 md:p-6 border border-white/10 shadow-sm shrink-0">
+        <div className="bg-white rounded-2xl p-4 sm:p-5 md:p-6 border border-[#D3E4FC] shadow-sm shrink-0">
           {/* flex + flex-1 (thay grid cố định số cột) - buổi học KHÔNG có phần nào (vd chưa
               có tài liệu) thì ẨN LUÔN nút đó (thay vì hiện mờ/disabled như trước), các nút còn
               lại tự co dãn lấp đầy hàng. Slide vẫn cần disabled (không ẩn) khi đang tải/gate
@@ -582,7 +604,7 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
               <button
                 onClick={() => setTeacherSlideOpen(true)}
                 disabled={!hasSlideImages || !slideGateReady}
-                className="flex-1 min-w-[110px] bg-blue-600 border border-blue-400/60 p-3 py-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-md shadow-blue-900/30 transition-all hover:bg-blue-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/40 disabled:opacity-40 disabled:pointer-events-none disabled:hover:translate-y-0"
+                className="flex-1 min-w-[110px] bg-[#2F7DF6] hover:bg-[#1E5FD9] p-3 py-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md disabled:opacity-40 disabled:pointer-events-none disabled:hover:translate-y-0"
               >
                 {slideButtonBusy ? (
                   <div className="w-6 h-6 border-2 border-white/40 border-t-white rounded-full animate-spin" />
@@ -602,7 +624,7 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
             {vocabulary.length > 0 && (
               <button
                 onClick={() => setIsFlashcardOpen(true)}
-                className="flex-1 min-w-[110px] bg-blue-600 border border-blue-400/60 p-3 py-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-md shadow-blue-900/30 transition-all hover:bg-blue-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/40"
+                className="flex-1 min-w-[110px] bg-[#2F7DF6] hover:bg-[#1E5FD9] p-3 py-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
               >
                 <Layers className="w-6 h-6 text-white" />
                 <span className="text-xs font-bold text-white uppercase tracking-wider">Flashcard</span>
@@ -612,16 +634,16 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
             {hasLessonFile && (
               <button
                 onClick={openLessonFile}
-                className="flex-1 min-w-[110px] bg-blue-600 border border-blue-400/60 p-3 py-4 rounded-xl flex flex-col items-center justify-center gap-2 shadow-md shadow-blue-900/30 transition-all hover:bg-blue-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/40"
+                className="flex-1 min-w-[110px] bg-[#E3EEFF] hover:bg-[#D3E4FC] p-3 py-4 rounded-xl flex flex-col items-center justify-center gap-2 transition-all hover:-translate-y-1"
               >
-                <ExternalLink className="w-6 h-6 text-white" />
-                <span className="text-xs font-bold text-white uppercase tracking-wider">Tài liệu</span>
+                <ExternalLink className="w-6 h-6 text-[#2F7DF6]" />
+                <span className="text-xs font-bold text-[#2F7DF6] uppercase tracking-wider">Tài liệu</span>
               </button>
             )}
 
           </div>
           {isTeacherOrAdmin && slideLoadError && (
-            <p className="text-xs text-red-400 mt-3">
+            <p className="text-xs text-red-500 mt-3">
               Không tải được slide: {slideLoadError}
             </p>
           )}
@@ -633,7 +655,7 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
             ].filter(Boolean) as string[];
             if (missing.length === 0) return null;
             return (
-              <p className="text-xs text-[#8fb0ce] mt-3">
+              <p className="text-xs text-[#6B7A96] mt-3">
                 Buổi học này chưa có {missing.join(', ')}.
               </p>
             );
@@ -683,20 +705,20 @@ export default function LessonView({ courseId, lessonId, onBack, onHome }: {
 
       {/* Exit Confirmation Modal */}
       {showExitConfirm && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4 overscroll-none">
-          <div className="bg-surface border border-surface-border rounded-3xl max-w-sm w-full p-6 sm:p-8 shadow-xl flex flex-col text-center" onClick={(e) => e.stopPropagation()}>
-            <h3 className="text-xl font-bold text-white mb-2">Thoát buổi học</h3>
-            <p className="text-[#8fb0ce] font-medium mb-8">Bạn có chắc chắn muốn quay về trang chủ?</p>
-            <div className="flex gap-4">
+        <div className="fixed inset-0 bg-[#1A2A54]/40 z-[100] flex items-center justify-center p-4 overscroll-none">
+          <div className="bg-white border border-[#D3E4FC] rounded-2xl max-w-sm w-full p-6 sm:p-8 shadow-2xl flex flex-col text-center" onClick={(e) => e.stopPropagation()}>
+            <h3 className="text-xl font-black uppercase text-[#1A2A54] mb-2">Thoát buổi học</h3>
+            <p className="text-[#5B6B85] font-medium mb-8">Bạn có chắc chắn muốn quay về trang chủ?</p>
+            <div className="flex gap-3">
               <button
                 onClick={() => setShowExitConfirm(false)}
-                className="flex-1 py-3 px-4 rounded-xl font-bold text-[#8fb0ce] bg-white/10 hover:bg-white/20 transition-colors"
+                className="flex-1 py-3 px-4 rounded-xl font-bold text-[#2F7DF6] bg-[#E3EEFF] hover:bg-[#D3E4FC] transition-colors"
               >
                 Hủy
               </button>
               <button
                 onClick={onHome}
-                className="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-sm shadow-blue-200 transition-all"
+                className="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-[#2F7DF6] hover:bg-[#1E5FD9] shadow-sm transition-all"
               >
                 Đồng ý
               </button>

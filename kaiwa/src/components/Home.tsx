@@ -1,449 +1,294 @@
 import { useState, useEffect } from 'react';
-import { BookOpen, ChevronRight, MessageCircle, MessagesSquare, Lock, Unlock, Library, Users, Wrench, Repeat, Headphones, Mic, X, Film } from 'lucide-react';
+import { BookOpen, ChevronRight, MessageCircle, MessagesSquare, Lock, Unlock, Library, Users, X } from 'lucide-react';
 import { useCourses } from '../CoursesContext';
 import { isCourseAllowed } from '../utils/courses/courseAccess';
 import { waitForAuthUser } from '../utils/authState';
+import { HREF } from '../utils/route';
 import useBodyScrollLock from '../hooks/useBodyScrollLock';
-import UserAccountMenu from './UserAccountMenu';
-import KaiwaModal from './KaiwaModal';
-import DictationModal from './DictationModal';
-import YoutubeShadowingModal from './YoutubeShadowingModal';
+import SiteNav from './SiteNav';
+import VocabBookArt from './art/VocabBookArt.jsx';
+import VideoArt from './art/KaiwaVideoArt.jsx';
 
+// 3 công cụ học - mỗi công cụ là 1 TRANG riêng (#/shadowing, #/nghechinhta, #/podcast), thẻ dạng "bìa sách"
+// y hệt thẻ chọn của trang /kaiwa/ bên web Phá Đảo Tiếng Nhật (hình vẽ sẵn + tiêu đề + mô tả + dòng phụ).
 const LEARNING_TOOLS = [
-  {
-    id: 'SHADOWING',
-    title: 'SHADOWING',
-    subtitle: 'SHADOWING & PHẢN XẠ',
-    icon: Mic,
-  },
-  {
-    id: 'NGHE CHÍNH TẢ',
-    title: 'NGHE CHÍNH TẢ',
-    subtitle: 'CHÉP CHÍNH TẢ & ĐỤC LỖ',
-    icon: Headphones,
-  },
-  {
-    id: 'SHADOWING_YT',
-    title: 'NGHE PODCAST',
-    subtitle: 'NGHE & SHADOWING',
-    icon: Film,
-  },
-];
+  { key: 'shadowing', href: HREF.shadowing, title: 'Sách kaiwa', caption: 'Nhập vai hội thoại theo bài', meta: '3 cuốn sách' },
+  { key: 'nghechinhta', href: HREF.nghechinhta, title: 'Nghe chính tả', caption: 'Chép chính tả & đục lỗ', meta: 'Nghe và chép lại' },
+  { key: 'podcast', href: HREF.podcast, title: 'Video', caption: 'Shadowing theo người bản xứ', meta: 'N5-N1' },
+] as const;
 
 const OTHER_ITEMS = [
   { name: 'Tài liệu tham khảo', description: 'Thư viện tổng hợp', icon: Library },
   { name: 'Nhóm học tập', description: 'Trao đổi, thảo luận', icon: Users },
 ];
 
-export default function Home({ onSelectCourse, onLogout }: { onSelectCourse: (cId: string) => void, onLogout: () => void }) {
+const CARD =
+  'group bg-white rounded-2xl border border-[#D3E4FC] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all';
+
+function ToolArt({ k }: { k: (typeof LEARNING_TOOLS)[number]['key'] }) {
+  const cls = 'w-full h-full overflow-visible drop-shadow-lg';
+  if (k === 'shadowing') return <VocabBookArt kind="kaiwa" level="n4" badge="3" className={cls} />;
+  if (k === 'nghechinhta') return <VocabBookArt kind="chinhta" level="n3" badge="書" className={cls} />;
+  return <VideoArt className={cls} />;
+}
+
+export default function Home() {
   const { courses } = useCourses();
 
-  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
   const [showContactPopup, setShowContactPopup] = useState(false);
   const [isDocsModalOpen, setIsDocsModalOpen] = useState(false);
-  const [activeToolModal, setActiveToolModal] = useState<string | null>(null);
 
   const [userRole, setUserRole] = useState<string | undefined>(undefined);
-  // window.__authUser.allowedCourses (cột `allowed_courses` trong
-  // `profiles`) - xem kaiwa/src/utils/courseAccess.ts. Đợi qua
-  // __authReady giống hệt userRole ở trên (window.__authUser có thể chưa
-  // gắn xong ở lần render đầu).
+  // window.__authUser.allowedCourses (cột `allowed_courses` trong `profiles`) - xem
+  // utils/courses/courseAccess.ts. Đợi qua __authReady giống hệt userRole ở trên.
   const [allowedCourses, setAllowedCourses] = useState<string[]>([]);
-  // true khi đã đọc xong window.__authUser (dù có hay không) - trong lúc
-  // false (mới mount, đang đợi authGuard ở common.js chạy xong) KHÔNG được
-  // coi khóa học là "đang khóa": userRole/allowedCourses vẫn còn giá trị
-  // khởi tạo rỗng lúc đó, nếu tính isAllowed ngay sẽ nháy "Đang khóa" cho
-  // mọi khóa kể cả với tài khoản admin/giáo viên.
+  // true khi đã đọc xong window.__authUser (dù có hay không) - trong lúc false (mới mount, đang
+  // đợi authGuard ở common.js) KHÔNG được coi khóa học là "đang khóa": nếu tính isAllowed ngay sẽ
+  // nháy "Đang khóa" cho mọi khóa kể cả với tài khoản admin/giáo viên.
   const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
-    // waitForAuthUser() tự đợi window.__authReady xuất hiện rồi mới đọc,
-    // thay vì coi ngay là "chưa đăng nhập" nếu authGuard (common.js) chưa
-    // kịp chạy tới - xem giải thích đầy đủ trong utils/authState.ts.
+    // waitForAuthUser() tự đợi window.__authReady xuất hiện - xem utils/authState.ts.
     waitForAuthUser().then((authUser) => {
       setUserRole(authUser?.role);
-      setAllowedCourses(
-        Array.isArray(authUser?.allowedCourses) ? authUser.allowedCourses : [],
-      );
+      setAllowedCourses(Array.isArray(authUser?.allowedCourses) ? authUser.allowedCourses : []);
       setAuthChecked(true);
     });
   }, []);
 
-  // Khóa cuộn nền cho các popup do CHÍNH Home dựng (xác nhận đăng xuất, liên
-  // hệ mở khóa, tài liệu, popup công cụ tạm). 3 công cụ học (KaiwaModal/
-  // DictationModal/YoutubeShadowingModal) và bảng tài khoản tự khóa bên trong
-  // component của chúng - cùng 1 hook có đếm lượt nên các khóa không giẫm lên
-  // nhau (xem hooks/useBodyScrollLock.ts).
-  const isToolPlaceholderOpen =
-    !!activeToolModal &&
-    activeToolModal !== 'SHADOWING' &&
-    activeToolModal !== 'NGHE CHÍNH TẢ' &&
-    activeToolModal !== 'SHADOWING_YT';
-  useBodyScrollLock(showLogoutConfirm);
+  // Khóa cuộn nền cho các popup do CHÍNH trang chủ dựng (hook dùng chung có đếm lượt, xem hooks/useBodyScrollLock.ts).
   useBodyScrollLock(showContactPopup);
   useBodyScrollLock(isDocsModalOpen);
-  useBodyScrollLock(isToolPlaceholderOpen);
 
   return (
-    <div className="min-h-dvh flex flex-col font-sans">
-       {/* Thanh điều hướng: "sticky top-0" + nền ĐẶC + shadow-sm, KHÔNG backdrop-blur -
-           cùng cấu trúc navbar của web "xóa mù kanji" (components/Home.tsx: bg-white,
-           border-b, z-50, sticky top-0, shadow-sm; web Phá Đảo cũng dùng nền đặc không
-           blur). Bản cũ là nền trong suốt bg-white/5 + backdrop-blur-md: backdrop-filter
-           bắt trình duyệt làm mờ lại toàn bộ nội dung phía sau thanh ở MỖI khung hình
-           lúc cuộn (tốn tài nguyên, dễ giật trên iPhone), nội dung cuộn qua còn lộ ra
-           sau thanh. Nền #22476f = cùng tông xanh với màu card nền tối của app
-           (bg-surface #1c3b5c, xem @theme trong index.css) nhưng sáng hơn chút để
-           thanh nổi lên khỏi nền trang - đóng vai "bg-white" của web kia. */}
-       <nav className="h-16 px-6 flex flex-shrink-0 items-center justify-between border-b border-white/10 bg-[#22476f] shadow-sm z-50 sticky top-0">
-          <div className="w-full flex items-center justify-between">
-             <div className="flex items-center gap-3 text-blue-700">
-               <img src="https://i.ibb.co/GvC0pFmy/Logo-tr-ng.png" alt="DORA" className="h-8 object-contain -mt-[5px]" />
-             </div>
-             {/* Nút tài khoản nằm TRONG thanh điều hướng (bảng của nó render
-                 qua Portal ra <body>) - xem UserAccountMenu.tsx. */}
-             <UserAccountMenu />
+    <div className="min-h-dvh bg-[#F0F6FF] relative overflow-x-hidden">
+      <SiteNav active={null} />
+
+      {/* pt-16: chừa chỗ thanh trên cố định. pb-20 lg:pb-0: chừa chỗ thanh tab dưới (chỉ điện thoại). */}
+      <main className="pt-16 pb-20 lg:pb-0 min-h-dvh flex flex-col">
+        <section className="max-w-5xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 pt-10 pb-10 sm:pt-14 sm:pb-14 flex-1">
+          {/* TIÊU ĐỀ - cỡ chữ/màu y hệt tiêu đề các trang của web Phá Đảo. */}
+          <div className="text-center mb-10 sm:mb-14">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.05] uppercase text-[#1A2A54]">Kaiwa tiếng Nhật</h1>
+            <p className="mt-2 sm:mt-4 text-[#5B6B85] text-sm sm:text-lg max-w-2xl mx-auto">Thành thạo trong 3 tháng</p>
           </div>
-       </nav>
 
-       <main className="flex-1 max-w-6xl w-full mx-auto p-4 md:p-8 flex flex-col gap-8 mb-12">
-
-          {/* Courses Section */}
-          <section className="flex flex-col gap-8">
-             <div className="border-b border-white/10 pb-4">
-                 <h2 className="text-2xl md:text-3xl font-bold font-sans text-white flex items-center gap-3 uppercase">
-                   <MessagesSquare className="w-8 h-8 text-blue-200" />
-                   KAIWA TIẾNG NHẬT
-                 </h2>
-                 <p className="text-[#8fb0ce] mt-2 font-medium">Thành thạo trong 3 tháng</p>
-             </div>
-
-             <div className="grid grid-cols-1 sm:grid-cols-3 w-full gap-6 md:gap-8">
-               {courses.map(course => {
-                 // Chưa đọc xong window.__authUser (authChecked=false) -
-                 // coi tạm là "được phép" để KHÔNG nháy nhãn "Đang khóa"
-                 // sai cho tài khoản admin/giáo viên trong lúc chờ (xem
-                 // giải thích ở khai báo state authChecked phía trên).
-                 // Nếu lỡ bấm vào trong lúc này mà hóa ra không được phép,
-                 // CourseDetail.tsx tự có lớp kiểm tra lại thật sự trước
-                 // khi hiện nội dung.
-                 const isAllowed = !authChecked || isCourseAllowed(
-                   { role: userRole, allowedCourses },
-                   course.id,
-                 );
-                 return (
-                   <div 
-                     role="button"
-                     tabIndex={0}
-                     key={course.id}
-                     onClick={() => {
-                       if (isAllowed) {
-                         onSelectCourse(course.id);
-                       } else {
-                         setShowContactPopup(true); // Hiển thị popup liên hệ mở khóa
-                       }
-                     }}
-                     className={`w-full bg-surface border border-surface-border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col text-left h-full cursor-pointer outline-none ${isAllowed ? 'hover:border-blue-400' : 'hover:border-red-400'}`}
-                   >
-                     {/* Ảnh khóa học */}
-                     <div className="h-40 md:h-48 w-full relative overflow-hidden">
-                       {course.imageUrl && (
-                         <img 
-                           src={course.imageUrl} 
-                           alt={course.title} 
-                           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
-                         />
-                       )}
-                       {!isAllowed && (
-                         <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-white shadow-md flex items-center gap-1.5 z-10">
-                           {/* Icon lồng trong 1 khung cố định kích thước, đổi
-                               qua opacity (không dùng hidden/display:none) -
-                               2 icon luôn nằm sẵn trong khung, tránh mất icon
-                               do tranh chấp độ ưu tiên CSS giữa "hidden" và
-                               "group-hover:block" (cùng chỉ định display). */}
-                           <span className="relative w-3.5 h-3.5 shrink-0">
-                             <Lock className="w-3.5 h-3.5 text-red-400 absolute inset-0 transition-opacity duration-150 group-hover:opacity-0" />
-                             <Unlock className="w-3.5 h-3.5 text-red-400 absolute inset-0 opacity-0 transition-opacity duration-150 group-hover:opacity-100" />
-                           </span>
-                           Đang khóa
-                         </div>
-                       )}
-                     </div>
-                     
-                     {/* Thông tin khóa học & Nút bấm */}
-                     <div className="w-full p-5 flex flex-col flex-1">
-                       <h3 className={`text-xl md:text-2xl font-bold mb-2 transition-colors flex items-center justify-between ${isAllowed ? 'text-white group-hover:text-blue-200' : 'text-white/80 group-hover:text-red-400'}`}>
-                         <span>{course.title}</span>
-                       </h3>
-                       <p className="text-[#8fb0ce] text-sm md:text-base leading-relaxed mb-4 flex-1 font-medium">{course.description}</p>
-
-                       {isAllowed ? (
-                         <div className="w-full bg-blue-50 text-blue-600 font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-blue-600 hover:text-white transition-all border border-blue-100 hover:border-blue-600 shadow-sm">
-                           Học ngay <ChevronRight className="w-5 h-5" />
-                         </div>
-                       ) : (
-                         <div className="w-full bg-surface-panel text-[#8fb0ce] font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all border border-surface-border shadow-sm group-hover:bg-red-500/10 group-hover:text-red-400 group-hover:border-red-400/30">
-                           MỞ KHÓA
-                           {/* Đổi qua opacity (không dùng hidden/display:none) -
-                               xem giải thích ở nhãn "Đang khóa" phía trên. */}
-                           <span className="relative w-5 h-5 shrink-0">
-                             <Lock className="w-5 h-5 text-[#8fb0ce] absolute inset-0 transition-opacity duration-150 group-hover:opacity-0" />
-                             <Unlock className="w-5 h-5 text-red-400 absolute inset-0 opacity-0 transition-opacity duration-150 group-hover:opacity-100" />
-                           </span>
-                         </div>
-                       )}
-                     </div>
-                   </div>
-                 );
-               })}
-             </div>
-          </section>
-
-          {/* Tools + Resources Section */}
-          <section className="bg-surface p-6 md:p-8 rounded-3xl border border-surface-border shadow-sm relative overflow-hidden">
-             <div className="border-b border-surface-border pb-4 mb-6">
-                <h3 className="text-lg font-bold text-white uppercase flex items-center gap-2.5">
-                   <Wrench className="w-5 h-5 text-blue-200" />
-                   CÔNG CỤ HỌC TẬP
-                </h3>
-             </div>
-             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
-                 {LEARNING_TOOLS.map((tool) => {
-                    const IconComponent = tool.icon;
-                    return (
-                       <div
-                          key={tool.id}
-                          onClick={() => setActiveToolModal(tool.id)}
-                          className="flex flex-col items-start p-6 rounded-2xl bg-gradient-to-br from-blue-700 to-blue-600 shadow-sm hover:-translate-y-1 transition-all duration-300 cursor-pointer group relative overflow-hidden"
-                       >
-                          <div className="w-12 h-12 rounded-2xl bg-white/15 text-white flex items-center justify-center mb-4 group-hover:bg-white group-hover:text-blue-600 transition-all duration-300">
-                             <IconComponent className="w-6 h-6" />
-                          </div>
-                          <div>
-                             <h4 className="font-extrabold text-white text-base sm:text-lg uppercase tracking-wide">
-                                {tool.title}
-                             </h4>
-                             <p className="text-xs font-bold text-blue-100 uppercase tracking-wider mt-1.5">
-                                {tool.subtitle}
-                             </p>
-                          </div>
-                       </div>
-                    );
-                 })}
-             </div>
-          </section>
-
-          <section className="bg-surface p-6 md:p-8 rounded-3xl border border-surface-border shadow-sm relative overflow-hidden">
-             <div className="border-b border-surface-border pb-4 mb-6">
-                <h3 className="text-lg font-bold text-white uppercase">Tài nguyên & Cộng đồng</h3>
-             </div>
-             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-               {OTHER_ITEMS.map((tool, idx) => {
-                 const Icon = tool.icon;
-                 return (
-                         <div
-                            key={idx}
-                            onClick={() => {
-                              if ((tool as any).isLibrary) {
-                                window.dispatchEvent(new CustomEvent('open_recording_library'));
-                              } else if (tool.name === 'Tài liệu tham khảo') {
-                                setIsDocsModalOpen(true);
-                              } else if (tool.name === 'Nhóm học tập') {
-                                window.open('https://www.facebook.com/groups/thithujlptmienphi', '_blank');
-                              }
-                            }}
-                            className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-br from-blue-700 to-blue-600 shadow-sm hover:-translate-y-0.5 transition-all cursor-pointer group relative"
-                         >
-                         <div className="bg-white/15 text-white p-3 rounded-xl shrink-0 group-hover:bg-white group-hover:text-blue-600 transition-all duration-300">
-                            <Icon className="w-6 h-6" />
-                         </div>
-                         <div>
-                            <h4 className="font-bold text-white text-sm">{tool.name}</h4>
-                            <p className="text-xs text-blue-100 mt-0.5 font-medium">{tool.description}</p>
-                         </div>
-                       </div>
-                     );
-                   })}
-                 </div>
-          </section>
-       </main>
-       
-       <footer className="py-6 sm:h-14 sm:py-0 flex-shrink-0 px-6 border-t border-white/10 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-[#8fb0ce] text-xs font-semibold tracking-widest mt-auto">
-         <div className="text-center sm:text-left">© 2026 DORA VIETNAM</div>
-         <div className="flex items-center gap-2">
-           <a href="https://www.facebook.com/HocvienDora" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 flex items-center justify-center text-[#8fb0ce] hover:text-white transition-colors">
-             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-           </a>
-           <a href="https://www.tiktok.com/@phadaotiengnhat" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="w-9 h-9 flex items-center justify-center text-[#8fb0ce] hover:text-white transition-colors">
-             <svg className="w-4 h-4 fill-current" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
-           </a>
-           <a href="https://zalo.me/0332660529" target="_blank" rel="noopener noreferrer" aria-label="Zalo" className="w-9 h-9 flex items-center justify-center text-[#8fb0ce] hover:text-white transition-colors">
-             <MessageCircle className="w-4 h-4" />
-           </a>
-         </div>
-       </footer>
-
-       {/* Kaiwa Shadowing Modal */}
-       <KaiwaModal 
-          isOpen={activeToolModal === 'SHADOWING'} 
-          onClose={() => setActiveToolModal(null)} 
-       />
-
-       {/* Dictation Modal */}
-       <DictationModal
-          isOpen={activeToolModal === 'NGHE CHÍNH TẢ'}
-          onClose={() => setActiveToolModal(null)}
-       />
-
-       {/* Shadowing Youtube Modal */}
-       <YoutubeShadowingModal
-          isOpen={activeToolModal === 'SHADOWING_YT'}
-          onClose={() => setActiveToolModal(null)}
-       />
-
-       {/* Tool Modal (Placeholder for other tools) */}
-       {isToolPlaceholderOpen && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200" onClick={() => setActiveToolModal(null)}>
-             <div className="bg-surface rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden border border-surface-border flex flex-col min-h-[380px]" onClick={e => e.stopPropagation()}>
-                <div className="p-5 border-b border-surface-border flex justify-between items-center bg-surface-panel">
-                    <h3 className="text-base font-bold text-white uppercase flex items-center gap-2.5">
-                       {activeToolModal === 'SHADOWING' && <Repeat className="w-5 h-5 text-indigo-400" />}
-                       {activeToolModal === 'NGHE CHÍNH TẢ' && <Headphones className="w-5 h-5 text-emerald-400" />}
-                       {activeToolModal}
-                    </h3>
-                    <button onClick={() => setActiveToolModal(null)} className="text-[#8fb0ce] hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
-                        <X className="w-5 h-5" />
-                    </button>
-                </div>
-
-                <div className="p-8 md:p-12 flex-1 flex flex-col items-center justify-center text-center">
-                   <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-4">
-                      {activeToolModal === 'SHADOWING' && <Repeat className="w-8 h-8" />}
-                      {activeToolModal === 'NGHE CHÍNH TẢ' && <Headphones className="w-8 h-8" />}
-                   </div>
-                   <h4 className="text-lg font-bold text-white mb-2">Công cụ {activeToolModal}</h4>
-                   <p className="text-sm text-[#8fb0ce] font-medium max-w-md">
-                     Nội dung giao diện tính năng đang được cập nhật...
-                   </p>
-                </div>
-
-                <div className="p-4 border-t border-surface-border bg-surface flex justify-end">
-                    <button 
-                       onClick={() => setActiveToolModal(null)}
-                       className="px-6 py-2.5 bg-blue-700 hover:bg-blue-600 text-white text-sm font-bold rounded-xl shadow-md transition-all active:scale-95"
-                    >
-                       ĐÓNG
-                    </button>
-                </div>
-             </div>
-          </div>
-       )}
-
-       {showLogoutConfirm && (
-          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-             <div className="bg-surface border border-surface-border rounded-2xl p-6 max-w-sm w-full shadow-xl">
-                <h3 className="text-xl font-bold text-white mb-2">Xác nhận đăng xuất</h3>
-                <p className="text-[#8fb0ce] mb-6 font-medium">Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?</p>
-                <div className="flex justify-end gap-3">
-                   <button onClick={() => setShowLogoutConfirm(false)} className="px-5 py-2.5 rounded-xl font-semibold text-[#8fb0ce] hover:bg-white/10 transition-colors">Hủy</button>
-                   <button onClick={onLogout} className="px-5 py-2.5 rounded-xl font-semibold bg-red-600 text-white hover:bg-red-700 transition-colors">Đăng xuất</button>
-                </div>
-             </div>
-          </div>
-        )}
-
-        {isDocsModalOpen && (
-            <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-                <div className="bg-surface rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden border border-surface-border flex flex-col max-h-[80vh]">
-                    <div className="p-4 border-b border-surface-border flex justify-between items-center bg-surface-panel">
-                        <h3 className="text-sm font-bold text-white uppercase flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-400">
-                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                        </svg>
-                        TÀI LIỆU HỌC TẬP
-                        </h3>
-                        <button onClick={() => setIsDocsModalOpen(false)} className="text-[#8fb0ce] hover:text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                        </button>
-                    </div>
-
-                    <div className="p-4 space-y-3 overflow-y-auto custom-scrollbar">
-                        <a href="https://drive.google.com/drive/folders/19JT79eX8-xn6jweibSj8vzxnugJwjI4C" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-surface-border hover:border-purple-400/40 hover:bg-purple-500/10 transition-all group">
-                            <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-                            </div>
-                            <div className="flex-1 min-w-0">
-                                <p className="text-sm font-bold text-white truncate group-hover:text-purple-300 pb-1">Sách luyện đề JLPT (N5-N1)</p>
-                                <p className="text-[10px] text-[#8fb0ce]">15 quyển</p>
-                            </div>
-                            <svg className="w-4 h-4 text-[#6f94b8] group-hover:text-purple-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </a>
-
-                        <a href="https://www.facebook.com/groups/thithujlptmienphi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-surface-border hover:border-purple-400/40 hover:bg-purple-500/10 transition-all group">
-                            <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                            </div>
-                            <div className="flex-1 min-w-0">
-                                <p className="text-sm font-bold text-white truncate group-hover:text-purple-300 pb-1">Hàng trăm tài liệu khác...</p>
-                                <p className="text-[10px] text-[#8fb0ce]">Tham gia nhóm tự học</p>
-                            </div>
-                            <svg className="w-4 h-4 text-[#6f94b8] group-hover:text-purple-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </a>
-                    </div>
-
-                    <div className="p-4 pt-2 bg-surface">
-                        <button 
-                            onClick={() => setIsDocsModalOpen(false)}
-                            className="w-full py-3 bg-blue-700 hover:bg-blue-600 text-white text-sm font-bold rounded-xl shadow-lg transition-transform active:scale-95"
-                        >
-                            ĐÓNG
-                        </button>
-                    </div>
-                </div>
-            </div>
-        )}
-
-        {showContactPopup && (
-          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4" onClick={() => setShowContactPopup(false)}>
-            <div className="bg-surface border border-surface-border rounded-3xl p-6 md:p-8 max-w-sm w-full shadow-2xl relative overflow-hidden" onClick={e => e.stopPropagation()}>
-               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
-
-               <div className="relative z-10 flex flex-col items-center text-center gap-4">
-                  <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-2 shadow-inner">
-                    <BookOpen className="w-8 h-8" />
+          {/* KHÓA HỌC */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5 lg:gap-6" aria-label="Khóa học">
+            {courses.map((course) => {
+              // Chưa đọc xong window.__authUser (authChecked=false) -> coi tạm là "được phép" để KHÔNG nháy
+              // nhãn "Đang khóa" sai cho admin/giáo viên. Lỡ bấm vào lúc này mà hóa ra không được phép thì
+              // CourseDetail.tsx tự kiểm tra lại trước khi hiện nội dung.
+              const isAllowed = !authChecked || isCourseAllowed({ role: userRole, allowedCourses }, course.id);
+              return (
+                <a
+                  key={course.id}
+                  href={isAllowed ? HREF.course(course.id) : HREF.home}
+                  onClick={(e) => {
+                    if (!isAllowed) {
+                      e.preventDefault();
+                      setShowContactPopup(true); // popup liên hệ mở khóa
+                    }
+                  }}
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
+                  className={`${CARD} overflow-hidden flex flex-col text-left h-full ${isAllowed ? '' : 'hover:border-red-300'}`}
+                >
+                  <div className="h-36 sm:h-40 w-full relative overflow-hidden bg-[#E3EEFF]">
+                    {course.imageUrl ? (
+                      <img
+                        src={course.imageUrl}
+                        alt={course.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-[#2F7DF6]/40">
+                        <MessagesSquare className="w-14 h-14" strokeWidth={1.6} />
+                      </div>
+                    )}
+                    {!isAllowed && (
+                      <div className="absolute top-3 right-3 bg-white/95 border border-[#D3E4FC] px-3 py-1.5 rounded-full text-xs font-bold text-[#5B6B85] shadow-sm flex items-center gap-1.5 z-10">
+                        {/* 2 icon nằm sẵn trong 1 khung cố định, đổi qua opacity (không dùng hidden/display) - tránh tranh chấp CSS. */}
+                        <span className="relative w-3.5 h-3.5 shrink-0">
+                          <Lock className="w-3.5 h-3.5 text-red-500 absolute inset-0 transition-opacity duration-150 group-hover:opacity-0" />
+                          <Unlock className="w-3.5 h-3.5 text-red-500 absolute inset-0 opacity-0 transition-opacity duration-150 group-hover:opacity-100" />
+                        </span>
+                        Đang khóa
+                      </div>
+                    )}
                   </div>
 
-                  <h3 className="text-xl font-bold text-white">Mở Khóa Khóa Học</h3>
-                  <p className="text-[#8fb0ce] text-sm mb-4 leading-relaxed">
-                    Khóa học này hiện đang bị khóa. Hãy liên hệ với chúng tôi qua Facebook hoặc Zalo để mua khóa học và được cấp quyền truy cập.
-                  </p>
-                  
-                  <div className="flex w-full gap-3">
-                     <a href="https://m.me/874210086055767" target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#1877F2] text-white py-3 rounded-xl font-bold text-sm shadow-md hover:bg-[#166fe5] transition-colors flex items-center justify-center gap-2">
-                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        Facebook
-                     </a>
-                     <a href="https://zalo.me/0332660529" target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#0068FF] text-white py-3 rounded-xl font-bold text-sm shadow-md hover:bg-[#005AE0] transition-colors flex items-center justify-center gap-2">
-                        <MessageCircle className="w-5 h-5 fill-white" />
-                        Zalo
-                     </a>
+                  <div className="w-full p-4 sm:p-5 flex flex-col flex-1">
+                    <h3 className="text-lg sm:text-xl font-black uppercase leading-tight text-[#1A2A54]">{course.title}</h3>
+                    <p className="mt-1.5 mb-4 text-sm font-semibold text-[#5B6B85] leading-relaxed flex-1">{course.description}</p>
+
+                    {isAllowed ? (
+                      <span className="w-full bg-[#E3EEFF] text-[#2F7DF6] font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 group-hover:bg-[#2F7DF6] group-hover:text-white transition-colors">
+                        Học ngay <ChevronRight className="w-5 h-5" />
+                      </span>
+                    ) : (
+                      <span className="w-full bg-[#F0F6FF] text-[#8B9BB8] font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 border border-[#D3E4FC] group-hover:bg-red-50 group-hover:text-red-500 group-hover:border-red-200 transition-colors">
+                        MỞ KHÓA
+                        <span className="relative w-5 h-5 shrink-0">
+                          <Lock className="w-5 h-5 absolute inset-0 transition-opacity duration-150 group-hover:opacity-0" />
+                          <Unlock className="w-5 h-5 absolute inset-0 opacity-0 transition-opacity duration-150 group-hover:opacity-100" />
+                        </span>
+                      </span>
+                    )}
                   </div>
-                  
-                  <button
-                    onClick={() => setShowContactPopup(false)}
-                    className="mt-2 w-full py-2.5 text-[#8fb0ce] font-medium hover:bg-white/10 rounded-xl transition-colors"
-                  >
-                    Đóng
-                  </button>
-               </div>
+                </a>
+              );
+            })}
+          </div>
+
+          {/* CÔNG CỤ HỌC TẬP - mỗi thẻ dẫn sang 1 trang riêng. */}
+          <h2 className="mt-14 sm:mt-20 mb-4 sm:mb-6 text-center text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1A2A54]">
+            Công cụ học tập
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5 lg:gap-6" aria-label="Công cụ học tập">
+            {LEARNING_TOOLS.map((tool) => (
+              <a
+                key={tool.key}
+                href={tool.href}
+                style={{ WebkitTapHighlightColor: 'transparent' }}
+                className={`${CARD} p-4 sm:p-6 flex items-center gap-3 sm:flex-col sm:gap-4 w-full text-left sm:text-center`}
+              >
+                <span className="w-20 h-20 sm:w-28 sm:h-28 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:-rotate-3">
+                  <ToolArt k={tool.key} />
+                </span>
+                <span className="min-w-0 flex flex-col">
+                  <h3 className="text-lg sm:text-xl font-black text-[#1A2A54] uppercase leading-tight">{tool.title}</h3>
+                  <span className="mt-1 text-sm sm:text-base font-semibold text-[#5B6B85]">{tool.caption}</span>
+                  <span className="mt-1.5 text-[13px] sm:text-sm font-bold text-[#6B7A96]">{tool.meta}</span>
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {/* TÀI NGUYÊN & CỘNG ĐỒNG */}
+          <h2 className="mt-14 sm:mt-20 mb-4 sm:mb-6 text-center text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1A2A54]">
+            Tài nguyên &amp; Cộng đồng
+          </h2>
+          <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5" aria-label="Tài nguyên và cộng đồng">
+            {OTHER_ITEMS.map((item) => {
+              const Icon = item.icon;
+              const open = () => {
+                if (item.name === 'Tài liệu tham khảo') setIsDocsModalOpen(true);
+                else if (item.name === 'Nhóm học tập') window.open('https://www.facebook.com/groups/thithujlptmienphi', '_blank');
+              };
+              return (
+                <button
+                  key={item.name}
+                  type="button"
+                  onClick={open}
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
+                  className={`${CARD} p-4 flex items-center gap-4 w-full text-left`}
+                >
+                  <span className="w-12 h-12 shrink-0 rounded-xl bg-[#E3EEFF] text-[#2F7DF6] flex items-center justify-center group-hover:bg-[#2F7DF6] group-hover:text-white transition-colors">
+                    <Icon className="w-6 h-6" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-base font-black text-[#1A2A54]">{item.name}</span>
+                    <span className="block mt-0.5 text-sm font-semibold text-[#5B6B85]">{item.description}</span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </section>
+
+        <footer className="py-6 px-6 border-t border-[#D3E4FC] flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-[#6B7A96] text-xs font-semibold tracking-widest">
+          <div className="text-center sm:text-left">© 2026 DORA VIETNAM</div>
+          <div className="flex items-center gap-2">
+            <a href="https://www.facebook.com/HocvienDora" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 flex items-center justify-center text-[#6B7A96] hover:text-[#2F7DF6] transition-colors">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@phadaotiengnhat" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="w-9 h-9 flex items-center justify-center text-[#6B7A96] hover:text-[#2F7DF6] transition-colors">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+            </a>
+            <a href="https://zalo.me/0332660529" target="_blank" rel="noopener noreferrer" aria-label="Zalo" className="w-9 h-9 flex items-center justify-center text-[#6B7A96] hover:text-[#2F7DF6] transition-colors">
+              <MessageCircle className="w-4 h-4" />
+            </a>
+          </div>
+        </footer>
+      </main>
+
+      {isDocsModalOpen && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-[#1A2A54]/40 p-4 animate-in fade-in duration-200" onClick={() => setIsDocsModalOpen(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden border border-[#D3E4FC] flex flex-col max-h-[80vh]" onClick={(e) => e.stopPropagation()}>
+            <div className="p-4 border-b border-[#D3E4FC] flex justify-between items-center bg-[#F0F6FF]">
+              <h3 className="text-sm font-black text-[#1A2A54] uppercase flex items-center gap-2">
+                <Library className="w-5 h-5 text-[#2F7DF6]" />
+                Tài liệu học tập
+              </h3>
+              <button type="button" onClick={() => setIsDocsModalOpen(false)} aria-label="Đóng" className="text-[#6B7A96] hover:text-[#2F7DF6] p-1 rounded-lg hover:bg-[#E3EEFF] transition-colors">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="p-4 space-y-3 overflow-y-auto custom-scrollbar">
+              <a href="https://drive.google.com/drive/folders/19JT79eX8-xn6jweibSj8vzxnugJwjI4C" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-[#D3E4FC] hover:border-[#2F7DF6] hover:bg-[#F0F6FF] transition-all group">
+                <div className="w-10 h-10 bg-[#E3EEFF] text-[#2F7DF6] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-bold text-[#1A2A54] truncate pb-1">Sách luyện đề JLPT (N5-N1)</p>
+                  <p className="text-[10px] font-semibold text-[#6B7A96]">15 quyển</p>
+                </div>
+                <svg className="w-4 h-4 text-[#8B9BB8] group-hover:text-[#2F7DF6]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+
+              <a href="https://www.facebook.com/groups/thithujlptmienphi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-[#D3E4FC] hover:border-[#2F7DF6] hover:bg-[#F0F6FF] transition-all group">
+                <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Users className="w-5 h-5" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-bold text-[#1A2A54] truncate pb-1">Hàng trăm tài liệu khác...</p>
+                  <p className="text-[10px] font-semibold text-[#6B7A96]">Tham gia nhóm tự học</p>
+                </div>
+                <svg className="w-4 h-4 text-[#8B9BB8] group-hover:text-[#2F7DF6]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+
+            <div className="p-4 pt-2">
+              <button type="button" onClick={() => setIsDocsModalOpen(false)} className="w-full py-3 bg-[#2F7DF6] hover:bg-[#1E5FD9] text-white text-sm font-bold rounded-xl shadow-md transition-all active:scale-95">
+                ĐÓNG
+              </button>
             </div>
           </div>
-        )}
+        </div>
+      )}
+
+      {showContactPopup && (
+        <div className="fixed inset-0 bg-[#1A2A54]/40 z-[9999] flex items-center justify-center p-4" onClick={() => setShowContactPopup(false)}>
+          <div className="bg-white border border-[#D3E4FC] rounded-3xl p-6 md:p-8 max-w-sm w-full shadow-2xl relative overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="relative z-10 flex flex-col items-center text-center gap-4">
+              <div className="w-16 h-16 bg-[#E3EEFF] text-[#2F7DF6] rounded-full flex items-center justify-center mb-2">
+                <BookOpen className="w-8 h-8" />
+              </div>
+
+              <h3 className="text-xl font-black text-[#1A2A54]">Mở Khóa Khóa Học</h3>
+              <p className="text-[#5B6B85] text-sm mb-4 leading-relaxed font-medium">
+                Khóa học này hiện đang bị khóa. Hãy liên hệ với chúng tôi qua Facebook hoặc Zalo để mua khóa học và được cấp quyền truy cập.
+              </p>
+
+              <div className="flex w-full gap-3">
+                <a href="https://m.me/874210086055767" target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#1877F2] text-white py-3 rounded-xl font-bold text-sm shadow-md hover:bg-[#166fe5] transition-colors flex items-center justify-center gap-2">
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  Facebook
+                </a>
+                <a href="https://zalo.me/0332660529" target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#0068FF] text-white py-3 rounded-xl font-bold text-sm shadow-md hover:bg-[#005AE0] transition-colors flex items-center justify-center gap-2">
+                  <MessageCircle className="w-5 h-5 fill-white" />
+                  Zalo
+                </a>
+              </div>
+
+              <button type="button" onClick={() => setShowContactPopup(false)} className="mt-2 w-full py-2.5 text-[#6B7A96] font-bold hover:bg-[#F0F6FF] rounded-xl transition-colors">
+                Đóng
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -15,14 +15,15 @@
          trên phải là PNG, không phải SVG - iOS không render SVG làm touch
          icon đáng tin cậy). -->
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#0b1a2e" />
+    <meta name="theme-color" content="#F0F6FF" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="DORA ONLINE" />
 
-    <!-- StyleSheet - dùng chung token màu với các trang khác, còn lại
-         là CSS riêng của trang login -->
+    <!-- StyleSheet - _tokens.css chỉ còn cấp vòng focus bàn phím + tắt hoạt ảnh
+         khi người dùng bật "giảm chuyển động"; màu/kiểu dáng sáng của trang
+         nằm hết trong login.css -->
     <link rel="stylesheet" href="/css/_tokens.css" />
     <link rel="stylesheet" href="/css/login.css" />
 
@@ -32,100 +33,47 @@
   <body>
     <!-- Hiện khi đang kiểm tra phiên đăng nhập cũ lúc tải trang -->
     <div id="loginLoading" class="login-loading">
-      Đang kiểm tra phiên đăng nhập...
+      <div class="login-spinner" aria-hidden="true"></div>
+      <p>Đang kiểm tra phiên đăng nhập...</p>
     </div>
 
+    <!-- Giao diện sáng giống trang đăng nhập của web Phá Đảo Tiếng Nhật: thẻ trắng
+         bo lớn giữa màn hình, logo + tiêu đề, ô nhập có icon, nút xanh #2F7DF6.
+         Cùng 1 thẻ có 2 màn (login.js đổi class state-login / state-changepw):
+         "Đăng nhập" và "Đổi mật khẩu" (bắt buộc lần đầu đăng nhập). -->
     <main id="authCard" class="auth-card hidden state-login">
-      <div class="auth-curve" aria-hidden="true"></div>
+      <img class="auth-logo" src="/logo-dora.webp" alt="DORA" />
 
-      <img
-        class="auth-logo auth-logo-left"
-        src="https://i.ibb.co/GvC0pFmy/Logo-tr-ng.png"
-        alt="DORA"
-      />
-      <img
-        class="auth-logo auth-logo-right"
-        src="https://i.ibb.co/kgWx9gtZ/Logo-Dora.png"
-        alt="DORA"
-      />
+      <!-- Màn đăng nhập -->
+      <div class="auth-panel" data-panel="login">
+        <h1>Đăng nhập</h1>
+        <p class="auth-sub">Đăng nhập để vào phòng học trực tuyến DORA ONLINE.</p>
 
-      <!-- Nửa trái -->
-      <div class="auth-slot auth-slot-left">
-        <div class="auth-message" data-panel="login">
-          <h2>Xin chào</h2>
-          <p>Đăng nhập để vào phòng học trực tuyến DORA ONLINE.</p>
-        </div>
-
-        <div class="auth-form" data-panel="changepw">
-          <h1>Đổi mật khẩu</h1>
-
-          <form id="changePasswordForm" novalidate>
-            <div class="auth-field auth-field-password">
-              <input
-                id="newPassword"
-                type="password"
-                autocomplete="new-password"
-                placeholder="Mật khẩu mới"
-                required
-              />
-              <button
-                type="button"
-                class="auth-toggle-password"
-                data-target="newPassword"
-                aria-label="Hiện mật khẩu"
-              ></button>
-            </div>
-            <div class="auth-field auth-field-password">
-              <input
-                id="confirmPassword"
-                type="password"
-                autocomplete="new-password"
-                placeholder="Nhập lại mật khẩu mới"
-                required
-              />
-              <button
-                type="button"
-                class="auth-toggle-password"
-                data-target="confirmPassword"
-                aria-label="Hiện mật khẩu"
-              ></button>
-            </div>
-            <button
-              id="changePasswordSubmitBtn"
-              type="submit"
-              class="auth-submit"
-            >
-              XÁC NHẬN
-            </button>
-          </form>
-
-          <div id="changePasswordError" class="auth-error" role="alert"></div>
-        </div>
-      </div>
-
-      <!-- Nửa phải -->
-      <div class="auth-slot auth-slot-right">
-        <div class="auth-form" data-panel="login">
-          <h1>Đăng nhập</h1>
-
-          <form id="loginForm" novalidate>
-            <div class="auth-field">
+        <form id="loginForm" novalidate>
+          <div class="auth-field">
+            <label for="loginUsername">Tài khoản</label>
+            <div class="auth-input-wrap">
               <input
                 id="loginUsername"
                 type="text"
                 autocomplete="off"
-                placeholder="Tài khoản"
+                placeholder="Nhập tài khoản"
                 required
               />
+              <svg class="auth-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
             </div>
-            <div class="auth-field auth-field-password">
+          </div>
+          <div class="auth-field auth-field-password">
+            <label for="loginPassword">Mật khẩu</label>
+            <div class="auth-input-wrap">
               <input
                 id="loginPassword"
                 type="password"
                 autocomplete="off"
-                placeholder="Mật khẩu"
+                placeholder="••••••••"
                 required
               />
+              <svg class="auth-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
               <button
                 type="button"
                 class="auth-toggle-password"
@@ -133,18 +81,69 @@
                 aria-label="Hiện mật khẩu"
               ></button>
             </div>
-            <button id="loginSubmitBtn" type="submit" class="auth-submit">
-              ĐĂNG NHẬP
-            </button>
-          </form>
+          </div>
+          <button id="loginSubmitBtn" type="submit" class="auth-submit">
+            ĐĂNG NHẬP
+          </button>
+        </form>
 
-          <div id="loginError" class="auth-error" role="alert"></div>
-        </div>
+        <div id="loginError" class="auth-error" role="alert"></div>
+      </div>
 
-        <div class="auth-message" data-panel="changepw">
-          <h2>Gần xong rồi!</h2>
-          <p>Đổi mật khẩu là vào được luôn!</p>
-        </div>
+      <!-- Màn đổi mật khẩu bắt buộc lần đầu -->
+      <div class="auth-panel" data-panel="changepw">
+        <h1>Đổi mật khẩu</h1>
+        <p class="auth-sub">Gần xong rồi! Đổi mật khẩu là vào được luôn!</p>
+
+        <form id="changePasswordForm" novalidate>
+          <div class="auth-field auth-field-password">
+            <label for="newPassword">Mật khẩu mới</label>
+            <div class="auth-input-wrap">
+              <input
+                id="newPassword"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Mật khẩu mới"
+                required
+              />
+              <svg class="auth-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+              <button
+                type="button"
+                class="auth-toggle-password"
+                data-target="newPassword"
+                aria-label="Hiện mật khẩu"
+              ></button>
+            </div>
+          </div>
+          <div class="auth-field auth-field-password">
+            <label for="confirmPassword">Nhập lại mật khẩu mới</label>
+            <div class="auth-input-wrap">
+              <input
+                id="confirmPassword"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Nhập lại mật khẩu mới"
+                required
+              />
+              <svg class="auth-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+              <button
+                type="button"
+                class="auth-toggle-password"
+                data-target="confirmPassword"
+                aria-label="Hiện mật khẩu"
+              ></button>
+            </div>
+          </div>
+          <button
+            id="changePasswordSubmitBtn"
+            type="submit"
+            class="auth-submit"
+          >
+            XÁC NHẬN
+          </button>
+        </form>
+
+        <div id="changePasswordError" class="auth-error" role="alert"></div>
       </div>
     </main>
 

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { ArrowLeft, ChevronLeft, ChevronRight, Presentation, NotebookText, PenLine, Eraser, Trash2, X } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { ChevronLeft, ChevronRight, Presentation, NotebookText, PenLine, Eraser, Trash2, X } from 'lucide-react';
 
 interface SlideShowProps {
   /** Danh sách URL ảnh slide, đúng thứ tự trang (dò ra từ Lesson.slideFolder - xem types.ts). */
@@ -432,9 +433,24 @@ export default function SlideShow({ images, title, onClose, isBoardOpen, onToggl
   // vd nút đang active bị hover đè mất màu xanh) - lỗi đã gặp thực tế.
   const btnBase = 'flex items-center justify-center w-9 h-9 rounded-lg transition-colors disabled:opacity-30 disabled:pointer-events-none';
   const navBtn = `${btnBase} bg-white/10 hover:bg-white/20 text-white`;
-  const activeBtn = `${btnBase} bg-blue-600 hover:bg-blue-500 text-white`;
+  const activeBtn = `${btnBase} bg-[#2F7DF6] hover:bg-[#1E5FD9] text-white`;
   const exitBtn = `${btnBase} bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300`;
   const clearBtn = `${btnBase} bg-white/10 hover:bg-red-500/30 active:bg-red-500 text-white hover:text-red-300 active:text-white`;
+
+  // Cụm Prev/đếm trang/Next dùng chung cho thanh trên (máy tính) và viên thuốc đáy khung (điện thoại).
+  const pager = (
+    <>
+      <button onClick={goPrev} disabled={index <= 0} className={navBtn} aria-label="Trang trước">
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <span className="text-white font-semibold text-sm min-w-[56px] text-center tabular-nums bg-white/10 rounded-lg px-3 py-1">
+        {total > 0 ? `${index + 1}/${total}` : '...'}
+      </span>
+      <button onClick={goNext} disabled={index >= total - 1} className={navBtn} aria-label="Trang sau">
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </>
+  );
 
   /** Tooltip tự vẽ bằng CSS (không dùng `title` - tránh chú thích mặc định
    * xấu/chậm của trình duyệt), hiện ngay dưới nút khi hover, kiểu mũi tên
@@ -449,39 +465,33 @@ export default function SlideShow({ images, title, onClose, isBoardOpen, onToggl
 
   return (
     <div
-      className="fixed inset-0 z-[300] flex flex-col bg-[linear-gradient(315deg,#16324f_0%,#24406b_45%,#345da7_100%)]"
+      className="fixed inset-0 z-[300] flex flex-col bg-[#16181D]"
       aria-label={title ? `Slide trình chiếu — ${title}` : 'Slide trình chiếu'}
     >
-      {/* Thanh trên - lấy NGUYÊN kiểu nav của Home.tsx/LessonView.tsx (logo +
-          nút trở về, cùng class h-16/bg-white/5/backdrop-blur-md/border-b),
-          để đồng bộ giao diện với các trang khác. Prev/Next + đếm trang CĂN
-          GIỮA (absolute, không phụ thuộc độ rộng 2 cụm nút 2 bên); Bút vẽ/
-          Bảng/Ghi chú nằm bên phải. */}
+      {/* Thanh trên - kiểu "kính tối trung tính" (nền đen mờ, nút trắng mờ) đúng chuẩn
+          trình phát/trình chiếu: nút "<" tròn (cùng kiểu nút "<" các trang khác) + tên buổi
+          học. Prev/Next + đếm trang CĂN GIỮA (absolute, không phụ thuộc độ rộng 2 cụm nút
+          2 bên); Bút vẽ/Bảng/Ghi chú nằm bên phải. Nút đang bật dùng xanh thương hiệu #2F7DF6. */}
       {/* z-10: backdrop-blur-md tự tạo stacking context riêng cho thanh này
           (backdrop-filter luôn vậy) - nếu không gán z-index rõ ràng ở đây,
           cả thanh (gồm tooltip z-50 bên trong) bị so là z-index:auto so với
           vùng ảnh slide bên dưới (đứng sau trong DOM) và bị đè lên, che mất
           tooltip - lỗi thực tế đã gặp. */}
-      <div className="h-16 px-6 flex items-center justify-between border-b border-white/10 bg-white/5 backdrop-blur-md shrink-0 gap-3 relative z-10">
-        <div className="flex items-center gap-4 min-w-0">
-          <button onClick={requestClose} className="hover:bg-white/10 text-white p-2 rounded-lg transition-colors border border-transparent shrink-0" aria-label="Trở về">
-            <ArrowLeft className="w-5 h-5" />
+      <div className="h-16 px-3 sm:px-6 flex items-center justify-between border-b border-white/10 bg-black/40 backdrop-blur-md shrink-0 gap-3 relative z-10">
+        <div className="flex items-center gap-3 min-w-0">
+          <button
+            onClick={requestClose}
+            className="w-9 h-9 shrink-0 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors outline-none"
+            aria-label="Trở về"
+          >
+            <ChevronLeft className="w-5 h-5" strokeWidth={3} />
           </button>
-          <img src="https://i.ibb.co/GvC0pFmy/Logo-tr-ng.png" alt="DORA" className="h-8 object-contain -mt-[5px] shrink-0" />
+          {title && <span className="hidden lg:block max-w-[22vw] truncate text-sm font-bold text-white/80">{title}</span>}
         </div>
 
-        {/* Prev/Next/đếm trang - căn giữa tuyệt đối thanh header, số trang
-            to/rõ (không phải chữ nhỏ mờ như trước). */}
-        <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-3">
-          <button onClick={goPrev} disabled={index <= 0} className={navBtn} aria-label="Trang trước">
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <span className="text-white font-semibold text-sm min-w-[56px] text-center tabular-nums bg-white/10 rounded-lg px-3 py-1">
-            {total > 0 ? `${index + 1}/${total}` : '...'}
-          </span>
-          <button onClick={goNext} disabled={index >= total - 1} className={navBtn} aria-label="Trang sau">
-            <ChevronRight className="w-5 h-5" />
-          </button>
+        {/* Prev/Next/đếm trang - căn giữa tuyệt đối thanh header (chỉ từ md; điện thoại xem viên thuốc ở đáy khung bên dưới). */}
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-3">
+          {pager}
         </div>
 
         <div className="flex items-center gap-1.5 shrink-0">
@@ -538,7 +548,7 @@ export default function SlideShow({ images, title, onClose, isBoardOpen, onToggl
             </div>
           )}
 
-          <div className="w-px h-5 bg-white/15 mx-0.5" />
+          <div className="w-px h-5 bg-white/20 mx-0.5" />
 
           <div className="relative group">
             <button
@@ -567,7 +577,7 @@ export default function SlideShow({ images, title, onClose, isBoardOpen, onToggl
           trang chủ (khai báo ở div ngoài) lấp phần trống khi tỉ lệ ảnh khác
           tỉ lệ màn hình. Canvas vẽ tay phủ toàn khung (kể cả vùng đệm quanh
           ảnh), không giới hạn theo khung ảnh. */}
-      <div className="flex-1 min-h-0 relative overflow-hidden py-3 md:py-6">
+      <div className="flex-1 min-h-0 relative overflow-hidden px-2 pt-3 pb-[4.5rem] md:px-0 md:py-6">
         {total > 0 && (
           // 2 ảnh + 2 canvas nét vẽ CÙNG 1 Ô LƯỚI (grid, không dùng
           // position:absolute) để chồng lên nhau cho crossfade - cố tình
@@ -646,24 +656,28 @@ export default function SlideShow({ images, title, onClose, isBoardOpen, onToggl
         )}
       </div>
 
-      {/* Popup xác nhận thoát trình chiếu - nền phía sau bị khóa/mờ đi
-          (bg-black/50 backdrop-blur-sm), giống hệt kiểu popup "Thoát buổi
-          học" đã có trong LessonView.tsx, z cao hơn cả Bảng đen/Ghi chú
-          (320/330) để luôn nổi trên cùng. */}
-      {showExitConfirm && (
+      {/* Lật trang cho ĐIỆN THOẠI: viên thuốc kính tối nổi ở đáy khung (từ md đã có ở thanh trên). */}
+      <div className="md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3 rounded-full bg-black/50 backdrop-blur-md border border-white/10 p-1.5">
+        {pager}
+      </div>
+
+      {/* Popup xác nhận thoát trình chiếu - nền phía sau bị khóa/phủ #1A2A54/40, popup sáng
+          giống hệt kiểu popup "Thoát buổi học" trong LessonView.tsx, z cao hơn cả Bảng
+          đen/Ghi chú (320/330) để luôn nổi trên cùng. */}
+      {showExitConfirm && createPortal(
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[400] flex items-center justify-center p-4 overscroll-none"
+          className="fixed inset-0 bg-[#1A2A54]/40 z-[400] flex items-center justify-center p-4 overscroll-none"
         >
           <div
-            className="bg-surface border border-surface-border rounded-3xl max-w-sm w-full p-6 sm:p-8 shadow-xl flex flex-col text-center"
+            className="bg-white border border-[#D3E4FC] rounded-2xl max-w-sm w-full p-6 sm:p-8 shadow-2xl flex flex-col text-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="text-xl font-bold text-white mb-2">Thoát trình chiếu</h3>
-            <p className="text-[#8fb0ce] font-medium mb-8">Bạn có chắc chắn muốn thoát Slide?</p>
-            <div className="flex gap-4">
+            <h3 className="text-xl font-black uppercase text-[#1A2A54] mb-2">Thoát trình chiếu</h3>
+            <p className="text-[#5B6B85] font-medium mb-8">Bạn có chắc chắn muốn thoát Slide?</p>
+            <div className="flex gap-3">
               <button
                 onClick={() => setShowExitConfirm(false)}
-                className="flex-1 py-3 px-4 rounded-xl font-bold text-[#8fb0ce] bg-white/10 hover:bg-white/20 transition-colors"
+                className="flex-1 py-3 px-4 rounded-xl font-bold text-[#2F7DF6] bg-[#E3EEFF] hover:bg-[#D3E4FC] transition-colors"
               >
                 Hủy
               </button>
@@ -672,13 +686,14 @@ export default function SlideShow({ images, title, onClose, isBoardOpen, onToggl
                   setShowExitConfirm(false);
                   onClose();
                 }}
-                className="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-sm shadow-blue-200 transition-all"
+                className="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-[#2F7DF6] hover:bg-[#1E5FD9] shadow-sm transition-all"
               >
                 Đồng ý
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );

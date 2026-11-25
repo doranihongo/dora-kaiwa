@@ -29,18 +29,23 @@ export function NotePad({ isOpen, onClose, text, setText }: NotePadProps) {
   // thật của người dùng (kéo/resize/phóng to), KHÔNG tự "recenter" hay
   // reset mỗi khi đóng/mở lại (X rồi mở lại) nữa - đóng ở đâu, kích cỡ/vị
   // trí/trạng thái phóng to nào thì mở lại giữ ĐÚNG y hệt vậy.
-  const [rect, setRect] = useState(() => ({
-    x: Math.max(0, (window.innerWidth - 600) / 2),
-    y: Math.max(0, (window.innerHeight - 400) / 2),
-    w: 600,
-    h: 400,
-  }));
+  const [rect, setRect] = useState(() => {
+    // Không rộng/cao hơn màn hình (điện thoại: chừa lề 8px mỗi bên) - máy tính vẫn 600x400 như cũ.
+    const w = Math.min(600, window.innerWidth - 16);
+    const h = Math.min(400, window.innerHeight - 24);
+    return {
+      x: Math.max(0, (window.innerWidth - w) / 2),
+      y: Math.max(0, (window.innerHeight - h) / 2),
+      w,
+      h,
+    };
+  });
   const [fontSize, setFontSize] = useState(30);
   const MIN_FONT = 20;
   const MAX_FONT = 60;
 
-  const MIN_W = 350;
-  const MIN_H = 300;
+  const MIN_W = Math.min(350, window.innerWidth - 16);
+  const MIN_H = Math.min(300, window.innerHeight - 24);
 
   const [isMaximized, setIsMaximized] = useState(false);
   const preMaxRectRef = useRef<typeof rect | null>(null);
@@ -270,7 +275,7 @@ export function NotePad({ isOpen, onClose, text, setText }: NotePadProps) {
       )}
       <div
         ref={noteRef}
-        className={`fixed z-[320] bg-[#fdfcf8] shadow-2xl border border-zinc-300 flex flex-col overflow-hidden transition-opacity duration-200
+        className={`fixed z-[320] bg-[#fdfcf8] shadow-2xl border border-[#D3E4FC] flex flex-col overflow-hidden transition-opacity duration-200
                 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
                 ${isMaximized ? 'rounded-none border-0' : 'rounded-xl'}`}
         style={{ left: `${rect.x}px`, top: `${rect.y}px`, width: `${rect.w}px`, height: `${rect.h}px` }}
@@ -287,31 +292,31 @@ export function NotePad({ isOpen, onClose, text, setText }: NotePadProps) {
           </>
         )}
         <div
-          className="h-10 bg-[#f4f4f5] border-b border-zinc-200 flex items-center justify-between px-3 shrink-0 select-none relative z-40"
+          className="h-10 bg-[#F0F6FF] border-b border-[#D3E4FC] flex items-center justify-between px-3 shrink-0 select-none relative z-40"
           style={{ cursor: isMaximized ? 'default' : 'move' }}
           onMouseDown={handleDragStart}
         >
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 pointer-events-none">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-amber-500">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#2F7DF6]">
                 <path d="M12 20h9" />
                 <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
               </svg>
-              <span className="text-xs font-black text-zinc-600 uppercase tracking-widest hidden sm:inline-block">Ghi chú</span>
+              <span className="text-xs font-black text-[#1A2A54] uppercase tracking-widest hidden sm:inline-block">Ghi chú</span>
             </div>
-            <div className="w-px h-4 bg-zinc-300"></div>
-            <div className="flex items-center bg-zinc-200/50 rounded-lg p-0.5 no-drag" onDoubleClick={(e) => e.stopPropagation()}>
-              <button onMouseDown={(e) => e.preventDefault()} onClick={() => setFontSize((f) => Math.max(MIN_FONT, f - 2))} className="w-6 h-6 flex items-center justify-center rounded hover:bg-white text-zinc-600 font-black text-xs transition-colors">
+            <div className="w-px h-4 bg-[#D3E4FC]"></div>
+            <div className="flex items-center bg-[#E3EEFF] rounded-lg p-0.5 no-drag" onDoubleClick={(e) => e.stopPropagation()}>
+              <button onMouseDown={(e) => e.preventDefault()} onClick={() => setFontSize((f) => Math.max(MIN_FONT, f - 2))} className="w-6 h-6 flex items-center justify-center rounded hover:bg-white text-[#2F7DF6] font-black text-xs transition-colors">
                 -
               </button>
-              <span className="px-1 text-[10px] font-bold text-zinc-500 w-5 text-center">A</span>
-              <button onMouseDown={(e) => e.preventDefault()} onClick={() => setFontSize((f) => Math.min(MAX_FONT, f + 2))} className="w-6 h-6 flex items-center justify-center rounded hover:bg-white text-zinc-600 font-black text-xs transition-colors">
+              <span className="px-1 text-[10px] font-bold text-[#5B6B85] w-5 text-center">A</span>
+              <button onMouseDown={(e) => e.preventDefault()} onClick={() => setFontSize((f) => Math.min(MAX_FONT, f + 2))} className="w-6 h-6 flex items-center justify-center rounded hover:bg-white text-[#2F7DF6] font-black text-xs transition-colors">
                 +
               </button>
             </div>
           </div>
           <div className="flex items-center gap-1.5 no-drag" onDoubleClick={(e) => e.stopPropagation()}>
-            <button onMouseDown={(e) => e.preventDefault()} onClick={toggleMaximize} className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-zinc-200 text-zinc-500 transition-all active:scale-90">
+            <button onMouseDown={(e) => e.preventDefault()} onClick={toggleMaximize} className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-[#E3EEFF] text-[#5B6B85] hover:text-[#2F7DF6] transition-all active:scale-90">
               {isMaximized ? (
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
@@ -323,7 +328,7 @@ export function NotePad({ isOpen, onClose, text, setText }: NotePadProps) {
                 </svg>
               )}
             </button>
-            <button onClick={onClose} className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-red-500 hover:text-white text-zinc-500 transition-all active:scale-90 outline-none focus:outline-none">
+            <button onClick={onClose} className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-red-500 hover:text-white text-[#5B6B85] transition-all active:scale-90 outline-none focus:outline-none">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
@@ -340,7 +345,7 @@ export function NotePad({ isOpen, onClose, text, setText }: NotePadProps) {
             onChange={(e) => setText(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Viết ghi chú..."
-            className="flex-1 w-full h-full p-4 pl-14 bg-transparent outline-none resize-none text-zinc-800 font-medium custom-scrollbar z-20"
+            className="flex-1 w-full h-full p-4 pl-14 bg-transparent outline-none resize-none text-[#1A2A54] font-medium custom-scrollbar z-20"
             style={{
               fontSize: `${fontSize}px`,
               lineHeight: `${lineHeight}px`,

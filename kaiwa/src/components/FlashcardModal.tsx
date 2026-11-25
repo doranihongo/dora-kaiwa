@@ -1,35 +1,52 @@
 // Flashcard từ vựng - bố cục/giao diện copy 100% từ FlashcardModal bên dự án
 // C:\Users\Admin\Desktop\phá-đảo-tiếng-nhật (src/components/flashcard/FlashcardModal.jsx,
-// nhánh mode==='vocab' KHÔNG autoFit - đây là giao diện THẬT bên đó dùng cho Flashcard Từ
-// vựng, autoFit chỉ dành riêng cho Luyện đề) - khối Hán Việt/Cách đọc/Ý nghĩa gộp chung 1
-// div "space-y-2", đứng GIỮA thẻ như 1 khối duy nhất (không tách riêng từng dòng), y hệt bên
-// đó. Khác 1 chỗ DUY NHẤT: mặt chữ (word) dùng FitText (copy nguyên thuật toán đo
-// scrollWidth/scrollHeight THẬT của renderAutoFitVocabFace/FitText bên dự án đó) thay cho
-// getFlashcardFontSize() + text-ellipsis gốc - vì buổi học ở đây có từ vựng là cả CÂU/CỤM DÀI
-// (không chỉ 1-2 từ ngắn như "Xóa mù Kanji"/kanji gốc bên đó), đoán cỡ chữ theo SỐ KÝ TỰ dễ
-// vẫn tràn -> hiện "..." mất chữ; đo thật rồi tự co cỡ chữ tới khi vừa khung thì không bao giờ
-// mất chữ (chữ nhỏ lại chứ không bị cắt, tự xuống dòng khi cần). Cỡ chữ BAN ĐẦU (trước khi đo)
-// vẫn lấy đúng theo bảng getFlashcardFontSize() gốc (quy đổi ra px) - để chữ NGẮN vẫn to đúng
-// như bản gốc (72/60/48px...), chỉ khi đo thật thấy tràn mới co nhỏ dần xuống `min`. Hán Việt/
-// Cách đọc/Ý nghĩa giữ nguyên chữ cố định như gốc (không autoFit) vì thực tế không bị tràn.
+// nhánh mode==='vocab' KHÔNG autoFit, kiểu "compactEdge" mà trang /tuvung bên đó dùng - đây là
+// giao diện THẬT bên đó dùng cho Flashcard Từ vựng): lớp phủ xám đậm #1f2937 + mờ nền, thẻ trắng
+// bo 2rem viền 4px đổi xanh/đỏ khi kéo, thẻ NỀN trắng nằm ngay sau thẻ, hàng trên cùng = số thẻ
+// "n/tổng" + thanh tiến độ dày + nút phụ + nút Thoát, 2 nút ĐANG HỌC/ĐÃ BIẾT bên dưới, màn
+// "Hoàn thành" + pháo hoa. Máy tính (chuột thật, >= 1024px) cụm này rộng 36rem như bên đó.
+// Khối Hán Việt/Cách đọc/Ý nghĩa gộp chung 1 div "space-y-2", đứng GIỮA thẻ như 1 khối duy
+// nhất, y hệt bên đó. Khác 1 chỗ DUY NHẤT: mặt chữ (word) dùng FitText (copy nguyên thuật toán
+// đo scrollWidth/scrollHeight THẬT của FitWord/FitText bên dự án đó) thay cho cỡ chữ đoán theo
+// số ký tự + text-ellipsis gốc - vì buổi học ở đây có từ vựng là cả CÂU/CỤM DÀI (không chỉ 1-2
+// từ ngắn), đoán cỡ chữ theo SỐ KÝ TỰ dễ vẫn tràn -> hiện "..." mất chữ; đo thật rồi tự co cỡ
+// chữ tới khi vừa khung thì không bao giờ mất chữ (chữ nhỏ lại chứ không bị cắt, tự xuống dòng
+// khi cần). Cỡ chữ BAN ĐẦU (trước khi đo) lấy đúng bảng compactWordSize() bên đó (72/60/48/40/
+// 34/28/22/18px) - để chữ NGẮN vẫn to đúng như bản gốc, chỉ khi đo thật thấy tràn mới co nhỏ dần
+// xuống `min`.
 import React from 'react';
 import confetti from 'canvas-confetti';
 import type { VocabWord } from '../types';
 import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
-// Cỡ chữ BAN ĐẦU của mặt chữ theo số ký tự - quy đổi trực tiếp từ getFlashcardFontSize() gốc
-// (text-7xl..text-lg) ra px, để chữ ngắn (vd "こんにちは") vẫn to hệt bản gốc; FitText bên dưới
-// chỉ co nhỏ TIẾP từ đây nếu đo thật thấy vẫn tràn khung (câu/cụm dài), không bao giờ để mất chữ.
+// Cỡ chữ BAN ĐẦU của mặt chữ theo số ký tự - y hệt compactWordSize() bên dự án gốc.
 function getWordFontSize(text: string): number {
   const len = text.length;
-  if (len <= 1) return 72; // text-7xl
-  if (len <= 3) return 60; // text-6xl
-  if (len <= 5) return 48; // text-5xl
-  if (len <= 7) return 36; // text-4xl
-  if (len <= 10) return 30; // text-3xl
-  if (len <= 14) return 24; // text-2xl
-  if (len <= 18) return 20; // text-xl
-  return 18; // text-lg
+  if (len <= 1) return 72;
+  if (len <= 3) return 60;
+  if (len <= 5) return 48;
+  if (len <= 7) return 40;
+  if (len <= 10) return 34;
+  if (len <= 14) return 28;
+  if (len <= 18) return 22;
+  return 18;
+}
+
+// Furigana cho câu ví dụ: "[漢字](かんじ)" -> <ruby> (cùng cú pháp với LessonView.tsx/KaiwaModal.tsx).
+function renderFurigana(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/\[([^\]]+)\]\(([^)]+)\)/);
+    if (match) {
+      return (
+        <ruby key={index} className="leading-loose">
+          {match[1]}
+          <rt className="text-[0.6em] text-[#2F7DF6] font-semibold select-none">{match[2]}</rt>
+        </ruby>
+      );
+    }
+    return <span key={index}>{part}</span>;
+  });
 }
 
 // Copy nguyên thuật toán FitText bên dự án phá-đảo-tiếng-nhật (renderAutoFitVocabFace) -
@@ -39,8 +56,7 @@ function getWordFontSize(text: string): number {
 // clientWidth/clientHeight của box chính là giới hạn không được vượt qua. Mặt chữ luôn là con
 // ĐẦU TIÊN (trước khối space-y-2 Hán Việt/Cách đọc/Ý nghĩa) và ở cấu hình mặc định (chỉ hiện 1
 // trong 2 khối trên mỗi mặt) là con DUY NHẤT có nội dung trên mặt đó, nên chiếm flex-1 không
-// đẩy khối kia trôi lệch - CHỈ lệch nếu người dùng tự bật thêm Cách đọc/Hán Việt cùng mặt với
-// Mặt chữ qua nút cài đặt (ít gặp, đúng như bản gốc nếu cấu hình y hệt).
+// đẩy khối kia trôi lệch.
 function FitText({
   text,
   as: Tag = 'p',
@@ -102,8 +118,8 @@ function FitText({
   );
 }
 
-// Từ vựng luôn có ĐÚNG 2 mặt cố định (không cho tùy biến qua nút cài đặt nữa - đã thay bằng
-// nút "Lật ngược" bên dưới): mặt chữ (Nhật) và mặt Hán Việt/Cách đọc/Ý nghĩa (Việt).
+// Từ vựng luôn có ĐÚNG 2 mặt cố định (không cho tùy biến qua nút cài đặt - đã thay bằng
+// nút "Lật ngược" ở hàng thanh tiến độ): mặt chữ (Nhật) và mặt Hán Việt/Cách đọc/Ý nghĩa (Việt).
 const WORD_FACE = { word: true, reading: false, hanviet: false, meaning: false };
 const MEANING_FACE = { word: false, reading: true, hanviet: true, meaning: true };
 
@@ -123,6 +139,9 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
   const [history, setHistory] = React.useState<any[]>([]);
   const [isFinished, setIsFinished] = React.useState(false);
   const [exitDirection, setExitDirection] = React.useState<string | null>(null);
+  // true trong khoảnh khắc đổi sang thẻ kế: đưa thẻ về mặt trước TỨC THÌ (khối lật tắt transition)
+  // thay vì xoay ngược 0,5s đúng lúc chữ đã đổi sang thẻ mới (y hệt bản gốc).
+  const [noFlipAnim, setNoFlipAnim] = React.useState(false);
   const [showHint, setShowHint] = React.useState(true);
   const [dragX, setDragX] = React.useState(0);
   const [startX, setStartX] = React.useState(0);
@@ -217,7 +236,9 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
     (isKnown: boolean) => {
       if (exitDirection || isFinished || queue.length === 0) return;
       const currentItem = queue[currentIndex];
-      setIsFlipped(false);
+      // KHÔNG setIsFlipped(false) ngay lúc bấm: thẻ đang ở mặt sau mà xoay ngược về mặt trước (0,5s)
+      // đúng lúc chữ đổi sang thẻ kế rất gây đau mắt. Thẻ cũ giữ nguyên mặt đang hiện mà trượt đi; đến
+      // lúc đổi thẻ (bên dưới) mới đặt về mặt trước tức thì (noFlipAnim) - y hệt bản gốc.
       if (isKnown) {
         setKnownCount((prev) => prev + 1);
       } else {
@@ -228,6 +249,8 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
       setBtnFeedback(isKnown ? 'right' : 'left');
       setExitDirection(isKnown ? 'right' : 'left');
       setTimeout(() => {
+        setNoFlipAnim(true);
+        setIsFlipped(false);
         setCurrentIndex((prevIndex) => {
           if (prevIndex < queue.length - 1) {
             setExitDirection(null);
@@ -239,6 +262,7 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
             return prevIndex;
           }
         });
+        setTimeout(() => setNoFlipAnim(false), 60);
       }, 175);
     },
     [currentIndex, queue, exitDirection, isFinished]
@@ -367,9 +391,13 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
   const frontOptions = isReversed ? MEANING_FACE : WORD_FACE;
   const backOptions = isReversed ? WORD_FACE : MEANING_FACE;
 
-  // Nút công cụ chung (Quay lại / Xáo trộn)
+  // Nút công cụ chung (Quay lại / Xáo trộn) - nằm ở MẶT TRƯỚC; thẻ đã lật thì ẩn hẳn + khóa bấm
+  // (trên iPhone/Safari nút nằm trong mặt trước vẫn lộ qua mặt sau dù backface-visibility:hidden).
   const CardTools = (
-    <div className={`absolute left-0 right-0 items-center z-50 bottom-4 px-6 ${isFlipped ? 'hidden sm:flex' : 'flex'} justify-between`}>
+    <div
+      className="absolute left-0 right-0 items-center z-50 flex justify-between transition-opacity duration-200 bottom-4 px-6"
+      style={{ opacity: isFlipped ? 0 : 1, pointerEvents: isFlipped ? 'none' : undefined }}
+    >
       <button
         onClick={handleBack}
         className={`p-2.5 bg-black/5 hover:bg-black/10 active:scale-90 rounded-full transition-all flex items-center justify-center ${currentIndex === 0 ? 'opacity-10 cursor-not-allowed' : 'text-gray-400 hover:text-gray-700'}`}
@@ -394,16 +422,23 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
     </div>
   );
 
-  const renderVocabFace = (options: any) => {
+  // Câu ví dụ (nếu từ có) nằm ở MẶT SAU của thẻ - mặt nào đang là "mặt sau" theo hướng học hiện tại
+  // (xem isReversed) - kèm bản dịch, y hệt bản gốc (ví dụ mặc định ở mặt sau).
+  const exampleJa = currentItem?.exampleJapanese?.trim() || '';
+  const exampleVi = currentItem?.exampleVietnamese?.trim() || '';
+
+  const renderVocabFace = (options: typeof WORD_FACE, side: 'front' | 'back') => {
+    const showExample = side === 'back' && !!exampleJa;
+    const hasAbove = Boolean(options.word || (options.hanviet && currentItem?.sinoVietnamese) || (options.reading && currentItem?.reading) || (options.meaning && currentItem?.meaning));
     return (
-      <div className="flex-1 flex flex-col items-center justify-center w-full transform -translate-y-3 px-2">
+      <div className="flex-1 flex flex-col items-center justify-center w-full transform -translate-y-3 px-0">
         {options.word && (
           <FitText
             text={currentWord}
             as="h3"
-            className="font-bold mb-3 leading-tight text-center px-4 max-w-full font-jp text-gray-800"
+            className="font-bold mb-3 uppercase tracking-tighter leading-tight text-center w-full font-jp text-gray-800"
             max={getWordFontSize(currentWord)}
-            min={14}
+            min={16}
             singleLineFirst
           />
         )}
@@ -411,13 +446,19 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
           {options.hanviet && currentItem?.sinoVietnamese && (
             <p className="text-sm font-bold text-gray-500 uppercase tracking-widest border-b border-gray-200 inline-block pb-1">{currentItem.sinoVietnamese}</p>
           )}
-          {options.reading && currentItem?.reading && (
+          {options.reading && currentItem?.reading && currentItem.reading !== currentWord && (
             <p className="text-xl font-bold text-indigo-600 font-jp">{currentItem.reading}</p>
           )}
           {options.meaning && currentItem?.meaning && (
-            <p className="text-2xl font-bold text-gray-700 italic leading-snug px-2">{currentItem.meaning}</p>
+            <p className={`${showExample ? 'text-xl' : 'text-2xl'} font-bold text-gray-700 italic leading-snug whitespace-pre-line`}>{currentItem.meaning}</p>
           )}
         </div>
+        {showExample && (
+          <div className={`${hasAbove ? 'mt-3 pt-3 border-t border-gray-200' : ''} text-center w-full`}>
+            <p className="text-[15px] fc-desk-ex font-bold text-[#1A2A54] leading-[1.6] font-jp">{renderFurigana(exampleJa)}</p>
+            {exampleVi && <p className="mt-1 text-[13px] fc-desk-exvi font-semibold text-gray-500 leading-snug">{exampleVi}</p>}
+          </div>
+        )}
       </div>
     );
   };
@@ -425,44 +466,33 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
   const cardContent = {
     front: (
       <>
-        {renderVocabFace(frontOptions)}
+        {renderVocabFace(frontOptions, 'front')}
         {currentIndex === 0 && showHint && (
-          <p className="absolute bottom-14 text-indigo-400 text-[7px] font-black uppercase tracking-[0.4em] animate-pulse">Chạm để lật</p>
+          <p className="absolute bottom-14 text-indigo-400 text-[10px] font-black uppercase tracking-[0.3em] animate-pulse">Chạm để lật</p>
         )}
         {CardTools}
       </>
     ),
-    back: <>{renderVocabFace(backOptions)}</>,
+    back: <>{renderVocabFace(backOptions, 'back')}</>,
   };
 
-  // Thanh tiến độ NẰM TRÊN thẻ + nút "Lật ngược" (đảo hướng học) và nút "Đóng thẻ" (icon +
-  // chữ, gộp 1 nút, thay cho nút chữ rời ở dưới cùng) bên phải - thanh tiến độ tự ngắn lại
-  // nhường chỗ (flex-1). Bố cục copy từ dự án C:\Users\Admin\Desktop\phá-đảo-tiếng-nhật
-  // (FlashcardModal.jsx, progressBarRow) để giao diện flashcard giống hệt - riêng nút cài đặt
-  // (bánh răng + menu chọn field cho từng mặt) bên đó được thay bằng nút lật ngược hướng học.
+  // Hàng trên cùng NẰM TRÊN thẻ: số thẻ "n/tổng" bên trái + thanh tiến độ dày (h-2.5, xanh trời)
+  // + nút phụ + nút "Thoát" (icon thoát + chữ) bên phải - thanh tiến độ tự ngắn lại nhường chỗ
+  // (flex-1). Bố cục/màu copy từ progressBarRow của FlashcardModal.jsx (phá-đảo-tiếng-nhật); riêng
+  // nút bánh răng cài đặt (menu chọn field cho từng mặt) bên đó được thay bằng nút lật ngược hướng học.
   const progressBarRow = (
-    <div className="w-80 flex items-center gap-3 mb-3">
+    <div className="relative w-80 fc-desk-w flex items-center gap-3 mb-3">
+      <div className="h-8 px-3 bg-white/10 text-white/80 rounded-full flex items-center text-xs font-black shrink-0">
+        {currentIndex + 1}/{queue.length}
+      </div>
       <div className="flex-1 relative h-6 flex items-center">
-        <div className="w-full h-1 bg-white/10 rounded-full relative overflow-hidden">
-          <div className="absolute top-0 left-0 h-full bg-sky-400 transition-all duration-300 ease-out" style={{ width: `${progressRatio * 100}%` }} />
-        </div>
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full h-1 pointer-events-none">
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 h-7 w-10 rounded-[0.4rem] flex items-center justify-center bg-white shadow-sm z-0">
-            <span className="text-[12px] font-black text-black leading-none">{queue.length}</span>
-          </div>
-        </div>
-        <div className="absolute top-1/2 -translate-y-1/2 w-full h-1 pointer-events-none">
-          <div
-            className="absolute top-1/2 -translate-y-1/2 h-7 w-10 bg-sky-400 rounded-[0.4rem] flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.8)] transition-all duration-300 ease-out z-10"
-            style={{ left: `calc(${progressRatio * 100}% - ${progressRatio * 40}px)` }}
-          >
-            <span className="text-[12px] font-black text-white leading-none">{currentIndex + 1}</span>
-          </div>
+        <div className="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+          <div className="h-full bg-sky-400 rounded-full transition-all duration-300 ease-out" style={{ width: `${progressRatio * 100}%` }} />
         </div>
       </div>
 
       {/* Nút "Lật ngược" (đảo hướng học Nhật<->Việt) - bấm bật/tắt, bật thì xanh lá. Thay cho
-          nút Cài Đặt (bánh răng + menu chọn field) trước đây. */}
+          nút Cài Đặt (bánh răng + menu chọn field) bên dự án gốc, cùng cỡ/kiểu nút. */}
       <button
         onClick={() => setIsReversed((prev) => !prev)}
         className={`w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-sm active:scale-95 ${
@@ -480,18 +510,18 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
         </svg>
       </button>
 
-      {/* Nút "Đóng thẻ" (icon thoát + chữ) - thay cho nút chữ rời trước đây ở dưới cùng */}
+      {/* Nút "THOÁT" (icon thoát + chữ) - chỉ thoát riêng phiên Flashcard này */}
       <button
         onClick={onClose}
         className="h-8 px-3 bg-white/10 hover:bg-red-500/20 text-red-400 hover:text-red-500 rounded-full flex items-center gap-1.5 transition-all shadow-sm active:scale-95 shrink-0"
-        aria-label="Đóng thẻ"
+        aria-label="Thoát"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="pointer-events-none">
           <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
           <polyline points="16 17 21 12 16 7" />
           <line x1="21" y1="12" x2="9" y2="12" />
         </svg>
-        <span className="text-[11px] font-black uppercase tracking-wider">Đóng thẻ</span>
+        <span className="text-[11px] font-black uppercase tracking-wider">Thoát</span>
       </button>
     </div>
   );
@@ -502,45 +532,70 @@ export default function FlashcardModal({ isOpen, onClose, vocabulary }: Flashcar
       style={{ touchAction: 'none' }}
       onClick={(e) => e.stopPropagation()}
     >
-      <div className="w-full max-w-sm flex flex-col items-center relative cursor-default mb-[-10px]" onClick={(e) => e.stopPropagation()}>
+      <div className="w-full max-w-sm fc-desk-max flex flex-col items-center relative cursor-default mb-[-10px]" onClick={(e) => e.stopPropagation()}>
+        {/* MÁY TÍNH (có chuột thật: rộng >= 1024px, hover + con trỏ chính xác - iPad/điện thoại KHÔNG tính): cụm flashcard
+            (thanh tiến độ, thẻ, nút ĐANG HỌC/ĐÃ BIẾT) rộng 36rem (576px) thay vì 320/384px; chiều cao thẻ giữ nguyên.
+            Viết bằng @media thật + !important để chắc chắn đè được w-80/sm:w-96/max-w-sm (y hệt bản gốc). */}
+        <style>{'@media (min-width:1024px) and (hover:hover) and (pointer:fine){.fc-desk-w{width:36rem!important}.fc-desk-max{max-width:36rem!important}.fc-desk-ex{font-size:17px!important}.fc-desk-exvi{font-size:14px!important}}'}</style>
+
         {!isFinished ? (
           <>
             {/* Thanh tiến độ NẰM TRÊN thẻ */}
             {progressBarRow}
 
             {/* --- CARD --- */}
-            <div
-              className={`relative transition-all duration-300 ease-in-out mt-[10px] ${exitDirection === 'left' ? '-translate-x-16 -rotate-3' : exitDirection === 'right' ? 'translate-x-16 rotate-3' : ''}`}
-              style={{ transform: !exitDirection && dragX !== 0 ? `translateX(${dragX}px) rotate(${dragX * 0.02}deg)` : '', transition: isDragging ? 'none' : 'all 0.25s ease-out' }}
-            >
+            {/* Bọc ngoài + THẺ NỀN: tấm thẻ trắng trơn, không chữ, nằm CỐ ĐỊNH ngay sau thẻ - lộ ra khi thẻ lật co lại hoặc trượt đi;
+                tới thẻ CUỐI thì mờ đi vì không còn thẻ sau. */}
+            <div className="relative flex flex-col mt-[10px]">
               <div
-                onClick={() => { if (Math.abs(dragX) < 5) toggleFlip(); }}
-                onMouseDown={handleDragStart}
-                onMouseMove={handleDragMove}
-                onMouseUp={handleDragEnd}
-                onMouseLeave={handleDragEnd}
-                onTouchStart={handleDragStart}
-                onTouchMove={handleDragMove}
-                onTouchEnd={handleDragEnd}
-                className={`relative w-80 sm:w-96 h-80 mt-2 mb-4 cursor-pointer transition-all duration-500 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
+                aria-hidden="true"
+                className="absolute pointer-events-none bg-white rounded-[2rem] border-4 border-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-opacity duration-150 w-80 sm:w-96 h-80 mt-2 fc-desk-w"
+                style={{ opacity: currentIndex >= queue.length - 1 ? 0 : 1 }}
+              />
+              {/* Trượt/kéo thẻ viết thẳng vào style (không dùng class Tailwind bật/tắt theo trạng thái) - y hệt bản gốc. */}
+              <div
+                className="relative"
+                style={{
+                  transform: exitDirection === 'left' ? 'translateX(-4rem) rotate(-3deg)' : exitDirection === 'right' ? 'translateX(4rem) rotate(3deg)' : dragX !== 0 ? `translateX(${dragX}px) rotate(${dragX * 0.02}deg)` : '',
+                  transition: isDragging ? 'none' : 'all 0.25s ease-out',
+                }}
               >
-                {/* FRONT */}
-                <div className="absolute inset-0 bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col items-center justify-center border-4 [backface-visibility:hidden] overflow-hidden p-4" style={{ borderColor: dynamicBorder() }}>
-                  {cardContent.front}
-                </div>
-                {/* BACK */}
-                <div className="absolute inset-0 bg-[#f8fafc] rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col items-center justify-center p-6 [backface-visibility:hidden] [transform:rotateY(180deg)] border-4 overflow-hidden text-center" style={{ borderColor: dynamicBorder() }}>
-                  {cardContent.back}
+                <div
+                  onClick={() => { if (Math.abs(dragX) < 5) toggleFlip(); }}
+                  onMouseDown={handleDragStart}
+                  onMouseMove={handleDragMove}
+                  onMouseUp={handleDragEnd}
+                  onMouseLeave={handleDragEnd}
+                  onTouchStart={handleDragStart}
+                  onTouchMove={handleDragMove}
+                  onTouchEnd={handleDragEnd}
+                  className="relative w-80 sm:w-96 h-80 mt-2 mb-4 fc-desk-w cursor-pointer [transform-style:preserve-3d]"
+                  // Lật thẻ viết thẳng vào style (xem ghi chú ở bản gốc: class Tailwind bật/tắt có thể trễ 1 nhịp, làm thẻ xoay ngược khi đổi thẻ).
+                  style={{
+                    transitionProperty: 'transform',
+                    transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    transitionDuration: noFlipAnim ? '0ms' : '500ms',
+                    transform: isFlipped ? 'rotateY(180deg)' : 'none',
+                  }}
+                >
+                  {/* FRONT */}
+                  <div className="absolute inset-0 bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col items-center justify-center border-4 [backface-visibility:hidden] overflow-hidden p-5" style={{ borderColor: dynamicBorder() }}>
+                    {cardContent.front}
+                  </div>
+                  {/* BACK - không có nút Quay lại / Trộn thẻ, chỉ mặt trước mới có */}
+                  <div className="absolute inset-0 bg-[#f8fafc] rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col items-center justify-center p-5 [backface-visibility:hidden] [transform:rotateY(180deg)] border-4 overflow-hidden text-center" style={{ borderColor: dynamicBorder() }}>
+                    {cardContent.back}
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* --- NÚT ĐIỀU HƯỚNG --- */}
-            <div className="flex gap-3 w-80 mt-[15px] mb-[-10px] mx-0">
-              <button onClick={() => handleNext(false)} className="flex-1 py-3.5 bg-[#312028] hover:bg-red-500/20 active:bg-[#312028] text-[#e04545] border border-transparent rounded-[0.8rem] font-bold text-[13px] transition-all flex items-center justify-center gap-2 uppercase">
+            <div className="flex gap-3 w-80 fc-desk-w mt-[15px] mb-[-10px] mx-0">
+              <button onClick={() => handleNext(false)} className="flex-1 py-3.5 bg-[#312028] hover:bg-red-500/20 active:bg-[#312028] text-[#e04545] border border-[#e04545]/40 rounded-[0.8rem] font-bold text-[13px] transition-all flex items-center justify-center gap-2 uppercase">
                 ĐANG HỌC <span className="bg-[#ef4444] text-white min-w-[28px] h-[22px] px-2 rounded-[0.4rem] flex items-center justify-center text-[12px] font-black shadow-sm">{unknownIndices.length}</span>
               </button>
-              <button onClick={() => handleNext(true)} className="flex-1 py-3.5 bg-[#173229] hover:bg-green-500/20 active:bg-[#173229] text-[#12a150] border border-transparent rounded-[0.8rem] font-bold text-[13px] transition-all flex items-center justify-center gap-2 uppercase">
+              <button onClick={() => handleNext(true)} className="flex-1 py-3.5 bg-[#173229] hover:bg-green-500/20 active:bg-[#173229] text-[#12a150] border border-[#12a150]/40 rounded-[0.8rem] font-bold text-[13px] transition-all flex items-center justify-center gap-2 uppercase">
                 ĐÃ BIẾT <span className="bg-[#22c55e] text-white min-w-[28px] h-[22px] px-2 rounded-[0.4rem] flex items-center justify-center text-[12px] font-black shadow-sm">{knownCount}</span>
               </button>
             </div>
