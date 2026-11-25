@@ -1,11 +1,10 @@
 import { ChevronLeft } from 'lucide-react';
-import UserAccountMenu from '../UserAccountMenu';
 import { DATA_BASE } from '../../utils/dataBase';
 import { HREF } from '../../utils/route';
 
 // Thanh trên RÚT GỌN cho màn xem video / trang danh sách phát của trang Video shadowing: cùng khung + màu với thanh trên của
 // SiteNav (cố định, cao h-16, nền #F0F6FF, viền dưới #D3E4FC) nhưng chỉ có nút "<" (về MÀN TRƯỚC, không phải trang chủ) + logo
-// bên trái, TRANG CHỦ + tài khoản bên phải - KHÔNG có các tab chuyển trang ở giữa và KHÔNG có thanh tab dưới trên điện thoại
+// bên trái, TRANG CHỦ bên phải (avatar tài khoản chỉ có ở trang chủ) - KHÔNG có các tab chuyển trang ở giữa và KHÔNG có thanh tab dưới trên điện thoại
 // (như KanjiNav hideTopMenu + hideMobileTabs bên web Phá Đảo). Màn xem video phủ kín nên thanh tab dưới không che trình phát.
 const NAV_FONT_STYLE = { fontFamily: 'ui-sans-serif, system-ui, sans-serif' } as const;
 const NO_TAP = { WebkitTapHighlightColor: 'transparent' } as const;
@@ -38,7 +37,6 @@ export default function PodcastTopBar({ onBack }: { onBack: () => void }) {
             >
               TRANG CHỦ
             </a>
-            <UserAccountMenu />
           </div>
         </div>
       </div>

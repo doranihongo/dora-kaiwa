@@ -70,9 +70,11 @@ export default function SiteNav({ active = null }: { active?: NavTabKey | null }
               ))}
             </div>
 
-            {/* Phải: nút TRANG CHỦ (chỉ ở trang con) + avatar tài khoản. */}
+            {/* Phải: trang chủ có avatar tài khoản; trang con chỉ có nút TRANG CHỦ (avatar CHỈ ở trang chủ). */}
             <div className="flex items-center gap-2 flex-shrink-0 lg:justify-self-end">
-              {!isHome && (
+              {isHome ? (
+                <UserAccountMenu />
+              ) : (
                 <a
                   href={HREF.home}
                   style={NO_TAP}
@@ -81,7 +83,6 @@ export default function SiteNav({ active = null }: { active?: NavTabKey | null }
                   TRANG CHỦ
                 </a>
               )}
-              <UserAccountMenu />
             </div>
           </div>
         </div>
