@@ -12,7 +12,7 @@ import VideoArt from './art/KaiwaVideoArt.jsx';
 // 3 công cụ học - mỗi công cụ là 1 TRANG riêng (#/shadowing, #/nghechinhta, #/podcast), thẻ dạng "bìa sách"
 // y hệt thẻ chọn của trang /kaiwa/ bên web Phá Đảo Tiếng Nhật (hình vẽ sẵn + tiêu đề + mô tả + dòng phụ).
 const LEARNING_TOOLS = [
-  { key: 'shadowing', href: HREF.shadowing, title: 'Sách kaiwa', caption: 'Nhập vai hội thoại theo bài', meta: '3 cuốn sách' },
+  { key: 'shadowing', href: HREF.shadowing, title: 'Sách kaiwa', caption: 'Nhập vai hội thoại theo bài', meta: '10 giáo trình' },
   { key: 'nghechinhta', href: HREF.nghechinhta, title: 'Nghe chính tả', caption: 'Chép chính tả & đục lỗ', meta: 'Nghe và chép lại' },
   { key: 'podcast', href: HREF.podcast, title: 'Video', caption: 'Shadowing theo người bản xứ', meta: 'N5-N1' },
 ] as const;
@@ -27,7 +27,7 @@ const CARD =
 
 function ToolArt({ k }: { k: (typeof LEARNING_TOOLS)[number]['key'] }) {
   const cls = 'w-full h-full overflow-visible drop-shadow-lg';
-  if (k === 'shadowing') return <VocabBookArt kind="kaiwa" level="n4" badge="3" className={cls} />;
+  if (k === 'shadowing') return <VocabBookArt kind="kaiwa" level="n4" badge="10" className={cls} />;
   if (k === 'nghechinhta') return <VocabBookArt kind="chinhta" level="n3" badge="書" className={cls} />;
   return <VideoArt className={cls} />;
 }

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 // Quay lại của trình duyệt/điện thoại đi đúng 1 màn, và mở thẳng được từ link.
 //
 //   #/                       trang chủ (khóa học + công cụ học)
-//   #/shadowing              trang Shadowing (3 cuốn sách kaiwa)
+//   #/shadowing              trang Sách kaiwa (10 giáo trình); /<sách>/<phần>/<bài> xem components/shadowing/kaiwaRoute.js
 //   #/nghechinhta            trang Nghe chính tả
 //   #/podcast                trang Nghe Podcast (video YouTube)
 //   #/podcast/<mã YouTube>   màn xem 1 video của trang Video shadowing (nút Quay lại về màn trước)

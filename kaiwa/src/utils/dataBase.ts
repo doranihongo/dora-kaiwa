@@ -1,6 +1,6 @@
 // ---------------------------------------------------------
 // Gốc đường dẫn của thư mục dữ liệu học tập (JSON + audio) của các công cụ
-// Shadowing (sách kaiwa) và Nghe chính tả: public/data/... trong repo này,
+// Nghe chính tả và Video shadowing: public/data/... trong repo này (sách kaiwa nằm trên VPS, xem kaiwaApi.ts),
 // phục vụ CÙNG domain với web (trước đây lấy từ repo khác qua jsDelivr).
 //
 // BASE_URL của app là "<gốc web>kaiwa/" (xem vite.config.ts) - bỏ "/kaiwa/" ở
