@@ -36,8 +36,6 @@ const COURSES: Course[] = [
     mota: '125 mẫu câu và từ đệm của văn nói như 〜かと, 〜からって, 〜というか, cùng cách hùa theo, ngập ngừng, phủ định nhẹ giúp câu chuyện nghe tự nhiên. Học qua hội thoại ngắn kèm giải thích cách dùng.' },
   { id: '180cachnoiquenthuoc', title: '180 quán dụng ngữ', nhan: ['Trung cấp', 'Cao cấp'], bai: 180,
     mota: '180 quán dụng ngữ của người Nhật, xếp theo ý nghĩa: gặp may, làm việc nhanh gọn, bận rộn, đánh giá người… Mỗi mục có giải thích nghĩa, cách dùng và hội thoại mẫu.' },
-  { id: 'tuongthanhtuonghinh', title: '185 từ tượng thanh, tượng hình', nhan: ['Sơ cấp', 'Trung cấp', 'Cao cấp'], bai: 185,
-    mota: '185 từ tượng thanh, tượng hình người Nhật dùng hằng ngày như ペラペラ, ザーザー, ドキドキ, chia theo hành động, trạng thái sự vật, cơ thể và cảm xúc. Mỗi từ có giải thích nghĩa, dạng hay đi kèm và hội thoại mẫu.' },
 ];
 
 const NO_TAP = { WebkitTapHighlightColor: 'transparent' } as const;

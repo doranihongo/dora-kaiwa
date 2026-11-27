@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import { Howl } from 'howler';
 import { X, Languages, Crosshair, Volume2, VolumeX, Eye, EyeOff, Lightbulb } from 'lucide-react';
 import { Furi } from './KaiwaFuri.jsx';
-import HinhTuVung from './HinhTuVung.jsx';
 import { fetchKaiwaAudioUrl, forgetKaiwaAudioUrl, kaiwaErrorMessage } from '../../utils/kaiwaApi';
 
 // Cờ "đã hiện thông báo âm thanh 1 lần".
@@ -414,9 +413,6 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
                     <p className="text-sm sm:text-base font-medium text-zinc-700 italic">{lesson.nghia || lesson.translation}</p>
                 </div>
 
-                {/* ảnh minh hoạ của từ (cuốn tượng thanh, 27/11): cùng khung ảnh của màn chi tiết Từ vựng; bài không có ảnh / không có quyền thì tự ẩn */}
-                {lesson.hinh && <div className="mb-6"><HinhTuVung key={lesson.hinh} tep={lesson.hinh} /></div>}
-
                 {lesson.explanation && (
                     <div className="bg-[#F0F6FF] border-l-4 border-[#2F7DF6] p-3 sm:p-4 rounded-r-xl mb-6">
                         <div className="text-sm text-[#1A2A54] font-medium">
@@ -458,8 +454,8 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
                                 
                                 const isHidden = !!hiddenSp[line.speaker]; // ẩn chữ riêng từng người nói (nút mắt) 
                                 
-                                // cuốn 700 câu: mọi câu căn TRÁI (kiểu khung người A); cuốn tượng thanh: khối chỉ có 1 câu (Ví dụ / Mở rộng) cũng căn TRÁI (user 27/11); còn lại: A trái, B phải như cũ
-                                const isA = line.speaker === 'A' || laBai700 || (level === 'tuongthanhtuonghinh' && conv.dialogues.length === 1);
+                                // cuốn 700 câu: mọi câu căn TRÁI (kiểu khung người A); còn lại: A trái, B phải như cũ
+                                const isA = line.speaker === 'A' || laBai700;
                                 
                                 let boxClass = isA
                                     ? 'bg-zinc-50 border-zinc-200 text-zinc-900 rounded-2xl rounded-tl-sm'

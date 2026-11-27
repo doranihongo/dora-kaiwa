@@ -1,4 +1,4 @@
-// HÌNH MINH HOẠ CHO 10 CUỐN SÁCH KAIWA (/kaiwa/giaotrinh/) - vẽ bằng SVG, CÙNG KIỂU minh hoạ các thẻ ở TRANG CHỦ (LandingPage.jsx: NguPhapIllustration, DocHieuIllustration...):
+// HÌNH MINH HOẠ CHO 9 CUỐN SÁCH KAIWA (/kaiwa/giaotrinh/) - vẽ bằng SVG, CÙNG KIỂU minh hoạ các thẻ ở TRANG CHỦ (LandingPage.jsx: NguPhapIllustration, DocHieuIllustration...):
 // khung 220x170, thẻ/bong bóng trắng viền xanh nhạt #D3E4FC/#BFD7FB, nét bo tròn, chữ Nhật đậm, bóng elip mờ dưới chân.
 // Thay cho bìa sách vẽ sẵn VocabBookArt (user 26/11/2026: "ảnh sách bỏ đi, vẽ hình minh hoạ kiểu như trang chủ, đẹp vào").
 // User 26/11 (lần 2): KHÔNG làm hình chuyển động; mỗi hình chỉ giữ vài chi tiết chính, không dày đặc, mọi phần tử cách mép khung/viền >= ~8 đơn vị (không chạm viền).
@@ -190,22 +190,6 @@ function QuenThuoc() {
     </>);
 }
 
-// 10. TỪ TƯỢNG THANH, TƯỢNG HÌNH: tiếng mưa (ザーザー) + tim đập (ドキドキ) + lấp lánh (キラキラ)
-function TuongThanh() {
-    return (<>
-        <circle cx="110" cy="86" r="68" fill="#E6F6FE" />
-        <path d="M40 66a17 17 0 0 1-2-34 24 24 0 0 1 44-6 20 20 0 0 1 21 20 17 17 0 0 1-12 20z" fill="white" stroke="#7DD3FC" strokeWidth="2.5" strokeLinejoin="round" />
-        <Txt x={64} y={53} size={14} fill="#0369A1">ザーザー</Txt>
-        <path d="M47 76l-4 12M67 76l-4 12M87 76l-4 12" fill="none" stroke="#38BDF8" strokeWidth="3.5" strokeLinecap="round" />
-        <path d="M158 112C138 98 122 84 122 66C122 53 131 45 142 45C150 45 155 49 158 55C161 49 166 45 174 45C185 45 194 53 194 66C194 84 178 98 158 112Z" fill="#FB7185" />
-        <Txt x={158} y={76} size={13} fill="white">ドキドキ</Txt>
-        <rect x="48" y="112" width="96" height="32" rx="16" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="2" />
-        <Txt x={96} y={134} size={16} fill="#B45309">キラキラ</Txt>
-        <Sparkle x={28} y={118} s={9} fill="#FBBF24" />
-        <Sparkle x={164} y={134} s={7} fill="#FCD34D" />
-    </>);
-}
-
 const ARTS = {
     '42baisotrungcap': HangNgay,
     'nameraka': TuNhien,
@@ -216,7 +200,6 @@ const ARTS = {
     '125maucaumorong': Mau125,
     '180bieudatcamxuc': CamXuc,
     '180cachnoiquenthuoc': QuenThuoc,
-    'tuongthanhtuonghinh': TuongThanh,
 };
 
 // memo: props chỉ là chuỗi -> KaiwaPage đổi state (mở/đóng popup, đang tải...) không vẽ lại cây SVG (user 26/11: điện thoại thỉnh thoảng lag/treo khi mở đóng popup nhiều).

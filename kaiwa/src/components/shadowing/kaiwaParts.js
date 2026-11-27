@@ -138,25 +138,10 @@ export const PARTS_CONFIG = {
         { title: 'Sợ hãi, tai họa', lessonCount: 18 },           // W-Y = 4+6+8
         { title: 'Các cách nói khác', lessonCount: 18 },                            // Z
     ],
-    // 185 từ tượng thanh, tượng hình (オノマトペ基本表現180, sách ghi 180 nhưng có 185 mục): 4 Part / 53 nhóm của sách in gộp còn 12 phần, giữ nguyên thứ tự sách
-    'tuongthanhtuonghinh': [
-        { title: 'Đi cùng động từ', lessonCount: 24 },          // P1: nói, khóc, nhìn, uống, cười, xoay, ngủ, mưa
-        { title: 'Cách làm, tốc độ', lessonCount: 25 },         // P2 ①-⑦
-        { title: 'Âm thanh, chuyển động', lessonCount: 14 },    // P2 ⑧-⑪
-        { title: 'Bề mặt, chất liệu', lessonCount: 13 },        // P3 ①-③
-        { title: 'Hình dáng, kích cỡ', lessonCount: 15 },       // P3 ④-⑧
-        { title: 'Số lượng, nhiệt độ', lessonCount: 13 },       // P3 ⑨-⑭
-        { title: 'Món ăn, không khí', lessonCount: 13 },        // P3 ⑮-⑱
-        { title: 'Tình trạng cơ thể', lessonCount: 12 },        // P3 ⑲
-        { title: 'Rõ ràng, mức độ', lessonCount: 11 },          // P3 ⑳-㉒
-        { title: 'Vui, hồi hộp, xúc động', lessonCount: 14 },   // P4 ①-③
-        { title: 'Thất vọng, bực bội', lessonCount: 18 },       // P4 ④-⑨
-        { title: 'Đổi tâm trạng, giận', lessonCount: 13 },      // P4 ⑩-⑫
-    ],
 };
 
-// Đơn vị đếm hiển thị (số trong danh sách phần, popup bài, thẻ sách): cuốn 200, 210 và hai cuốn 180 ghi "13 câu", cuốn 125 ghi "6 mẫu" (user 26/11), cuốn tượng thanh ghi "từ"; các cuốn khác "bài".
-const DON_VI = { '200cumsieungan': 'câu', '210cumsieungan': 'câu', '180bieudatcamxuc': 'câu', '180cachnoiquenthuoc': 'câu', '125maucaumorong': 'mẫu', 'tuongthanhtuonghinh': 'từ' };
+// Đơn vị đếm hiển thị (số trong danh sách phần, popup bài, thẻ sách): cuốn 200, 210 và hai cuốn 180 ghi "13 câu", cuốn 125 ghi "6 mẫu" (user 26/11); các cuốn khác "bài".
+const DON_VI = { '200cumsieungan': 'câu', '210cumsieungan': 'câu', '180bieudatcamxuc': 'câu', '180cachnoiquenthuoc': 'câu', '125maucaumorong': 'mẫu' };
 export const donViOf = (level) => DON_VI[level] || 'bài';
 
 // QUYỀN CỦA KHÁCH (user 26/11; khach = chưa đăng nhập / chưa có gói / hết hạn): mỗi giáo trình chỉ bấm được PHẦN ĐẦU TIÊN để xem danh sách bài; trong danh sách đó chỉ xem chi tiết + nghe 3 BÀI ĐẦU, còn lại khóa -> popup WebPlanModal.

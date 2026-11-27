@@ -1,5 +1,5 @@
 // ---------------------------------------------------------
-// Dữ liệu SÁCH KAIWA (chữ, ảnh, audio) nằm trên VPS, KHÔNG nằm trong web tĩnh:
+// Dữ liệu SÁCH KAIWA (chữ, audio) nằm trên VPS, KHÔNG nằm trong web tĩnh:
 // API ở vps/kaiwa-server.mjs, chỉ trả cho tài khoản đăng nhập có quyền (gửi kèm
 // access token Supabase). Thử API chạy ở máy: đặt biến VITE_KAIWA_API khi build.
 // ---------------------------------------------------------
@@ -119,25 +119,4 @@ export function forgetKaiwaAudioUrl(audioPath: string) {
   links.delete(audioFile(audioPath));
 }
 
-const images = new Map<string, Promise<string | null>>();
-
-/** Ảnh minh hoạ của bài ("tuvung-hinh/kaiwa-....webp") -> object URL cho <img>; không lấy được thì null. */
-export function fetchKaiwaImage(tep: string): Promise<string | null> {
-  let p = images.get(tep);
-  if (!p) {
-    p = post('/img', { tep })
-      .then(async (res) => URL.createObjectURL(await res.blob()))
-      .catch(() => {
-        images.delete(tep);
-        return null;
-      });
-    images.set(tep, p);
-  }
-  return p;
-}
-
-onAccountChange(() => {
-  links.clear();
-  images.forEach((p) => p.then((url) => url && URL.revokeObjectURL(url)));
-  images.clear();
-});
+onAccountChange(() => links.clear());
