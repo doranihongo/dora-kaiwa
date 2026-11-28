@@ -49,13 +49,13 @@ echo "== Audio       : $AUDIO_DIR"
 runuser -u nobody -- test -r "$DATA_DIR/sachkaiwa" || die "user nobody không đọc được $DATA_DIR (chạy: chmod -R o+rX $DATA_DIR)"
 runuser -u nobody -- test -r "$AUDIO_DIR" || die "user nobody không đọc được $AUDIO_DIR (chạy: chmod -R o+rX $AUDIO_DIR)"
 
-echo "== Kiểm 9 giáo trình"
+echo "== Kiểm 11 giáo trình"
 "$NODE" - "$DATA_DIR" "$AUDIO_DIR" <<'JS'
 const fs = require('fs');
 const path = require('path');
 const [data, audio] = process.argv.slice(2);
 const books = [['700caugiaotiepcoban', 91], ['200cumsieungan', 200], ['42baisotrungcap', 42], ['210cumsieungan', 210], ['nameraka', 23],
-    ['22baitrungthuongcap', 41], ['180bieudatcamxuc', 180], ['125maucaumorong', 125], ['180cachnoiquenthuoc', 180]];
+    ['22baitrungthuongcap', 41], ['180bieudatcamxuc', 180], ['125maucaumorong', 125], ['180cachnoiquenthuoc', 180], ['tuongthanhtuonghinh', 185], ['shadowingmensetsu', 56]];
 let thieu = 0;
 for (const [b, n] of books) {
     let d;

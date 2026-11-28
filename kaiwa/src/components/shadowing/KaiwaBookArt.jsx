@@ -1,4 +1,4 @@
-// HÌNH MINH HOẠ CHO 9 CUỐN SÁCH KAIWA (/kaiwa/giaotrinh/) - vẽ bằng SVG, CÙNG KIỂU minh hoạ các thẻ ở TRANG CHỦ (LandingPage.jsx: NguPhapIllustration, DocHieuIllustration...):
+// HÌNH MINH HOẠ CHO 11 CUỐN SÁCH KAIWA (/kaiwa/giaotrinh/) - vẽ bằng SVG, CÙNG KIỂU minh hoạ các thẻ ở TRANG CHỦ (LandingPage.jsx: NguPhapIllustration, DocHieuIllustration...):
 // khung 220x170, thẻ/bong bóng trắng viền xanh nhạt #D3E4FC/#BFD7FB, nét bo tròn, chữ Nhật đậm, bóng elip mờ dưới chân.
 // Thay cho bìa sách vẽ sẵn VocabBookArt (user 26/11/2026: "ảnh sách bỏ đi, vẽ hình minh hoạ kiểu như trang chủ, đẹp vào").
 // User 26/11 (lần 2): KHÔNG làm hình chuyển động; mỗi hình chỉ giữ vài chi tiết chính, không dày đặc, mọi phần tử cách mép khung/viền >= ~8 đơn vị (không chạm viền).
@@ -190,7 +190,47 @@ function QuenThuoc() {
     </>);
 }
 
+// 10. TỪ TƯỢNG THANH, TƯỢNG HÌNH: tiếng mưa (ザーザー) + tim đập (ドキドキ) + lấp lánh (キラキラ)
+function TuongThanh() {
+    return (<>
+        <circle cx="110" cy="86" r="68" fill="#E6F6FE" />
+        <path d="M40 66a17 17 0 0 1-2-34 24 24 0 0 1 44-6 20 20 0 0 1 21 20 17 17 0 0 1-12 20z" fill="white" stroke="#7DD3FC" strokeWidth="2.5" strokeLinejoin="round" />
+        <Txt x={64} y={53} size={14} fill="#0369A1">ザーザー</Txt>
+        <path d="M47 76l-4 12M67 76l-4 12M87 76l-4 12" fill="none" stroke="#38BDF8" strokeWidth="3.5" strokeLinecap="round" />
+        <path d="M158 112C138 98 122 84 122 66C122 53 131 45 142 45C150 45 155 49 158 55C161 49 166 45 174 45C185 45 194 53 194 66C194 84 178 98 158 112Z" fill="#FB7185" />
+        <Txt x={158} y={76} size={13} fill="white">ドキドキ</Txt>
+        <rect x="48" y="112" width="96" height="32" rx="16" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="2" />
+        <Txt x={96} y={134} size={16} fill="#B45309">キラキラ</Txt>
+        <Sparkle x={28} y={118} s={9} fill="#FBBF24" />
+        <Sparkle x={164} y={134} s={7} fill="#FCD34D" />
+    </>);
+}
+
+// 11. KAIWA PHỎNG VẤN: người phỏng vấn và ứng viên ngồi đối diện qua bàn, một câu hỏi - một câu đáp (xanh nước biển)
+function PhongVan() {
+    const Nguoi = ({ cx, color, tie }) => (<>
+        <path d={`M${cx - 18} 133a18 20 0 0 1 36 0z`} fill={color} />
+        {tie && <path d={`M${cx} 113l4.5 5-4.5 12-4.5-12z`} fill="#F43F5E" />}
+        <circle cx={cx} cy={101} r="11.5" fill="#FED7AA" />
+        <path d={`M${cx - 12} 100a12 12 0 0 1 24 0c-7 1-13-2-15-6-2 3-5 5-9 6z`} fill="#334155" />
+    </>);
+    return (<>
+        <circle cx="110" cy="86" r="68" fill="#E0F2FE" />
+        <Bub x={16} y={18} w={118} h={32} r={13} tx={50} side="L" stroke="#BAE6FD" />
+        <Txt x={75} y={39.5} size={14.5}>志望動機は？</Txt>
+        <Bub x={124} y={50} w={80} h={29} r={12} tx={170} side="R" fill="#0369A1" stroke="none" />
+        <Txt x={164} y={70} size={14} fill="white">はい！</Txt>
+        <Nguoi cx={52} color="#475569" />
+        <Nguoi cx={168} color="#1E3A8A" tie />
+        <rect x="26" y="131" width="168" height="9" rx="4.5" fill="#D97706" />
+        <path d="M44 140v12M176 140v12" stroke="#B45309" strokeWidth="5" strokeLinecap="round" />
+        <rect x="88" y="111" width="44" height="20" rx="5" fill="white" stroke="#7DD3FC" strokeWidth="2" />
+        <Txt x={110} y={125.5} size={12.5} fill="#0369A1">面接</Txt>
+    </>);
+}
+
 const ARTS = {
+    'shadowingmensetsu': PhongVan,
     '42baisotrungcap': HangNgay,
     'nameraka': TuNhien,
     '22baitrungthuongcap': QuanHe,
@@ -200,6 +240,7 @@ const ARTS = {
     '125maucaumorong': Mau125,
     '180bieudatcamxuc': CamXuc,
     '180cachnoiquenthuoc': QuenThuoc,
+    'tuongthanhtuonghinh': TuongThanh,
 };
 
 // memo: props chỉ là chuỗi -> KaiwaPage đổi state (mở/đóng popup, đang tải...) không vẽ lại cây SVG (user 26/11: điện thoại thỉnh thoảng lag/treo khi mở đóng popup nhiều).

@@ -32,10 +32,15 @@ const COURSES: Course[] = [
     mota: 'Hội thoại chia theo người đối thoại: gia đình, bạn bè, hàng xóm, nhân viên cửa hàng, đồng nghiệp, cấp trên… để biết đổi mức độ lịch sự cho đúng quan hệ. Cuối giáo trình có các bài dài như khiếu nại, phỏng vấn, lễ cưới, thuyết trình.' },
   { id: '180bieudatcamxuc', title: '180 cách diễn đạt cảm xúc', nhan: ['Sơ cấp', 'Trung cấp'], bai: 180,
     mota: '180 cách nói khẩu ngữ để diễn đạt cảm xúc: vui mừng, ngạc nhiên, lo lắng, tức giận, thất vọng, bất mãn… Mỗi mục có nghĩa, sắc thái và hội thoại mẫu để dùng đúng hoàn cảnh.' },
+  { id: 'tuongthanhtuonghinh', title: '185 từ tượng thanh, tượng hình', nhan: ['Sơ cấp', 'Trung cấp', 'Cao cấp'], bai: 185,
+    mota: '185 từ tượng thanh, tượng hình người Nhật dùng hằng ngày như ペラペラ, ザーザー, ドキドキ, chia theo hành động, trạng thái sự vật, cơ thể và cảm xúc. Mỗi từ có giải thích nghĩa, dạng hay đi kèm và hội thoại mẫu.' },
   { id: '125maucaumorong', title: '125 mẫu mở rộng', nhan: ['Trung cấp'], bai: 125,
     mota: '125 mẫu câu và từ đệm của văn nói như 〜かと, 〜からって, 〜というか, cùng cách hùa theo, ngập ngừng, phủ định nhẹ giúp câu chuyện nghe tự nhiên. Học qua hội thoại ngắn kèm giải thích cách dùng.' },
   { id: '180cachnoiquenthuoc', title: '180 quán dụng ngữ', nhan: ['Trung cấp', 'Cao cấp'], bai: 180,
     mota: '180 quán dụng ngữ của người Nhật, xếp theo ý nghĩa: gặp may, làm việc nhanh gọn, bận rộn, đánh giá người… Mỗi mục có giải thích nghĩa, cách dùng và hội thoại mẫu.' },
+  // bai: 56 = 55 bài có file nghe + 1 phụ lục mẫu câu không có audio
+  { id: 'shadowingmensetsu', title: 'Kaiwa phỏng vấn', nhan: ['Trung cấp', 'Cao cấp'], bai: 56,
+    mota: 'Luyện nói cho phỏng vấn xin làm thêm, thi vào đại học, trường nghề và phỏng vấn xin việc: gọi điện hẹn, giới thiệu bản thân, nêu động cơ, thảo luận nhóm. Có mẹo phỏng vấn, phỏng vấn thử trọn vẹn và bài để bạn tự trả lời.' },
 ];
 
 const NO_TAP = { WebkitTapHighlightColor: 'transparent' } as const;

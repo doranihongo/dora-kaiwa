@@ -138,10 +138,35 @@ export const PARTS_CONFIG = {
         { title: 'Sợ hãi, tai họa', lessonCount: 18 },           // W-Y = 4+6+8
         { title: 'Các cách nói khác', lessonCount: 18 },                            // Z
     ],
+    // 185 từ tượng thanh, tượng hình (オノマトペ基本表現180, sách ghi 180 nhưng có 185 mục): 4 Part / 53 nhóm của sách in gộp còn 12 phần, giữ nguyên thứ tự sách
+    'tuongthanhtuonghinh': [
+        { title: 'Đi cùng động từ', lessonCount: 24 },          // P1: nói, khóc, nhìn, uống, cười, xoay, ngủ, mưa
+        { title: 'Cách làm, tốc độ', lessonCount: 25 },         // P2 ①-⑦
+        { title: 'Âm thanh, chuyển động', lessonCount: 14 },    // P2 ⑧-⑪
+        { title: 'Bề mặt, chất liệu', lessonCount: 13 },        // P3 ①-③
+        { title: 'Hình dáng, kích cỡ', lessonCount: 15 },       // P3 ④-⑧
+        { title: 'Số lượng, nhiệt độ', lessonCount: 13 },       // P3 ⑨-⑭
+        { title: 'Món ăn, không khí', lessonCount: 13 },        // P3 ⑮-⑱
+        { title: 'Tình trạng cơ thể', lessonCount: 12 },        // P3 ⑲
+        { title: 'Rõ ràng, mức độ', lessonCount: 11 },          // P3 ⑳-㉒
+        { title: 'Vui, hồi hộp, xúc động', lessonCount: 14 },   // P4 ①-③
+        { title: 'Thất vọng, bực bội', lessonCount: 18 },       // P4 ④-⑨
+        { title: 'Đổi tâm trạng, giận', lessonCount: 13 },      // P4 ⑩-⑫
+    ],
+    // Kaiwa phỏng vấn (シャドーイング 就職・アルバイト・進学面接編): 6 phần theo sách (mỗi bài = 1 track CD) + phụ lục mẫu câu không có audio
+    'shadowingmensetsu': [
+        { title: 'Phỏng vấn làm thêm', lessonCount: 11 },
+        { title: 'Thi vào đại học, trường nghề', lessonCount: 10 },
+        { title: 'Phỏng vấn, thảo luận nhóm', lessonCount: 7 },
+        { title: 'Giới thiệu bản thân (PR)', lessonCount: 13 },
+        { title: 'Động cơ ứng tuyển', lessonCount: 8 },
+        { title: 'Phỏng vấn thử trọn vẹn', lessonCount: 6 },
+        { title: 'Phụ lục: mẫu câu khi gặp khó', lessonCount: 1 },
+    ],
 };
 
-// Đơn vị đếm hiển thị (số trong danh sách phần, popup bài, thẻ sách): cuốn 200, 210 và hai cuốn 180 ghi "13 câu", cuốn 125 ghi "6 mẫu" (user 26/11); các cuốn khác "bài".
-const DON_VI = { '200cumsieungan': 'câu', '210cumsieungan': 'câu', '180bieudatcamxuc': 'câu', '180cachnoiquenthuoc': 'câu', '125maucaumorong': 'mẫu' };
+// Đơn vị đếm hiển thị (số trong danh sách phần, popup bài, thẻ sách): cuốn 200, 210 và hai cuốn 180 ghi "13 câu", cuốn 125 ghi "6 mẫu" (user 26/11), cuốn tượng thanh ghi "từ"; các cuốn khác "bài".
+const DON_VI = { '200cumsieungan': 'câu', '210cumsieungan': 'câu', '180bieudatcamxuc': 'câu', '180cachnoiquenthuoc': 'câu', '125maucaumorong': 'mẫu', 'tuongthanhtuonghinh': 'từ' };
 export const donViOf = (level) => DON_VI[level] || 'bài';
 
 // QUYỀN CỦA KHÁCH (user 26/11; khach = chưa đăng nhập / chưa có gói / hết hạn): mỗi giáo trình chỉ bấm được PHẦN ĐẦU TIÊN để xem danh sách bài; trong danh sách đó chỉ xem chi tiết + nghe 3 BÀI ĐẦU, còn lại khóa -> popup WebPlanModal.
@@ -150,14 +175,18 @@ export const KHACH_BAI_MO = 3;
 // GIÁO TRÌNH MIỄN PHÍ (user 26/11: "mở free cả cuốn 700 câu N5"): khách xem TOÀN BỘ phần và bài, không khóa gì (KaiwaPage + KaiwaModal bỏ qua luật khách cho các cuốn này).
 export const GIAO_TRINH_MIEN_PHI = ['700caugiaotiepcoban'];
 export const KHACH_PHAN_MO = 1; // khách chỉ bấm được 1 phần đầu tiên của mỗi giáo trình
-// Từ bài thứ mấy (đếm từ 0 TRONG PHẦN) bị khóa với khách: phần đầu = KHACH_BAI_MO; phần khác khóa cả phần (0); không phải khách = không khóa (Infinity).
-export const khoaTuBai = (khach, partIdx) => (!khach ? Infinity : partIdx === 0 ? KHACH_BAI_MO : 0);
+// Từ bài thứ mấy (đếm từ 0 TRONG PHẦN) bị khóa với khách: phần đầu = soMo; phần khác khóa cả phần (0); không phải khách = không khóa (Infinity).
+export const khoaTuBai = (khach, partIdx, soMo = KHACH_BAI_MO) => (!khach ? Infinity : partIdx === 0 ? soMo : 0);
+// Số bài đầu mà BẢN XEM TRƯỚC của khách có đủ nội dung (chữ, file nghe, ảnh - scripts/khoa-build.mjs + scripts/tuvung-hinh-khoa.mjs).
+// Cuốn tượng thanh: CẢ PHẦN 1, vì trang /tuvung/tuongthanhtuonghinh/ cho khách học hết phần đầu (user 27/11). Trang giáo trình Kaiwa vẫn chỉ mở KHACH_BAI_MO bài.
+export const soBaiXemTruoc = (level) => (level === 'tuongthanhtuonghinh' ? PARTS_CONFIG[level][0].lessonCount : KHACH_BAI_MO);
 
 // TÊN BÀI Ở POPUP DANH SÁCH BÀI (user 26/11): câu / từ / mẫu ngữ pháp trong sách giữ NGUYÊN tiếng Nhật; bài mà tên chỉ là TÊN CHỦ ĐỀ hoặc TÊN MẪU NGỮ PHÁP thì hiện TIẾNG VIỆT NGẮN GỌN (-> `tenDS`), không ngoặc đơn, ngữ pháp ghi Ý NGHĨA (vd 〜たい -> "Muốn ~").
 // Chỉ ảnh hưởng danh sách; trang chi tiết vẫn tiêu đề tiếng Nhật + dòng dịch như cũ. Cuốn không có trong bảng thì giữ nguyên mọi tên (200/210/180/180 toàn câu/từ; 42/22/nameraka tên đã là tiếng Việt); riêng cuốn 125 tên bài = MẪU CHÍNH tiếng Nhật rút từ title (xem buildCourse).
 // 700 câu cơ bản N5: đủ 91 tên theo thứ tự bài (Phần 1 bài 1-3, Phần 2 bài 4-18, Phần 3 ngữ pháp bài 19-48, Phần 4 tình huống bài 49-81, Phần 5 chủ đề bài 82-91). Tên viết tay cho gọn, KHÔNG lấy nguyên dòng dịch của sách.
 const TEN_DS = {
     '700caugiaotiepcoban': ['Chào hỏi', 'Cuộc sống hàng ngày', 'Khẩn cấp', 'Chào hỏi theo tình huống', 'Tự giới thiệu', 'Cảm ơn, xin lỗi', 'Nhờ vả', 'Mời rủ', 'Nhận lời, từ chối', 'Đặt câu hỏi', 'Đề xuất', 'Đề nghị giúp đỡ', 'Hỏi thăm, lo lắng', 'Động viên', 'Nói cảm tưởng', 'Bất mãn, phàn nàn', 'Đặt chỗ', 'Nói mong muốn', 'A là B', 'Thích, ghét, giỏi, kém', 'Tính từ', 'Diễn tả sự tồn tại', 'Muốn ~', 'Bổ nghĩa cho danh từ', 'Hãy ~ / Đừng ~', 'Mời rủ, đề nghị', 'Động từ mặc, đeo, cởi', 'Đang ~, trạng thái', 'Sau khi ~', 'Lỡ ~, xong hẳn ~', 'Cứ để nguyên ~', 'Vừa ~ vừa ~', 'Cho phép, cấm đoán', 'Đã từng ~', 'Khả năng, cảm nhận', 'Từ để hỏi', 'Làm sẵn, trạng thái kết quả', 'Định ~', 'Điều kiện', 'Nêu lý do', 'Cho và nhận', 'Dù ... nhưng', 'Suy đoán: hình như ~', 'Nghe nói ~', 'Trông có vẻ ~', 'Trở nên ~', 'Bị động, sai khiến', 'Kính ngữ', 'Đi tàu điện', 'Đi xe buýt, taxi', 'Hỏi đường', 'Ở khách sạn', 'Ở nhà hàng, quán cà phê ①', 'Ở nhà hàng, quán cà phê ②', 'Ở cửa hàng bách hóa ①', 'Ở cửa hàng bách hóa ②', 'Ở siêu thị, cửa hàng tiện lợi', 'Ở cửa hàng điện máy', 'Ở hiệu thuốc', 'Ở bệnh viện', 'Bưu điện, ngân hàng, công sở ①', 'Bưu điện, ngân hàng, công sở ②', 'Ở trường đại học ①', 'Ở trường đại học ②', 'Ở công ty ①', 'Ở công ty ②', 'Thăm nhà bạn, thầy cô', 'Với gia đình bản xứ', 'Ở công ty bất động sản', 'Nói chuyện với hàng xóm', 'Điện thoại ①: bạn bè, thầy cô', 'Điện thoại ②: nơi làm việc', 'Điện thoại ③: nơi làm việc', 'Điện thoại ④: đặt giao hàng', 'Điện thoại ⑤: đặt chỗ, hỏi thông tin', 'Đi hẹn hò', 'Ở đồn cảnh sát', 'Lập kế hoạch du lịch', 'Ở công ty du lịch', 'Ở tiệm làm tóc', 'Phỏng vấn làm thêm', 'Thể thao', 'Phim ảnh', 'Gia đình', 'Sức khỏe', 'Sở thích', 'Cuối tuần', 'Thời tiết', 'Nhật Bản', 'Sách', 'Du lịch'],
+    'shadowingmensetsu': ["Trước giờ phỏng vấn (1)", "Trước giờ phỏng vấn (2)", "Gọi điện hẹn (1)", "Gọi điện hẹn (2)", "Gọi điện hẹn (3)", "Phỏng vấn (1)", "Phỏng vấn (2)", "Phỏng vấn (3)", "Tổng luyện gọi điện", "Tổng luyện phỏng vấn", "Tự trả lời", "Lý do chọn trường (1)", "Lý do chọn trường (2)", "Lý do chọn trường (3)", "Sau tốt nghiệp", "Học phí, sinh hoạt phí", "Ngoại ngữ, hình mẫu", "Du học, ưu nhược điểm", "Thi cử, hỏi lại", "Tổng luyện phỏng vấn", "Tự trả lời", "Phỏng vấn nhóm (1)", "Phỏng vấn nhóm (2)", "Phỏng vấn nhóm (3)", "Phỏng vấn nhóm (4)", "Phỏng vấn nhóm (5)", "Thảo luận nhóm (1)", "Thảo luận nhóm (2)", "Ưu nhược điểm (1)", "Ưu nhược điểm (2)", "Ưu nhược điểm (3)", "Việc học (1)", "Việc học (2)", "Hoạt động ngoại khóa (1)", "Hoạt động ngoại khóa (2)", "Dự định tương lai", "Kỹ năng, bằng cấp", "Hỏi người nước ngoài (1)", "Hỏi người nước ngoài (2)", "Tin tức, sách", "Tự PR một phút", "Hãng sản xuất (1)", "Hãng sản xuất (2)", "Đồ thể thao, du lịch", "Bất động sản, thương mại", "Câu hỏi theo ngành (1)", "Câu hỏi theo ngành (2)", "Câu hỏi theo ngành (3)", "Câu hỏi theo ngành (4)", "Công ty giống cây", "Khách sạn", "Tiệc cưới", "Tự trả lời (1)", "Tự trả lời (2)", "Tự trả lời (3)", "Mẫu câu khi gặp khó"],
 };
 
 const BO_TIEN_TO_PHAN = ['42baisotrungcap', '22baitrungthuongcap'];

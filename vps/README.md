@@ -1,6 +1,6 @@
 # API sách Kaiwa trên VPS
 
-Web vẫn là web tĩnh trên GitHub Pages. Riêng **sách Kaiwa** (chữ, audio của 9 giáo trình) nằm trên VPS
+Web vẫn là web tĩnh trên GitHub Pages. Riêng **sách Kaiwa** (chữ, ảnh, audio của 11 giáo trình) nằm trên VPS
 (máy phục vụ `xh.doranihongo.com`) và chỉ phát cho **tài khoản Dora Kaiwa hợp lệ** (role `admin` / `giaovien` / `hocvien`, còn hạn,
 token không cũ hơn lần đổi mật khẩu gần nhất). Người chưa đăng nhập và tài khoản `student` của web kanji bị chặn.
 
@@ -27,7 +27,7 @@ Trên VPS:
 bash /tmp/cai-dat.sh
 ```
 
-Dòng cuối phải là `XONG.`. Script in bảng kiểm 9 giáo trình; cuốn nào ghi `THIẾU` thì dữ liệu cuốn đó chưa lên VPS.
+Dòng cuối phải là `XONG.`. Script in bảng kiểm 11 giáo trình; cuốn nào ghi `THIẾU` thì dữ liệu cuốn đó chưa lên VPS.
 
 **Cài VPS xong rồi mới push web** (push `main` là web tự deploy; deploy trước thì sách Kaiwa không tải được).
 

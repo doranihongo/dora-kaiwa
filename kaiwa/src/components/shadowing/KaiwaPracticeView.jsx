@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { Howl } from 'howler';
 import { X, Languages, Crosshair, Volume2, VolumeX, Eye, EyeOff, Lightbulb } from 'lucide-react';
 import { Furi } from './KaiwaFuri.jsx';
+import HinhTuVung from './HinhTuVung.jsx';
 import { fetchKaiwaAudioUrl, forgetKaiwaAudioUrl, kaiwaErrorMessage } from '../../utils/kaiwaApi';
 
 // Cờ "đã hiện thông báo âm thanh 1 lần".
@@ -30,14 +31,17 @@ export function rutGonNhan(goc) {
 
 // 2 NÚT CẠNH TÊN MỖI CÂU THOẠI (user 26/11: bỏ avatar vì tốn diện tích; icon THẲNG HÀNG với chữ "Người A"): LOA = tắt/bật tiếng, MẮT = ẩn/hiện chữ. Cùng hàng với tên, phía trên bong bóng (A: tên rồi icon, bên trái; B: icon rồi tên, bên phải);
 // bấm ở câu nào cũng áp dụng cho TẤT CẢ câu của người nói đó (state mutedSp / hiddenSp theo người nói); hai nút độc lập nhau.
-function NutNguoiNoi({ s, muted, hidden, onMute, onHide }) {
+// Tên hiện trên nhãn người nói: bài có trường `vai` (cuốn phỏng vấn: { A: 'Người phỏng vấn', ... }) thì hiện vai, không thì "Người A". "C/D" = hai người nói cùng lúc.
+const tenNguoiNoi = (lesson, s) => (lesson.vai ? String(s).split('/').map((x) => lesson.vai[x] || `Người ${x}`).join(' + ') : `Người ${s}`);
+
+function NutNguoiNoi({ ten, muted, hidden, onMute, onHide }) {
     const nut = (tat) => `p-1 -my-0.5 sm:p-0.5 sm:my-0 flex items-center justify-center bg-transparent border-0 transition-colors shrink-0 ${tat ? 'text-rose-500' : 'text-[#7C8CA6] hover:text-[#2F7DF6]'}`;
     return (
         <span className="flex items-center gap-0.5 sm:gap-1 shrink-0">
-            <button type="button" onClick={onMute} aria-pressed={!!muted} aria-label={muted ? `Bật lại tiếng Người ${s}` : `Tắt tiếng Người ${s}`} style={{ WebkitTapHighlightColor: 'transparent' }} className={nut(!!muted)}>
+            <button type="button" onClick={onMute} aria-pressed={!!muted} aria-label={muted ? `Bật lại tiếng ${ten}` : `Tắt tiếng ${ten}`} style={{ WebkitTapHighlightColor: 'transparent' }} className={nut(!!muted)}>
                 {muted ? <VolumeX className="w-[18px] h-[18px] sm:w-5 sm:h-5" strokeWidth={2.25} /> : <Volume2 className="w-[18px] h-[18px] sm:w-5 sm:h-5" strokeWidth={2.25} />}
             </button>
-            <button type="button" onClick={onHide} aria-pressed={!!hidden} aria-label={hidden ? `Hiện chữ Người ${s}` : `Ẩn chữ Người ${s}`} style={{ WebkitTapHighlightColor: 'transparent' }} className={nut(!!hidden)}>
+            <button type="button" onClick={onHide} aria-pressed={!!hidden} aria-label={hidden ? `Hiện chữ ${ten}` : `Ẩn chữ ${ten}`} style={{ WebkitTapHighlightColor: 'transparent' }} className={nut(!!hidden)}>
                 {hidden ? <EyeOff className="w-[18px] h-[18px] sm:w-5 sm:h-5" strokeWidth={2.25} /> : <Eye className="w-[18px] h-[18px] sm:w-5 sm:h-5" strokeWidth={2.25} />}
             </button>
         </span>
@@ -182,8 +186,15 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
             },
             onend: function() {
                 if (soundRef.current !== howlInstance) return;
-                
-                // TỰ ĐỘNG LẶP LẠI: Tua về 0 và tiếp tục phát
+
+                // Đang nghe RIÊNG 1 CÂU (còn mốc dừng) mà file đã hết trước khi vòng theo dõi kịp dừng (câu kết thúc sát cuối file): dừng hẳn, KHÔNG lặp lại cả bài
+                if (stopAtTimeRef.current !== null) {
+                    stopAtTimeRef.current = null;
+                    setIsPlaying(false);
+                    return;
+                }
+
+                // TỰ ĐỘNG LẶP LẠI (đang nghe cả bài): Tua về 0 và tiếp tục phát
                 this.seek(0);
                 setCurrentTime(0);
                 { const tat = canTatTieng(0); datTatTieng(this, tat); isMutedRef.current = tat; }
@@ -201,8 +212,10 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
             soundRef.current.unload();
             soundRef.current = null; // Đưa về null để báo là chưa tải file
         }
+        stopAtTimeRef.current = null; // bỏ mốc dừng của câu đang nghe dở ở bài trước
         setIsPlaying(false);
         setCurrentTime(0);
+        setDuration(0); // không giữ thời lượng của bài trước (thấy rõ ở bài phụ lục không có file nghe)
         setActiveIndex(-1);
         setIsAudioLoading(false);
 
@@ -239,7 +252,8 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
         });
 
         const step = () => {
-            if (soundRef.current && isPlaying && !isDragging) {
+            // playing(): file vừa hết thì Howler đã đưa vị trí về 0 trước khi gọi onend - không đọc thời gian lúc đó, kẻo thanh tua / câu sáng nhảy về đầu bài
+            if (soundRef.current && soundRef.current.playing() && isPlaying && !isDragging) {
                 const seekTime = soundRef.current.seek();
                 
                 // Đề phòng Howler trả về mảng khi đang loading
@@ -303,6 +317,7 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
         
         // CHƯA TẢI FILE -> Gọi hàm tải và tự động phát
         if (!soundRef.current) {
+            stopAtTimeRef.current = null; // bấm nút phát = nghe cả bài (bỏ mốc dừng cũ, vd bấm câu mà tải file lỗi)
             initAndPlayAudio(0);
             return;
         }
@@ -383,7 +398,8 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
     };
     let globalLineIndex = 0;
     // Cuốn 700 câu cơ bản N5 (user 26/11, chỉ cuốn này): không có người nói -> mọi câu căn TRÁI và ĐÁNH SỐ THỨ TỰ 1. 2. 3. ... trong bài
-    const laBai700 = level === '700caugiaotiepcoban';
+    // Phụ lục cuốn phỏng vấn (bài không có người nói, user 28/11: "làm giống sách 700 câu n5, căn bên trái") trình bày y như vậy
+    const laBai700 = level === '700caugiaotiepcoban' || (level === 'shadowingmensetsu' && !lesson.vai);
 
     // --- GIAO DIỆN ---
     return (
@@ -412,6 +428,9 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
                     {/* cuốn 125 mẫu: tiêu đề chỉ là TỪ/MẪU CHÍNH (tieuDe/tieuDeF do kaiwaParts rút từ title) + `nghia` = ý nghĩa của mẫu, KHÔNG phải câu ví dụ (user 26/11) */}
                     <p className="text-sm sm:text-base font-medium text-zinc-700 italic">{lesson.nghia || lesson.translation}</p>
                 </div>
+
+                {/* ảnh minh hoạ của từ (cuốn tượng thanh): bài không có ảnh / không lấy được thì tự ẩn */}
+                {lesson.hinh && <div className="mb-6"><HinhTuVung key={lesson.hinh} tep={lesson.hinh} /></div>}
 
                 {lesson.explanation && (
                     <div className="bg-[#F0F6FF] border-l-4 border-[#2F7DF6] p-3 sm:p-4 rounded-r-xl mb-6">
@@ -454,9 +473,10 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
                                 
                                 const isHidden = !!hiddenSp[line.speaker]; // ẩn chữ riêng từng người nói (nút mắt) 
                                 
-                                // cuốn 700 câu: mọi câu căn TRÁI (kiểu khung người A); còn lại: A trái, B phải như cũ
-                                const isA = line.speaker === 'A' || laBai700;
-                                
+                                // cuốn 700 câu: mọi câu căn TRÁI (kiểu khung người A); cuốn tượng thanh: khối chỉ có 1 câu (Ví dụ / Mở rộng) cũng căn TRÁI; còn lại: A trái, B phải như cũ
+                                // Bài có `vai` (cuốn phỏng vấn): PHẢI chỉ dành cho vai của người học (ứng viên); người phỏng vấn và nhân viên căn TRÁI.
+                                const isA = (lesson.vai ? /^(Người phỏng vấn|Nhân viên)/.test(lesson.vai[line.speaker] || '') : line.speaker === 'A') || laBai700 || (level === 'tuongthanhtuonghinh' && conv.dialogues.length === 1);
+
                                 let boxClass = isA
                                     ? 'bg-zinc-50 border-zinc-200 text-zinc-900 rounded-2xl rounded-tl-sm'
                                     : 'bg-zinc-50 border-blue-200 text-zinc-900 rounded-2xl rounded-tr-sm';
@@ -467,22 +487,25 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
                                         : 'bg-green-50 border-[2px] border-green-500 text-zinc-900 rounded-2xl rounded-tr-sm shadow-[0_0_15px_rgba(34,197,94,0.2)]';
                                 }
 
+                                // Cuốn phỏng vấn cắt lượt dài thành từng câu: câu NỐI TIẾP của cùng người nói không lặp lại tên + nút, đứng sát câu trên.
+                                const noiTiep = !!lesson.vai && !!line.speaker && idx > 0 && conv.dialogues[idx - 1].speaker === line.speaker;
+
                                 return (
-                                    <div 
-                                        key={`${convIdx}-${idx}`} 
+                                    <div
+                                        key={`${convIdx}-${idx}`}
                                         ref={(el) => (lineRefs.current[currentFlatIndex] = el)}
-                                        className={`flex w-full items-start gap-2 sm:gap-3 ${isA ? 'flex-row' : 'flex-row-reverse'} transition-all duration-300`}
+                                        className={`flex w-full items-start gap-2 sm:gap-3 ${isA ? 'flex-row' : 'flex-row-reverse'} ${noiTiep ? '!mt-2' : ''} transition-all duration-300`}
                                     >
                                         {laBai700 && <span className="shrink-0 w-6 sm:w-7 mt-3 sm:mt-4 text-sm sm:text-base font-bold text-zinc-500 tabular-nums">{currentFlatIndex + 1}.</span>}
                                         <div className={`flex flex-col min-w-0 flex-1 ${isA ? 'items-start' : 'items-end'}`}>
-                                        {line.speaker ? (
+                                        {line.speaker && !noiTiep ? (
                                         <div className={`flex items-center gap-2 mb-1 px-1 ${isA ? 'flex-row' : 'flex-row-reverse'}`}>
                                             <span className={`text-xs sm:text-[13px] font-black uppercase tracking-wide transition-colors ${isActive ? 'text-green-600' : 'text-zinc-700'}`}>
-                                                Người {line.speaker}
+                                                {tenNguoiNoi(lesson, line.speaker)}
                                             </span>
                                             {line.speaker ? (
                                                 <NutNguoiNoi
-                                                    s={line.speaker}
+                                                    ten={tenNguoiNoi(lesson, line.speaker)}
                                                     muted={mutedSp[line.speaker]}
                                                     hidden={hiddenSp[line.speaker]}
                                                     onMute={() => doiTatTieng(line.speaker)}
@@ -505,20 +528,16 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
                     return;
                 }
 
-                // ĐÃ TẢI FILE -> Seek và phát như cũ
+                // ĐÃ TẢI FILE -> Bấm 1 câu = chỉ nghe câu đó rồi dừng, kể cả đang phát cả bài (muốn nghe cả bài thì bấm nút phát)
                 soundRef.current.seek(line.startTime);
                 setCurrentTime(line.startTime);
-                
-                if (isPlaying && stopAtTimeRef.current === null) {
-                    stopAtTimeRef.current = null;
-                } else {
-                    stopAtTimeRef.current = line.endTime;
-                    if (!isPlaying) {
-                        { const tat = canTatTieng(line.startTime); datTatTieng(soundRef.current, tat); isMutedRef.current = tat; }
-                        soundRef.current.play();
-                        setIsPlaying(true);
-                        triggerAudioWarning();
-                    }
+                stopAtTimeRef.current = line.endTime;
+
+                if (!isPlaying) {
+                    { const tat = canTatTieng(line.startTime); datTatTieng(soundRef.current, tat); isMutedRef.current = tat; }
+                    soundRef.current.play();
+                    setIsPlaying(true);
+                    triggerAudioWarning();
                 }
             }}
             /* min-w: đủ rộng để cả câu Nhật nằm trên 1 dòng (nếu vừa trong max-w) - xem jaWidthEm; --nb/--ns = px ở cỡ chữ 16px / 18px (cộng padding + viền) */
@@ -548,7 +567,7 @@ const KaiwaPracticeView = ({ lesson, level, total, currentIndex, onBack, onNext,
             {/* THANH PLAYER AUDIO Ở DƯỚI - tông xanh đồng bộ theme chính thay vì đen/zinc cũ */}
             <div className="w-full shrink-0 bg-white border-t border-[#D3E4FC] px-4 py-3 sm:py-2 flex flex-col gap-2 sm:gap-1 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] z-20">
                 {!hasAudio && (
-                    <p className="text-center text-[11px] font-bold text-[#8B9BB8]">Bài này chưa có file nghe</p>
+                    <p className="text-center text-[11px] font-bold text-[#8B9BB8]">{lesson.ghiChuAudio || 'Bài này chưa có file nghe'}</p>
                 )}
                 <div className="flex items-center gap-3 w-full">
                     <span className="text-[10px] font-bold text-[#5B6B85] w-8 text-right">{formatTime(currentTime)}</span>
